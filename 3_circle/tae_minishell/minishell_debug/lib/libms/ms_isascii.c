@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ms_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: taejikim <taejikim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/28 12:27:48 by jacha             #+#    #+#             */
-/*   Updated: 2024/09/28 12:27:49 by jacha            ###   ########.fr       */
+/*   Created: 2024/02/24 13:53:41 by taejikim          #+#    #+#             */
+/*   Updated: 2024/06/08 09:45:33 by taejikim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libms.h"
 
-int	main(int argc, char **argv, char **envp)
+int	ms_isascii(int c)
 {
-	
+	if (0x00 <= c && c <= 0x7F)
+		return (MS_AS);
 	return (0);
 }

@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ms_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: taejikim <taejikim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/28 12:27:48 by jacha             #+#    #+#             */
-/*   Updated: 2024/09/28 12:27:49 by jacha            ###   ########.fr       */
+/*   Created: 2024/02/28 00:22:01 by taejikim          #+#    #+#             */
+/*   Updated: 2024/06/08 09:46:52 by taejikim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libms.h"
 
-int	main(int argc, char **argv, char **envp)
+t_list	*ms_lstnew(void *content)
 {
-	
-	return (0);
+	t_list	*p_lst;
+
+	p_lst = (t_list *)malloc(sizeof(t_list) * 1);
+	if (p_lst == NULL)
+		return (NULL);
+	p_lst->content = content;
+	p_lst->next = NULL;
+	return (p_lst);
 }

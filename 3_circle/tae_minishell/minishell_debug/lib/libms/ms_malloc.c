@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ms_malloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: taejikim <taejikim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/28 12:27:48 by jacha             #+#    #+#             */
-/*   Updated: 2024/09/28 12:27:49 by jacha            ###   ########.fr       */
+/*   Created: 2024/06/08 09:09:02 by taejikim          #+#    #+#             */
+/*   Updated: 2024/06/08 09:44:08 by taejikim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libms.h"
 
-int	main(int argc, char **argv, char **envp)
+void	*ms_malloc(size_t sz)
 {
-	
-	return (0);
+	void	*new;
+	t_list	**gc;
+
+	new = malloc(sz);
+	gc = ms_glob();
+	if (new == NULL)
+	{
+		return (NULL);
+	}
+	else
+	{
+		ms_lstadd_back(gc, ms_lstnew(new));
+	}
+	return (new);
 }

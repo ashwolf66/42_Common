@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ms_glob.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: taejikim <taejikim@student.42gyeongsa      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/28 12:27:48 by jacha             #+#    #+#             */
-/*   Updated: 2024/09/28 12:27:49 by jacha            ###   ########.fr       */
+/*   Created: 2024/06/17 12:31:58 by taejikim          #+#    #+#             */
+/*   Updated: 2024/06/17 12:32:08 by taejikim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libms.h"
 
-int	main(int argc, char **argv, char **envp)
+t_list	**ms_glob(void)
 {
-	
-	return (0);
+	static t_list	*glob;
+
+	return (&glob);
 }

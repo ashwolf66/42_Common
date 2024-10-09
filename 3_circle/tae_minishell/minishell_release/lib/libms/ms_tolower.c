@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ms_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: taejikim <taejikim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/28 12:27:48 by jacha             #+#    #+#             */
-/*   Updated: 2024/09/28 12:27:49 by jacha            ###   ########.fr       */
+/*   Created: 2024/02/26 15:37:44 by taejikim          #+#    #+#             */
+/*   Updated: 2024/06/08 09:44:08 by taejikim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libms.h"
 
-int	main(int argc, char **argv, char **envp)
+int	ms_tolower(int c)
 {
-	
-	return (0);
+	if ('A' <= c && c <= 'Z')
+		return (c + ('a' - 'A'));
+	return (c);
 }

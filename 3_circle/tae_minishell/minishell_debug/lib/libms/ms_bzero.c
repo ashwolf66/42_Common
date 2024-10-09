@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ms_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: taejikim <taejikim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/28 12:27:48 by jacha             #+#    #+#             */
-/*   Updated: 2024/09/28 12:27:49 by jacha            ###   ########.fr       */
+/*   Created: 2024/02/24 19:44:14 by taejikim          #+#    #+#             */
+/*   Updated: 2024/06/08 09:44:08 by taejikim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libms.h"
 
-int	main(int argc, char **argv, char **envp)
+void	ms_bzero(void *s, size_t n)
 {
-	
-	return (0);
+	size_t			pos;
+	unsigned char	*t_s;
+
+	pos = 0;
+	t_s = (unsigned char *)s;
+	while (pos < n)
+	{
+		t_s[pos] = 0;
+		++pos;
+	}
 }

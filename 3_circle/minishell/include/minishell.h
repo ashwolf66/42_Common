@@ -29,5 +29,10 @@
 # include <term.h>
 # include <termios.h>
 # include <unistd.h>
+# include "../libft/libft.h"
+
+int cmd_eff_ch(char *cmd);
+int oper_check(char *cmd);
+void quote_check(int *temp);
 
 #endif
