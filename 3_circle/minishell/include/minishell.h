@@ -31,8 +31,6 @@
 # include <unistd.h>
 # include "../libft/libft.h"
 
-int cmd_eff_ch(char *cmd);
-int oper_check(char *cmd);
-void quote_check(int *temp);
+int syntax_check(char *cmd);
 
 #endif
