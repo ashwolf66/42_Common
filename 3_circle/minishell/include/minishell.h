@@ -31,6 +31,23 @@
 # include <unistd.h>
 # include "../libft/libft.h"
 
-int syntax_check(char *cmd);
+struct      s_node;
+struct      s_commend;
+
+typedef struct  s_node
+{
+    char            **cmd_pool;
+    struct s_node   *next;
+}   t_node;
+
+typedef struct  s_commend
+{
+    char    *cmd;
+    int     s_quote;
+    int     d_qoute;
+    int     pipe;
+}   t_commend;
+
+int syntax_check(t_commend comme);
 
 #endif
