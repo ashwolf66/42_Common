@@ -6,7 +6,7 @@
 /*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 12:27:39 by jacha             #+#    #+#             */
-/*   Updated: 2024/10/19 11:14:03 by jacha            ###   ########.fr       */
+/*   Updated: 2024/10/19 14:22:49 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,14 @@ typedef struct  s_node
 typedef struct  s_commend
 {
     char    *cmd;
-    int     s_quote;
+    int     s_qoute;
     int     d_qoute;
     int     pipe;
 }   t_commend;
 
 int		syntax_check(t_commend com);
+void	qoute_check(int qoute);
+
 void	init_t_commend(t_commend com);
 
 #endif
