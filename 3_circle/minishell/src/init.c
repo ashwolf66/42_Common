@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   syntax_check.c                                     :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 11:12:49 by jacha             #+#    #+#             */
-/*   Updated: 2024/10/19 11:13:56 by jacha            ###   ########.fr       */
+/*   Created: 2024/10/19 11:11:46 by jacha             #+#    #+#             */
+/*   Updated: 2024/10/19 11:11:52 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int syntax_check(t_commend com)
+void	init_t_commend(t_commend com)
 {
-	
-	return (0);
+	com->s_quote = 0;
+	com->d_qoute = 0;
+	com->pipe = 0;
 }

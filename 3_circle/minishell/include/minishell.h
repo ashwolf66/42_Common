@@ -6,7 +6,7 @@
 /*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/28 12:27:39 by jacha             #+#    #+#             */
-/*   Updated: 2024/09/28 12:41:27 by jacha            ###   ########.fr       */
+/*   Updated: 2024/10/19 11:14:03 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct  s_commend
     int     pipe;
 }   t_commend;
 
-int syntax_check(t_commend comme);
+int		syntax_check(t_commend com);
+void	init_t_commend(t_commend com);
 
 #endif
