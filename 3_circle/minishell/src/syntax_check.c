@@ -32,8 +32,8 @@ int	syntax_check(t_commend *com)
 
 void	qoute_check(int *qoute)
 {
-		if (*qoute == 0)
-			*qoute = 1;
-		else if (*qoute == 1)
-			*qoute = 0;
+	if (*qoute == 0)
+		*qoute = 1;
+	else if (*qoute == 1)
+		*qoute = 0;
 }
