@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   utils_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 11:11:46 by jacha             #+#    #+#             */
-/*   Updated: 2024/10/19 15:13:20 by jacha            ###   ########.fr       */
+/*   Created: 2024/10/19 15:28:17 by jacha             #+#    #+#             */
+/*   Updated: 2024/10/19 15:29:13 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	init_t_commend(t_commend com)
+int is_whitespace(char chr)
 {
-	com->s_quote = 0;
-	com->d_qoute = 0;
-	com->pipe = 1;
+	if (chr == ' ' || (chr >= 9 && chr <= 13))
+	return (1);
+	return (0);
 }

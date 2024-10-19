@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/28 12:27:39 by jacha             #+#    #+#             */
-/*   Updated: 2024/10/19 14:22:49 by jacha            ###   ########.fr       */
+/*   Created: 2024/10/19 15:54:27 by jacha             #+#    #+#             */
+/*   Updated: 2024/10/19 15:54:30 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
@@ -48,9 +49,11 @@ typedef struct  s_commend
     int     pipe;
 }   t_commend;
 
-int		syntax_check(t_commend com);
-void	qoute_check(int qoute);
+int		syntax_check(t_commend *com);
+void	qoute_check(int *qoute);
 
 void	init_t_commend(t_commend com);
+
+int		is_whitespace(char chr);
 
 #endif

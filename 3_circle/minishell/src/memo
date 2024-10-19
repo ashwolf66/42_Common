@@ -1,0 +1,50 @@
+<pipe error>
+| ls
+ls |||
+
+<, <<, <<<
+>, >>
+
+> | (pipe)
+>> | (pipe)
+>  (new line)
+>>  (new line)
+>>> | (>)
+>>>> | (>>) 
+
+ls | ls | ls ->
+
+| ls 
+ls | ls | ls
+
+ls|ls|ls
+ < infile ls -al > outfile
+ > outfile ls -l  < infile -a 
+
+ls>out1 >out2>out3>out4
+
+<기준>
+| < > << >>
+  
+ls -l -a | ls | ls
+< infile ls > outfile | ls | ls
+
+cmd[0] =ls
+cmd[1] = -a
+cmd[2] = -a
+infile = 
+----------------
+cmd[0] = ls
+----------------
+cmd[0] = ls
+
+ls -a | < infile ls
+ls|ls|ls
+
+ld
+
+ls  ||
+
+ls | ls
+
+
