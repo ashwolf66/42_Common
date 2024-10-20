@@ -1,21 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   tokenizer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 11:11:46 by jacha             #+#    #+#             */
-/*   Updated: 2024/10/20 13:48:17 by jacha            ###   ########.fr       */
+/*   Created: 2024/10/20 11:37:22 by jacha             #+#    #+#             */
+/*   Updated: 2024/10/20 13:46:30 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	init_t_commend(t_commend *com)
+void	tokenizer(t_commend *com)
 {
-	com->indx = 0;
-	com->s_qoute = 0;
-	com->d_qoute = 0;
-	com->pipe = 1;
 }

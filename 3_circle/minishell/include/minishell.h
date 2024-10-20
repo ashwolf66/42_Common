@@ -6,7 +6,7 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 15:54:27 by jacha             #+#    #+#             */
-/*   Updated: 2024/10/19 15:54:30 by jacha            ###   ########.fr       */
+/*   Updated: 2024/10/20 13:47:43 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,16 @@
 struct      s_node;
 struct      s_commend;
 
-typedef struct  s_node
+typedef struct  s_pipe
 {
     char            **cmd_pool;
-    struct s_node   *next;
-}   t_node;
+    struct s_pipe   *next;
+}   t_pipe;
 
 typedef struct  s_commend
 {
     char    *cmd;
+	int		indx;
     int     s_qoute;
     int     d_qoute;
     int     pipe;
@@ -52,7 +53,9 @@ typedef struct  s_commend
 int		syntax_check(t_commend *com);
 void	qoute_check(int *qoute);
 
-void	init_t_commend(t_commend com);
+void    tokenizer(t_commend *com);
+
+void	init_t_commend(t_commend *com);
 
 int		is_whitespace(char chr);
 

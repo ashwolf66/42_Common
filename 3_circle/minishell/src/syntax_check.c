@@ -6,7 +6,7 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 11:12:49 by jacha             #+#    #+#             */
-/*   Updated: 2024/10/19 15:53:26 by jacha            ###   ########.fr       */
+/*   Updated: 2024/10/20 13:57:57 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 int	syntax_check(t_commend *com)
 {
-	if (!(*com->cmd))
+	if (!(com->cmd[com->indx]))
 		return (com->s_qoute == 1 || com->d_qoute == 1);
-	if (*com->cmd == '|' && com->pipe == 1)
+	if (com->cmd[com->indx] == '|' && com->pipe == 1)
 		return (1) ;
-	if (*com->cmd == '|' && com->pipe == 0)
+	if (com->cmd[com->indx] == '|' && com->pipe == 0)
 		com->pipe = 1;
-	else if (!is_whitespace(*com->cmd))
+	else if (!is_whitespace(com->cmd[com->indx]))
 		com->pipe = 0;
-	if (*com->cmd == '\'')
+	if (com->cmd[com->indx] == '\'')
 		qoute_check(&(com->s_qoute));
-	else if (*com->cmd == '\"')
+	else if (com->cmd[com->indx] == '\"')
 		qoute_check(&(com->d_qoute));
-	com->cmd++;
+	com->indx++;
 	return (syntax_check(com));
 }
 
