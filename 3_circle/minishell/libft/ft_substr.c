@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hchin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 10:22:55 by jacha             #+#    #+#             */
-/*   Updated: 2024/03/05 15:47:34 by jacha            ###   ########.fr       */
+/*   Created: 2024/02/27 23:35:40 by hchin             #+#    #+#             */
+/*   Updated: 2024/02/28 15:43:40 by hchin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,38 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t			i;
-	unsigned int	s_len;
-	char			*result;
+	char	*str1;
+	char	*str2;
+	size_t	s_len;
+	size_t	i;
 
-	i = 0;
-	if (!s)
-		return (0);
-	s_len = ft_strlen((const char *)s);
-	result = (char *)malloc(sizeof(char) * len + 1);
-	if (result == NULL)
-		return (0);
-	while ((s_len > start && ((char *)s)[start] != '\0') && i < len)
-	{
-		result[i] = ((char *)s)[start];
-		i++;
-		start++;
-	}
-	result[i] = '\0';
-	return (result);
+	s_len = ft_strlen(s);
+	if (s == NULL || s_len < start)
+		return (ft_strdup(""));
+	if (start + len < s_len)
+		str1 = (char *)malloc(sizeof(char) * (len + 1));
+	else
+		str1 = (char *)malloc(sizeof(char) * (s_len - start + 1));
+	if (str1 == NULL)
+		return (NULL);
+	i = start;
+	str2 = str1;
+	while (i < (start + len) && *(s + i))
+		*str2++ = *(s + i++);
+	*str2 = '\0';
+	return (str1);
 }
+/*
+int main() {
+  char src[] = "substr function Implementation";
+
+  int m = 7;
+  int n = 12;
+
+  char* dest = ft_substr(src, m, n);
+
+  printf("%s\n", dest);
+
+  return 0;
+}
+*/

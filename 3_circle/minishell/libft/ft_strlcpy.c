@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hchin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 14:36:39 by jacha             #+#    #+#             */
-/*   Updated: 2024/03/02 19:44:50 by jacha            ###   ########.fr       */
+/*   Created: 2024/02/26 19:59:31 by hchin             #+#    #+#             */
+/*   Updated: 2024/02/26 20:19:37 by hchin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	size_t	src_len;
 	size_t	i;
+	size_t	d_len;
 
-	src_len = ft_strlen(src);
-	if (((char *)dest == NULL || (char *)src == NULL) && size == 0)
-		return (0);
-	if (dest == 0 || size == 0)
-		return (src_len);
 	i = 0;
-	while (((char *)src)[i] != '\0' && i < size - 1)
+	d_len = ft_strlen(src);
+	if (!dest || !src)
+		return (0);
+	if (size == 0)
+		return (d_len);
+	while (src[i] && (i + 1 < size))
 	{
-		dest[i] = ((char *)src)[i];
+		dest[i] = src[i];
 		i++;
 	}
 	dest[i] = '\0';
-	return (src_len);
+	return (d_len);
 }

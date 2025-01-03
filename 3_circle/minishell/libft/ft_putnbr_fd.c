@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hchin <hchin@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/02 17:37:02 by jacha             #+#    #+#             */
-/*   Updated: 2024/03/02 18:28:07 by jacha            ###   ########.fr       */
+/*   Created: 2024/03/02 22:46:53 by hchin             #+#    #+#             */
+/*   Updated: 2024/03/02 22:51:04 by hchin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	int		div;
-	int		mod;
-	char	nbr;
-
-	div = n / 10;
-	mod = n % 10;
-	if (div != 0)
-		ft_putnbr_fd(div, fd);
-	if (mod < 0)
-		mod *= -1;
-	if (div == 0 && n < 0)
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else if (n < 0)
+	{
 		write(fd, "-", 1);
-	nbr = mod + '0';
-	write(fd, &nbr, 1);
+		ft_putnbr_fd(-n, fd);
+	}
+	else if (n < 10 && n >= 0)
+		ft_putchar_fd(n + '0', fd);
+	else if (n > 0)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd(n % 10 + '0', fd);
+	}
 }

@@ -3,80 +3,82 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hchin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/28 11:06:15 by jacha             #+#    #+#             */
-/*   Updated: 2024/03/03 21:11:44 by jacha            ###   ########.fr       */
+/*   Created: 2024/02/28 23:14:43 by hchin             #+#    #+#             */
+/*   Updated: 2024/02/28 23:22:13 by hchin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	point(char *s1, char *set)
+static int	start_point(char const *str, char const *set)
 {
 	int	i;
-	int	j;
+	int	start;
 
 	i = 0;
-	j = 0;
-	while (((char *)s1)[i] != '\0')
+	start = 0;
+	while (set[i])
 	{
-		while (((char *)set)[j] != '\0')
+		if (str[start] == set[i])
 		{
-			if (((char *)s1)[i] == ((char *)set)[j])
-				break ;
-			j++;
+			start++;
+			i = 0;
 		}
-		if (((char *)set)[j] == '\0')
-		{
-			break ;
-		}
-		j = 0;
-		i++;
+		else
+			i++;
 	}
-	return (i);
+	return (start);
 }
 
-static int	r_point(char *s1, char *set, int i)
+static int	end_point(char const *str, char const *set)
 {
-	int	j;
+	int	i;
+	int	end;
 
-	j = 0;
-	while (((char *)s1)[i] != '\0')
+	i = 0;
+	end = ft_strlen(str) - 1;
+	while (set[i])
 	{
-		while (((char *)set)[j] != '\0')
+		if (str[end] == set[i] && end != 0)
 		{
-			if (((char *)s1)[i] == ((char *)set)[j])
-				break ;
-			j++;
+			end--;
+			i = 0;
 		}
-		if (((char *)set)[j] == '\0')
-		{
-			break ;
-		}
-		j = 0;
-		i--;
+		else
+			i++;
 	}
-	return (i);
+	return (end);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*temp;
-	int		s1_len;
+	char	*str;
+	char	*result;
 	int		start;
 	int		end;
 
-	if (!s1)
-		return (0);
-	s1_len = ft_strlen((const char *)s1);
-	start = point ((char *)s1, (char *)set);
-	end = r_point ((char *)s1, (char *)set, s1_len - 1);
-	if (((char *)s1)[start] == '\0')
-		start = 0;
-	temp = (char *)malloc(sizeof(char) * ((end - start + 1) + 1));
-	if (temp == NULL)
-		return (0);
-	ft_strlcpy(temp, &(((const char *)s1)[start]), ((end - start + 1) + 1));
-	return (temp);
+	start = start_point(s1, set);
+	end = end_point(s1, set);
+	if (start > end)
+		return (ft_strdup(""));
+	str = (char *)malloc(sizeof(char) * (end - start + 2));
+	if (!str)
+		return (NULL);
+	result = str;
+	while (end - start + 1 > 0)
+		*str++ = *(s1 + start++);
+	*str = '\0';
+	return (result);
 }
+/*
+#include <stdio.h>
+int	main()
+{
+	char	str[] = "abcaafgdefgff";
+	char	set[] = "abfg";
+	printf("%s\n", ft_strtrim(str, set));
+	return 0;
+}
+*/

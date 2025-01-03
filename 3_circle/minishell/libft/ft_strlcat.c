@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hchin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 15:06:29 by jacha             #+#    #+#             */
-/*   Updated: 2024/03/05 22:26:22 by jacha            ###   ########.fr       */
+/*   Created: 2024/02/27 13:45:49 by hchin             #+#    #+#             */
+/*   Updated: 2024/02/27 14:39:04 by hchin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	size_t	dest_len;
-	size_t	src_len;
-	size_t	i;
+	size_t	index;
+	size_t	destlen;
+	size_t	srclen;
 
-	i = 0;
-	if ((!dest || !src) && !size)
-		return (0);
-	dest_len = ft_strlen((const char *)dest);
-	src_len = ft_strlen((const char *)src);
-	if (size < dest_len)
-		return (src_len + size);
-	while ((dest_len + i + 1) < size && ((char *)src)[i] != '\0')
+	index = 0;
+	destlen = ft_strlen(dest);
+	srclen = ft_strlen(src);
+	if (size < destlen + 1)
 	{
-		dest[dest_len + i] = ((char *)src)[i];
-		i++;
+		return (srclen + size);
 	}
-	dest[dest_len + i] = '\0';
-	return (src_len + dest_len);
+	while (destlen + 1 + index < size && src[index] != '\0')
+	{
+		dest[index + destlen] = src[index];
+		index++;
+	}
+	dest[destlen + index] = '\0';
+	return (destlen + srclen);
 }

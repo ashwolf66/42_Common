@@ -3,55 +3,73 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hchin <hchin@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/02 13:09:20 by jacha             #+#    #+#             */
-/*   Updated: 2024/03/02 16:08:36 by jacha            ###   ########.fr       */
+/*   Created: 2024/03/01 20:16:44 by hchin             #+#    #+#             */
+/*   Updated: 2024/03/01 20:16:50 by hchin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	int_len(int n)
+static int	digit_check(int n)
 {
-	int	len;
+	int	num;
+	int	count;
 
-	len = 0;
-	if (n <= 0)
-		len = 1;
-	while (n)
+	num = n;
+	count = 0;
+	if (n < 0)
 	{
-		n /= 10;
-		len++;
+		n *= -1;
+		count++;
 	}
-	return (len);
+	else if (n == 0)
+	{
+		count = 1;
+		return (count);
+	}
+	while (num)
+	{
+		num /= 10;
+		count++;
+	}
+	return (count);
+}
+
+static void	int_ch(char *str, size_t n, int count)
+{
+	count--;
+	if (n >= 10)
+		int_ch(str, n / 10, count);
+	*(str + count) = n % 10 + '0';
 }
 
 char	*ft_itoa(int n)
 {
-	char	*result;
-	int		len;
-	int		i;
-	int		mod;
+	int			count;
+	long		num;
+	char		*str;
 
-	i = 0;
-	if (n < 0)
-		i = 1;
-	len = int_len(n);
-	result = (char *)malloc(sizeof(char) * len + 1);
-	if (result == NULL)
+	count = digit_check(n);
+	num = n;
+	str = (char *)malloc(sizeof(char) * (count + 1));
+	if (!str)
 		return (NULL);
-	result[len--] = '\0';
-	while (len >= 0)
+	if (num < 0)
 	{
-		mod = n % 10;
-		if (mod < 0)
-			mod *= -1;
-		result[len] = mod + '0';
-		n /= 10;
-		len--;
+		*str = '-';
+		int_ch(str, num * -1, count);
 	}
-	if (i == 1)
-		result[0] = '-';
-	return (result);
+	else
+		int_ch(str, num, count);
+	*(str + count) = '\0';
+	return (str);
 }
+/*
+int main(void)
+{
+    char *str = ft_itoa(123);
+    printf("%s", str); 
+}
+*/

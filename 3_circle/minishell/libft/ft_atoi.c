@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: hchin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/27 10:39:04 by jacha             #+#    #+#             */
-/*   Updated: 2024/03/05 21:28:50 by jacha            ###   ########.fr       */
+/*   Created: 2024/02/27 19:35:22 by hchin             #+#    #+#             */
+/*   Updated: 2024/12/31 09:40:52 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,25 @@
 int	ft_atoi(const char *n)
 {
 	int	i;
-	int	num;
 	int	sign;
+	int	result;
 
 	i = 0;
-	num = 0;
 	sign = 1;
-	while ((((char *)n)[i] >= 9 && ((char *)n)[i] <= 13) || \
-			((char *)n)[i] == 32)
+	result = 0;
+	while ((n[i] == 32) || ((n[i] > 8) && (n[i] < 14)))
 		i++;
-	if (((char *)n)[i] == '+' || ((char *)n)[i] == '-')
+	if ((n[i] == '+') || (n[i] == '-'))
 	{
-		if (((char *)n)[i] == '-')
-			sign = -1;
+		if (n[i] == '-')
+			sign = sign * -1;
 		i++;
 	}
-	while (((char *)n)[i] >= '0' && ((char *)n)[i] <= '9')
+	while ((n[i] >= '0') && (n[i] <= '9'))
 	{
-		num = num * 10 + (((char *)n)[i] - '0');
+		result = result * 10;
+		result = result + (n[i] - '0');
 		i++;
 	}
-	if (((char *)n)[i] != '\0')
-		return (-1);
-	return (num * sign);
+	return (result * sign);
 }

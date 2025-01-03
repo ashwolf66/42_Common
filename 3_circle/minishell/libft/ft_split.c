@@ -3,103 +3,106 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
+/*   By: hchin <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/20 11:41:17 by jacha             #+#    #+#             */
-/*   Updated: 2024/10/20 11:41:23 by jacha            ###   ########.fr       */
+/*   Created: 2024/02/29 23:36:07 by hchin             #+#    #+#             */
+/*   Updated: 2024/03/01 00:17:17 by hchin            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	row_len(char const *s, char c)
+static char	**ft_free_sp(char **s)
 {
-	size_t	i;
-	size_t	len;
+	unsigned int	i;
 
 	i = 0;
-	len = 0;
-	if (s[i] == '\0')
-		return (0);
-	while (s[i] != '\0')
+	while (s[i] != NULL)
 	{
-		if (s[i] != c)
+		free(s[i]);
+		i++;
+	}
+	free(s);
+	return (NULL);
+}
+
+static size_t	ft_wordcnt(const char *s, char d)
+{
+	size_t	cnt;
+	size_t	i;
+
+	cnt = 0;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] != d)
 		{
-			len++;
-			while (s[i] != '\0' && s[i] != c)
+			cnt++;
+			while (s[i] && s[i] != d)
 				i++;
 		}
 		else
 			i++;
 	}
-	return (len);
+	return (cnt);
 }
 
-static size_t	colum_len(char const *s, char c)
+static char	*ft_worddup(const char *s, char d)
 {
-	size_t	i;
+	size_t	len;
+	char	*ptr;
 
-	i = 0;
-	while (s[i] != '\0')
+	len = 0;
+	while (s[len] && s[len] != d)
+		len++;
+	ptr = (char *)ft_calloc(sizeof(char), len + 1);
+	if (!ptr)
 	{
-		if (s[i] == c)
-			break ;
-		i++;
+		write(1, "ft_split: Memory allocation failed\n", 36);
+		return (NULL);
 	}
-	return (i);
+	ft_strlcpy(ptr, s, len + 1);
+	return (ptr);
 }
 
-static char	free_mal(char **result)
+char	**ft_split(const char *s, char d)
 {
+	char	**ptr;
+	size_t	len;
 	size_t	i;
-
-	i = 0;
-	while (result[i])
-	{
-		free(result[i]);
-		i++;
-	}
-	free(result);
-	return (0);
-}
-
-static int	cpy_contents(char **result, char const *s, char c, size_t row)
-{
-	size_t	colum;
-	size_t	i;
-
-	i = 0;
-	while (i < row)
-	{
-		while (*s == c)
-			s++;
-		colum = colum_len(s, c);
-		result[i] = (char *)malloc(sizeof(char) * colum + 1);
-		if (!result[i])
-			return (free_mal(result));
-		ft_strlcpy(result[i], s, colum + 1);
-		i++;
-		s += colum;
-	}
-	result[i] = 0;
-	return (1);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**result;
-	size_t	row;
+	size_t	j;
 
 	if (!s)
-		return (0);
-	row = row_len(s, c);
-	result = (char **)malloc(sizeof(char *) * (row + 1));
-	if (!result)
+		return (NULL);
+	len = ft_wordcnt(s, d);
+	ptr = (char **)ft_calloc(sizeof(char *), len + 1);
+	if (!ptr)
+		return (NULL);
+	i = 0;
+	j = -1;
+	while (i < len && s[++j])
 	{
-		free (result);
-		return (0);
+		if (s[j] != d)
+		{
+			ptr[i] = ft_worddup(&(s[j]), d);
+			if (!ptr[i++])
+				return (ft_free_sp(ptr));
+			while (s[j] && s[j] != d)
+				j++;
+		}
 	}
-	if (cpy_contents(result, s, c, row) == 0)
-		return (0);
-	return (result);
+	return (ptr);
 }
+
+// #include <stdio.h>
+// int main()
+// {
+// 	char **s = ft_split("hello world", ' ');
+// 	int i = 0;
+// 	while (s[i])
+// 	{
+// 		printf("%s\n", s[i]);
+// 		i++;
+// 	}
+// 	return 0;
+// }

@@ -1,39 +1,55 @@
-SRC_MAN = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c ft_strdup.c ft_striteri.c  ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strchr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c 
-SRC_BON = ft_lstnew.c ft_lstadd_front.c ft_lstadd_back.c ft_lstlast.c ft_lstsize.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
-ifdef BONUS
-	SRCS = ${SRC_MAN} ${SRC_BON}	
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hchin <hchin@student.42gyeongsan.kr>       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/03/04 22:17:30 by hchin             #+#    #+#              #
+#    Updated: 2024/03/04 22:18:12 by hchin            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+SRCS		=	ft_isalnum.c ft_isprint.c ft_memcmp.c  ft_putchar_fd.c ft_split.c \
+					ft_strlcat.c ft_strncmp.c ft_strcmp.c ft_substr.c ft_atoi.c ft_isalpha.c \
+					ft_itoa.c ft_memcpy.c ft_putendl_fd.c ft_strchr.c  ft_strlcpy.c \
+					ft_strnstr.c ft_tolower.c ft_bzero.c   ft_isascii.c ft_free.c \
+					ft_memmove.c ft_putnbr_fd.c ft_strdup.c  ft_strlen.c ft_strrchr.c \
+					ft_toupper.c ft_calloc.c  ft_isdigit.c ft_memchr.c ft_memset.c  \
+					ft_putstr_fd.c ft_strjoin.c ft_strmapi.c ft_strtrim.c ft_striteri.c
+OBJS		= $(SRCS:.c=.o)
+
+BONUS		=	ft_lstadd_back_bonus.c ft_lstadd_front_bonus.c ft_lstclear_bonus.c \
+					ft_lstdelone_bonus.c ft_lstiter_bonus.c ft_lstlast_bonus.c \
+					ft_lstmap_bonus.c ft_lstnew_bonus.c ft_lstsize_bonus.c
+BONUS_OBJS	= $(BONUS:.c=.o)
+
+CC			= cc
+RM			= rm -f
+CFLAGS		= -Wall -Wextra -Werror
+
+NAME		= libft.a
+
+ifdef WITH_BONUS
+	OBJECTS = $(OBJS) $(BONUS_OBJS)
 else
-	SRCS = ${SRC_MAN}
+	OBJECTS = $(OBJS)
 endif
-OBJS = ${SRCS:.c=.o}
-OBJS_MAN = ${SRC_MAN:.c=.o}
-OBJS_BON = ${SRC_BON:.c=.o}
-OBJ = ${OBJS_MAN} ${OBJS_BON}
-TARGET = libft.a
-INCLUDE = .
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-AR = ar rc
 
-.phony : all re clean fclean bonus 
+all:			$(NAME)
 
-all : ${TARGET}
+$(NAME):		$(OBJECTS)
+				ar rcs $(NAME) $(OBJECTS)
 
-${TARGET} : ${OBJS}
-	${AR} ${TARGET} ${OBJS}
-%.o : %.c
-	${CC} ${CFLAGS} -I . -c $^ -o $@
+clean:
+				$(RM) $(OBJS) $(BONUS_OBJS)
 
-clean :
-	rm -f ${OBJS} ${OBJS_BON}
+fclean:			clean
+				$(RM) $(NAME)
 
-fclean :
-	make clean
-	rm -f ${TARGET}
+re:				fclean $(NAME)
 
-re : 
-	make fclean
-	make all
+bonus:
+	make WITH_BONUS=1 all
 
-bonus :
-	make BONUS=1 all
+.PHONY:			all clean fclean re bonus
