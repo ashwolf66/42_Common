@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	write_nbr(unsigned long long nbr, char *base, size_t *str_len)
 {
