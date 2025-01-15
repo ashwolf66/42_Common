@@ -6,7 +6,7 @@
 /*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 12:18:18 by jacha             #+#    #+#             */
-/*   Updated: 2024/07/04 10:03:07 by jacha            ###   ########.fr       */
+/*   Updated: 2025/01/15 16:45:16 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	init_stack(t_list **a, int argc, char **argv)
 		j = 0;
 		while (ch[j])
 		{
-			if ((len_check(ch[j]) == 1 && zero_check(ch[j]) == 1) ||  \
+			if ((len_check(ch[j]) == 1 && zero_check(ch[j]) == 1) || \
 					ft_atoi(ch[j]) != ft_atol(ch[j]))
 			{
 				free_mem(ch);
