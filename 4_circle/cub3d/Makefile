@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I./include -I./libft -I./minilibx-linux
 LIBFT_DIR = ./libft
 MLX_DIR = ./minilibx-linux
-LIBS = -L$(LIBFT_DIR) -lft -L$(MLX_DIR) -lmlx -lm -lx11 -lXexet
+LIBS = -L$(LIBFT_DIR) -lft -L$(MLX_DIR) -lmlx -lm -lX11 -lXext
 SRCS =	src/main.c \
 		src/data_mlx.c
 OBJS = $(SRCS:.c=.o)

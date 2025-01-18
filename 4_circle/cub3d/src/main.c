@@ -14,11 +14,14 @@
 
 int	main(int ac, char **av)
 {
+	(void) av;
+
 	t_data	data;
 	
-	if (ac == 2)
+	if (ac == 1)
 	{
 		data_mlx_init(&data);
+		mlx_loop(data.mlx);
 	}
 	else
 		exit(EXIT_FAILURE);
