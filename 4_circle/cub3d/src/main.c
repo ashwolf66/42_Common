@@ -6,7 +6,7 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 14:56:49 by jacha             #+#    #+#             */
-/*   Updated: 2025/01/18 14:56:52 by jacha            ###   ########.fr       */
+/*   Updated: 2025/01/18 16:57:10 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 int	main(int ac, char **av)
 {
-	(void) av;
-
 	t_data	data;
-	
+
+	(void)av;
 	if (ac == 1)
 	{
 		data_mlx_init(&data);

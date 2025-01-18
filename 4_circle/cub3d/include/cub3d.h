@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/18 16:53:59 by jacha             #+#    #+#             */
+/*   Updated: 2025/01/18 16:55:01 by jacha            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CUB3D_H
 # define CUB3D_H
 
@@ -13,7 +25,7 @@
 # define WIDTH 854
 # define HEIGHT 480
 
-typedef struct s_data t_data;
+typedef struct s_data	t_data;
 
 struct s_data
 {
