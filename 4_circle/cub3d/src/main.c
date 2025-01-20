@@ -19,7 +19,7 @@ int	main(int ac, char **av)
 	(void)av;
 	if (ac == 1)
 	{
-		data_mlx_init(&data);
+		mlx_start(&data);
 		mlx_loop(data.mlx);
 	}
 	else

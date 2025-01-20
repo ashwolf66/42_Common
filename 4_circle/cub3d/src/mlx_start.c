@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-void	data_mlx_init(t_data *data)
+void	mlx_start(t_data *data)
 {
 	data->mlx = mlx_init();
 	if (data->mlx == NULL)
@@ -24,26 +24,15 @@ void	data_mlx_init(t_data *data)
 		free(data->mlx);
 		exit(EXIT_FAILURE);
 	}
+	data->img.img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	if (data->img.img == NULL)
+	{
+		mlx_destroy_window(data->mlx, data->win);
+		mlx_destroy_display(data->mlx);
+		free(data->mlx);
+		exit(EXIT_FAILURE);
+	}
+	data->img.arr = mlx_get_data_addr(data->img.img, \
+	&data->img.bit_per_pixel, &data->img.line_length, &data->img.endian);
 	event_init(data);
-}
-
-void	event_init(t_data *data)
-{
-	mlx_hook(data->win, 2, 1L << 0, key_handler, data);
-	mlx_hook(data->win, 17, 1L << 17, close_handler, data);
-}
-
-int	close_handler(t_data *data)
-{
-	mlx_destroy_window(data->mlx, data->win);
-	mlx_destroy_display(data->mlx);
-	free(data->mlx);
-	exit(EXIT_SUCCESS);
-}
-
-int	key_handler(int keysym, t_data *data)
-{
-	if (keysym == 65307)
-		close_handler(data);
-	return (0);
 }

@@ -25,15 +25,26 @@
 # define WIDTH 854
 # define HEIGHT 480
 
+typedef struct s_img	t_img;
 typedef struct s_data	t_data;
 
 struct s_data
 {
 	void	*mlx;
 	void	*win;
+	t_img	img;
+};
+struct s_img
+{
+	void	*img;
+	char	*arr;
+	int		bit_per_pixel;
+	int		line_length;
+	int		endian;
 };
 
-void	data_mlx_init(t_data *data);
+void	mlx_start(t_data *data);
+
 void	event_init(t_data *data);
 int		close_handler(t_data *data);
 int		key_handler(int keysym, t_data *data);
