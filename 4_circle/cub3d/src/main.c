@@ -17,9 +17,10 @@ int	main(int ac, char **av)
 	t_data	data;
 
 	(void)av;
-	if (ac == 1)
+	if (ac == 2)
 	{
 		mlx_start(&data);
+		event_handle(&data);
 		mlx_loop(data.mlx);
 	}
 	else

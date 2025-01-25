@@ -32,7 +32,24 @@ void	mlx_start(t_data *data)
 		free(data->mlx);
 		exit(EXIT_FAILURE);
 	}
-	data->img.arr = mlx_get_data_addr(data->img.img, \
+	data->img.addr = mlx_get_data_addr(data->img.img, \
 	&data->img.bit_per_pixel, &data->img.line_length, &data->img.endian);
-	event_init(data);
+	data->player.px = 427;
+	data->player.py = 240;
+	draw_square(data, data->player.px, data->player.py, 0x00FF0000);
+	mlx_put_image_to_window(data->mlx, data->win, data->img.img, 0, 0);
+}
+void    draw_square(t_data *data, int x, int y, int color)
+{
+    int i, j;
+
+    for (i = 0; i < 32; i++) // 세로 반복
+    {
+        for (j = 0; j < 32; j++) // 가로 반복
+        {
+            char *dst = data->img.addr + ((y + i) \
+			* data->img.line_length + (x + j) * (data->img.bit_per_pixel / 8));
+            *(unsigned int*)dst = color;
+        }
+    }
 }

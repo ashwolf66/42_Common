@@ -8,6 +8,8 @@ LIBS = -L$(LIBFT_DIR) -lft -L$(MLX_DIR) -lmlx -lm -lX11 -lXext
 SRCS =	src/main.c \
 		src/mlx_start.c \
 		src/mlx_event.c
+# SRCS = src/test.c
+# SRCS = src/test_img_pixel.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(LIBFT_DIR)/libft.a $(MLX_DIR)/libmlx.a $(NAME)
