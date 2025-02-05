@@ -71,15 +71,23 @@ typedef struct	s_data
 	t_player	player;
 }	t_data;
 
+//main
+int refresh_map(t_data *data);
+
+//mlx_start
 void	mlx_start(t_data *data);
 void	player_init(t_player *player);
-int refresh_map(t_data *data);
-float angle_op(float angle);
+void    draw_square(t_data *data, int x, int y, int color);
 
+//mlx_event
 void	event_handle(t_data *data);
 int		close_handler(t_data *data);
 int		key_press(int keysym, t_data *data);
 int		key_release(int keysym, t_data *data);
-void    draw_square(t_data *data, int x, int y, int color);
+
+//move_handle
+float angle_op(float angle);
+void w_s_move(int keysym, t_data *data);
+void a_d_move(int keysym, t_data *data);
 
 #endif

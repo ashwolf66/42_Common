@@ -41,16 +41,16 @@ void	player_init(t_player *player)
 {
 	player->px = (float)WIN_WIDTH / 2.0f;
 	player->py = (float)WIN_HEIGHT / 2.0f;
-	player->angle = M_PI / 2.0;
+	player->angle = (float)M_PI / 2.0f;
 }
 
 void    draw_square(t_data *data, int x, int y, int color)
 {
     int i, j;
 
-    for (i = 0; i < 32; i++) // 세로 반복
+    for (i = 0; i < 8; i++)
     {
-        for (j = 0; j < 32; j++) // 가로 반복
+        for (j = 0; j < 8; j++)
         {
             char *dst = data->img.addr + ((y + i) \
 			* data->img.line_length + (x + j) * (data->img.bit_per_pixel / 8));
