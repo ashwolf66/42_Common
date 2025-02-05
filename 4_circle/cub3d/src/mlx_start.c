@@ -17,14 +17,14 @@ void	mlx_start(t_data *data)
 	data->mlx = mlx_init();
 	if (data->mlx == NULL)
 		exit(EXIT_FAILURE);
-	data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "cub3D");
+	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "cub3D");
 	if (data->win == NULL)
 	{
 		mlx_destroy_display(data->mlx);
 		free(data->mlx);
 		exit(EXIT_FAILURE);
 	}
-	data->img.img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	data->img.img = mlx_new_image(data->mlx, WIN_WIDTH, WIN_HEIGHT);
 	if (data->img.img == NULL)
 	{
 		mlx_destroy_window(data->mlx, data->win);
@@ -34,11 +34,16 @@ void	mlx_start(t_data *data)
 	}
 	data->img.addr = mlx_get_data_addr(data->img.img, \
 	&data->img.bit_per_pixel, &data->img.line_length, &data->img.endian);
-	data->player.px = 427;
-	data->player.py = 240;
-	draw_square(data, data->player.px, data->player.py, 0x00FF0000);
-	mlx_put_image_to_window(data->mlx, data->win, data->img.img, 0, 0);
+	player_init(&(data->player));
 }
+
+void	player_init(t_player *player)
+{
+	player->px = (float)WIN_WIDTH / 2.0f;
+	player->py = (float)WIN_HEIGHT / 2.0f;
+	player->angle = M_PI / 2.0;
+}
+
 void    draw_square(t_data *data, int x, int y, int color)
 {
     int i, j;

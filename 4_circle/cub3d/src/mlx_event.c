@@ -22,28 +22,39 @@ int key_press(int keysym, t_data *data)
 	if (keysym == K_ESC)
 		close_handler(data);
 	else if (keysym == K_W)
-		data->player.py -= 8.0;
+	{
+		data->player.px += cos(data->player.angle) * SPEED;
+		data->player.py -= sin(data->player.angle) * SPEED;
+	}
 	else if (keysym == K_S)
-		data->player.py += 8.0;
+	{
+		data->player.px -= cos(data->player.angle) * SPEED;
+		data->player.py += sin(data->player.angle) * SPEED;
+	}
 	else if (keysym == K_A)
-		data->player.px -= 8.0;
+	{
+		data->player.px -= cos(data->player.angle - (float)M_PI / 2) * SPEED;
+		data->player.py += sin(data->player.angle - (float)M_PI / 2) * SPEED;
+	}
 	else if (keysym == K_D)
-		data->player.px += 8.0;
+	{
+		data->player.px += cos(data->player.angle - (float)M_PI / 2) * SPEED;
+		data->player.py -= sin(data->player.angle - (float)M_PI / 2) * SPEED;
+	}
+
 	else if (keysym == K_LEFT)
-		data->player.key = K_LEFT;
+		data->player.angle = angle_op(data->player.angle + ANGLE_CHANGE);
 	else if (keysym == K_RIGHT)
-		data->player.key = K_RIGHT;
-	if (data->player.py >= 448)
-		data->player.py -= 8.0;
-	else if (data->player.py <= 0)
-		data->player.py += 8.0;
-	if (data->player.px >= 822)
-		data->player.px -= 8.0;
-	else if (data->player.px <= 0)
-		data->player.px += 8.0;
-	draw_square(data, data->player.px, data->player.py, 0x00FF0000);
-	mlx_put_image_to_window(data->mlx, data->win, data->img.img, 0, 0);
+		data->player.angle = angle_op(data->player.angle - ANGLE_CHANGE);
 	return (0);
+}
+
+float angle_op(float angle)
+{
+	angle = fmod(angle, 2.0f * M_PI);
+	if (angle < 0.0f)
+		angle += 2.0f * M_PI;
+	return (angle);
 }
 
 int	key_release(int keysym, t_data *data)
@@ -52,4 +63,3 @@ int	key_release(int keysym, t_data *data)
 	(void)data;
 	return (0);
 }
-

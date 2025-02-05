@@ -22,15 +22,19 @@
 # include "../libft/libft.h"
 # include "../minilibx-linux/mlx.h"
 
-# define WIDTH		854
-# define HEIGHT		480
-# define K_ESC		65307
-# define K_W		119
-# define K_S		115
-# define K_A		97
-# define K_D		100
-# define K_LEFT		65361
-# define K_RIGHT	65363
+# define WIN_WIDTH		854
+# define WIN_HEIGHT		480
+# define K_ESC			65307
+# define K_W			119
+# define K_S			115
+# define K_A			97
+# define K_D			100
+# define K_LEFT			65361
+# define K_RIGHT		65363
+# define TILE_SIZE		64
+# define SPEED			5.0f
+# define ANGLE_CHANGE	5.0f * ((float)M_PI / 180.0f)
+
 /*
 119		=	"w"
 97		=	"a"
@@ -55,6 +59,7 @@ typedef struct	s_player
 {
 	float	px;
 	float	py;
+	float	angle;
 	int		key;
 }	t_player;
 
@@ -67,6 +72,9 @@ typedef struct	s_data
 }	t_data;
 
 void	mlx_start(t_data *data);
+void	player_init(t_player *player);
+int refresh_map(t_data *data);
+float angle_op(float angle);
 
 void	event_handle(t_data *data);
 int		close_handler(t_data *data);
