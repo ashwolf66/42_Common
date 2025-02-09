@@ -46,6 +46,13 @@
 65364	=	"DOWN"
 */
 
+typedef struct	s_map
+{
+	unsigned int	floor;
+	unsigned int	ceiling;
+	char			**cub_map;
+}	t_map;
+
 typedef struct	s_img
 {
 	void	*img;
@@ -60,13 +67,15 @@ typedef struct	s_player
 	float	px;
 	float	py;
 	float	angle;
-	int		key;
 }	t_player;
 
 typedef struct	s_data
 {
 	void		*mlx;
 	void		*win;
+	char		**cup_map;
+	char		player_position;
+	t_map		map;
 	t_img		img;
 	t_player	player;
 }	t_data;

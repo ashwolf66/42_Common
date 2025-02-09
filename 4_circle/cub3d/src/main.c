@@ -27,8 +27,6 @@ int	main(int ac, char **av)
 
 int refresh_map(t_data *data)
 {
-    // draw_map(data);
-    // draw_rays(data);
 	draw_square(data, data->player.px, data->player.py, 0x00FF0000);
 	mlx_put_image_to_window(data->mlx, data->win, data->img.img, 0, 0);
     return (0);

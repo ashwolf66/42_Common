@@ -34,6 +34,7 @@ void	mlx_start(t_data *data)
 	}
 	data->img.addr = mlx_get_data_addr(data->img.img, \
 	&data->img.bit_per_pixel, &data->img.line_length, &data->img.endian);
+	map_init(&(data->map));
 	player_init(&(data->player));
 }
 
