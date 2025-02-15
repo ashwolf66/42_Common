@@ -1,41 +1,63 @@
 #include "cub3d.h"
 
-float angle_op(float angle)
+double angle_op(double angle)
 {
-	angle = fmod(angle, 2.0f * M_PI);
-	if (angle < 0.0f)
-		angle += 2.0f * M_PI;
+	angle = fmod(angle, 2.0 * M_PI);
+	if (angle < 0.0)
+		angle += 2.0 * M_PI;
 	return (angle);
 }
 
-void w_s_move(int keysym, t_data *data)
+void w_s_move(t_data *data)
 {
-	if (keysym == K_W)
+	if (data->player.w == 1)
 	{
-		data->player.px += (float)cos(data->player.angle) * SPEED;
-		data->player.py -= (float)sin(data->player.angle) * SPEED;
+		data->player.px += cos(data->player.angle) * SPEED;
+		data->player.py -= sin(data->player.angle) * SPEED;
+		if (length_check(data))
+		{
+			data->player.px -= cos(data->player.angle) * SPEED;
+			data->player.py += sin(data->player.angle) * SPEED;
+		}
 	}
-	else if (keysym == K_S)
+	if (data->player.s == 1)
 	{
-		data->player.px -= (float)cos(data->player.angle) * SPEED;
-		data->player.py += (float)sin(data->player.angle) * SPEED;
+		data->player.px -= cos(data->player.angle) * SPEED;
+		data->player.py += sin(data->player.angle) * SPEED;
+		if (length_check(data))
+		{
+			data->player.px += cos(data->player.angle) * SPEED;
+			data->player.py -= sin(data->player.angle) * SPEED;
+		}
 	}
 }
 
-void a_d_move(int keysym, t_data *data)
+void a_d_move(t_data *data)
 {
-	if (keysym == K_A)
+	if (data->player.a == 1)
 	{
-		data->player.px -= (float)cos(data->player.angle - \
-        (float)M_PI / 2.0f) * SPEED;
-		data->player.py += (float)sin(data->player.angle - \
-        (float)M_PI / 2.0f) * SPEED;
+		data->player.px -= cos(data->player.angle - M_PI / 2.0) * SPEED;
+		data->player.py += sin(data->player.angle - M_PI / 2.0) * SPEED;
+		if (length_check(data))
+		{
+			data->player.px += cos(data->player.angle - M_PI / 2.0) * SPEED;
+			data->player.py -= sin(data->player.angle - M_PI / 2.0) * SPEED;
+		}
 	}
-	else if (keysym == K_D)
+	if (data->player.d == 1)
 	{
-		data->player.px += (float)cos(data->player.angle - \
-        (float)M_PI / 2.0f) * SPEED;
-		data->player.py -= (float)sin(data->player.angle - \
-        (float)M_PI / 2.0f) * SPEED;
+		data->player.px += cos(data->player.angle - M_PI / 2.0) * SPEED;
+		data->player.py -= sin(data->player.angle - M_PI / 2.0) * SPEED;
+		if (length_check(data))
+		{
+			data->player.px -= cos(data->player.angle - M_PI / 2.0) * SPEED;
+			data->player.py += sin(data->player.angle - M_PI / 2.0) * SPEED;
+		}
 	}
+}
+
+int	length_check(t_data *data)
+{
+	return (data->player.py > WIN_HEIGHT || data->player.py < 0.0 \
+		|| data->player.px > WIN_WIDTH || data->player.px < 0.0);
 }

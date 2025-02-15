@@ -27,6 +27,11 @@ int	main(int ac, char **av)
 
 int refresh_map(t_data *data)
 {
+	draw_square(data, data->player.px, data->player.py, 0x00000000);
+	if (data->player.w == 1 || data->player.s == 1)
+		w_s_move(data);
+	if (data->player.a == 1 || data->player.d == 1)
+		a_d_move(data);
 	draw_square(data, data->player.px, data->player.py, 0x00FF0000);
 	mlx_put_image_to_window(data->mlx, data->win, data->img.img, 0, 0);
     return (0);

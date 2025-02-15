@@ -40,9 +40,13 @@ void	mlx_start(t_data *data)
 
 void	player_init(t_player *player)
 {
-	player->px = (float)WIN_WIDTH / 2.0f;
-	player->py = (float)WIN_HEIGHT / 2.0f;
-	player->angle = (float)M_PI / 2.0f;
+	player->px = (double)WIN_WIDTH / 2.0;
+	player->py = (double)WIN_HEIGHT / 2.0;
+	player->angle = M_PI / 2.0;
+	player->w = 0;
+	player->s = 0;
+	player->a = 0;
+	player->d = 0;
 }
 
 void    draw_square(t_data *data, int x, int y, int color)

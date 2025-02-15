@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdio.h>
+# define _USE_MATH_DEFINES
 # include <math.h>
 # include <stdlib.h>
 # include <X11/X.h>
@@ -32,8 +33,8 @@
 # define K_LEFT			65361
 # define K_RIGHT		65363
 # define TILE_SIZE		64
-# define SPEED			5.0f
-# define ANGLE_CHANGE	5.0f * ((float)M_PI / 180.0f)
+# define SPEED			1.0
+# define ANGLE_CHANGE	5.0 * (M_PI / 180.0)
 
 /*
 119		=	"w"
@@ -51,6 +52,7 @@ typedef struct	s_map
 	unsigned int	floor;
 	unsigned int	ceiling;
 	char			**cub_map;
+	char			start_angle;
 }	t_map;
 
 typedef struct	s_img
@@ -64,9 +66,15 @@ typedef struct	s_img
 
 typedef struct	s_player
 {
-	float	px;
-	float	py;
-	float	angle;
+	double	px;
+	double	py;
+	double	angle;
+	int		w;
+	int		s;
+	int		a;
+	int		d;
+	int		left;
+	int		right;
 }	t_player;
 
 typedef struct	s_data
@@ -95,8 +103,11 @@ int		key_press(int keysym, t_data *data);
 int		key_release(int keysym, t_data *data);
 
 //move_handle
-float angle_op(float angle);
-void w_s_move(int keysym, t_data *data);
-void a_d_move(int keysym, t_data *data);
+double angle_op(double angle);
+// void w_s_move(int keysym, t_data *data);
+// void a_d_move(int keysym, t_data *data);
+void w_s_move(t_data *data);
+void a_d_move(t_data *data);
+int	length_check(t_data *data);
 
 #endif
