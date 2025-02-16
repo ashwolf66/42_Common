@@ -34,7 +34,6 @@ void	mlx_start(t_data *data)
 	}
 	data->img.addr = mlx_get_data_addr(data->img.img, \
 	&data->img.bit_per_pixel, &data->img.line_length, &data->img.endian);
-	map_init(&(data->map));
 	player_init(&(data->player));
 }
 
@@ -47,6 +46,8 @@ void	player_init(t_player *player)
 	player->s = 0;
 	player->a = 0;
 	player->d = 0;
+	player->left = 0;
+	player->right = 0;
 }
 
 void    draw_square(t_data *data, int x, int y, int color)

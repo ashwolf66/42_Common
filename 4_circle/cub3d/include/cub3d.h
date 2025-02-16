@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdio.h>
-# define _USE_MATH_DEFINES
 # include <math.h>
 # include <stdlib.h>
 # include <X11/X.h>
@@ -33,8 +32,8 @@
 # define K_LEFT			65361
 # define K_RIGHT		65363
 # define TILE_SIZE		64
-# define SPEED			1.0
-# define ANGLE_CHANGE	5.0 * (M_PI / 180.0)
+# define SPEED			0.5
+# define ANGLE_CHANGE	0.5 * (M_PI / 180.0)
 
 /*
 119		=	"w"
@@ -89,7 +88,9 @@ typedef struct	s_data
 }	t_data;
 
 //main
-int refresh_map(t_data *data);
+int 	refresh_map(t_data *data);
+void	move_funtion(t_data *data);
+// void	move_funtion(t_data *data);
 
 //mlx_start
 void	mlx_start(t_data *data);
@@ -103,11 +104,9 @@ int		key_press(int keysym, t_data *data);
 int		key_release(int keysym, t_data *data);
 
 //move_handle
-double angle_op(double angle);
-// void w_s_move(int keysym, t_data *data);
-// void a_d_move(int keysym, t_data *data);
-void w_s_move(t_data *data);
-void a_d_move(t_data *data);
-int	length_check(t_data *data);
+double	angle_op(double angle);
+void 	w_s_move(t_data *data);
+void 	a_d_move(t_data *data);
+int		length_check(t_data *data);
 
 #endif

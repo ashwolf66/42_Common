@@ -29,9 +29,9 @@ int key_press(int keysym, t_data *data)
 	else if (keysym == K_D)
 		data->player.d = 1;
 	else if (keysym == K_LEFT)
-		data->player.angle = angle_op(data->player.angle + ANGLE_CHANGE);
+		data->player.left = 1;
 	else if (keysym == K_RIGHT)
-		data->player.angle = angle_op(data->player.angle - ANGLE_CHANGE);
+		data->player.right = 1;
 	return (0);
 }
 
@@ -45,5 +45,9 @@ int key_release(int keysym, t_data *data)
 		data->player.a = 0;
 	else if (keysym == K_D)
 		data->player.d = 0;
+	else if (keysym == K_LEFT)
+		data->player.left = 0;
+	else if (keysym == K_RIGHT)
+		data->player.right = 0;
 	return (0);
 }
