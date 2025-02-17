@@ -12,7 +12,6 @@
 
 #ifndef CUB3D_H
 # define CUB3D_H
-
 # include <unistd.h>
 # include <stdio.h>
 # include <math.h>
@@ -33,9 +32,117 @@
 # define K_RIGHT		65363
 # define TILE_SIZE		64
 # define SPEED			0.5
-# define ANGLE_CHANGE	0.5 * (M_PI / 180.0)
+# define ANGLE_CHANGE	0.25 * (M_PI / 180.0)
+# define FOV            60.0
+# define NUM_RAYS       WIN_WIDTH
 
+typedef struct	s_map
+{
+	unsigned int	floor;
+	unsigned int	ceiling;
+	int				height;
+	int				width;
+	char			**cub_map;
+	char			start_angle;
+}	t_map;
+
+typedef struct	s_img
+{
+	void	*img;
+	char	*addr;
+	int		bit_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_img;
+
+typedef struct	s_player
+{
+	double	px;
+	double	py;
+	double	angle;
+	int		w;
+	int		s;
+	int		a;
+	int		d;
+	int		left;
+	int		right;
+}	t_player;
+
+typedef struct s_ray
+{
+    double ray_angle;
+    double delta_x;
+    double delta_y;
+    double side_dist_x;
+    double side_dist_y;
+    int step_x;
+    int step_y;
+    int hit;
+    int side;
+}   t_ray;
+
+typedef struct	s_data
+{
+	void		*mlx;
+	void		*win;
+	t_map		map;
+	t_img		img;
+	t_player	player;
+}	t_data;
+
+// main
+int 	refresh_map(t_data *data);
+
+// mlx_start
+void	mlx_start(t_data *data);
+void	player_init(t_data *data);
+void    draw_square(t_data *data, int x, int y, int color);
+void map_init(t_data *data);
+
+// mlx_event
+void	event_handle(t_data *data);
+int		close_handler(t_data *data);
+int		key_press(int keysym, t_data *data);
+int		key_release(int keysym, t_data *data);
+
+// move_handle
+double	angle_op(double angle);
+void 	w_s_move(t_data *data);
+void 	a_d_move(t_data *data);
+int		length_check(t_data *data);
+void	move_funtion(t_data *data);
+
+// Raycasting
+void    cast_rays(t_data *data);
+void    cast_single_ray(t_data *data, t_ray *ray, int x);
+void    dda_algorithm(t_data *data, t_ray *ray, int map_x, int map_y, int x);
+void    draw_wall(t_data *data, t_ray *ray, int x);
+void    draw_vertical_line(t_data *data, int x, int start, int end, int color);
+
+#endif
 /*
+# include <unistd.h>
+# include <stdio.h>
+# include <math.h>
+# include <stdlib.h>
+# include <X11/X.h>
+# include <X11/keysym.h>
+# include "../libft/libft.h"
+# include "../minilibx-linux/mlx.h"
+
+# define WIN_WIDTH		854
+# define WIN_HEIGHT		480
+# define K_ESC			65307
+# define K_W			119
+# define K_S			115
+# define K_A			97
+# define K_D			100
+# define K_LEFT			65361
+# define K_RIGHT		65363
+# define TILE_SIZE		64
+# define SPEED			0.5
+# define ANGLE_CHANGE	0.25 * (M_PI / 180.0)
+
 119		=	"w"
 97		=	"a"
 115		=	"s"
@@ -44,7 +151,6 @@
 65362	=	"UP"
 65363	=	"RIGHT"
 65364	=	"DOWN"
-*/
 
 typedef struct	s_map
 {
@@ -109,4 +215,4 @@ void 	w_s_move(t_data *data);
 void 	a_d_move(t_data *data);
 int		length_check(t_data *data);
 
-#endif
+*/

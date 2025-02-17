@@ -8,7 +8,8 @@ LIBS = -L$(LIBFT_DIR) -lft -L$(MLX_DIR) -lmlx -lm -lX11 -lXext
 SRCS =	src/main.c \
 		src/mlx_start.c \
 		src/mlx_event.c \
-		src/move_handle.c
+		src/move_handle.c \
+		src/ray_casting.c
 # SRCS = src/test2.c
 # SRCS = src/test_img_pixel.c
 OBJS = $(SRCS:.c=.o)
@@ -25,7 +26,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(INCLUDES) -o $(NAME) $(OBJS) $(LIBS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ -g
 
 clean:
 	rm -f $(OBJS)

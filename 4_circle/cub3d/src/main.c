@@ -27,21 +27,12 @@ int	main(int ac, char **av)
 
 int refresh_map(t_data *data)
 {
-	draw_square(data, data->player.px, data->player.py, 0x00000000);
+	mlx_destroy_image(data->mlx, data->img.img);
+    data->img.img = mlx_new_image(data->mlx, WIN_WIDTH, WIN_HEIGHT);
+    data->img.addr = mlx_get_data_addr(data->img.img, \
+        &data->img.bit_per_pixel, &data->img.line_length, &data->img.endian);
 	move_funtion(data);
-	draw_square(data, data->player.px, data->player.py, 0x00FF0000);
+	cast_rays(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img.img, 0, 0);
     return (0);
-}
-
-void	move_funtion(t_data *data)
-{
-	if (data->player.w == 1 || data->player.s == 1)
-		w_s_move(data);
-	if (data->player.a == 1 || data->player.d == 1)
-		a_d_move(data);
-	if (data->player.left == 1)
-		data->player.angle = angle_op(data->player.angle + ANGLE_CHANGE);
-	if (data->player.right == 1)
-		data->player.angle = angle_op(data->player.angle - ANGLE_CHANGE);
 }
