@@ -120,19 +120,9 @@ void draw_vertical_line(t_data *data, int x, int start, int end, int color)
     int y;
     char *dst;
     
-    for (y = 0; y < start; y++)
-    {
-        dst = data->img.addr + (y * data->img.line_length + x * (data->img.bit_per_pixel / 8));
-        *(unsigned int *)dst = 0xFFFFFF;
-    }
     for (y = start; y < end; y++)
     {
+        dst = data->img.addr + (y * data->img.line_length + x * (data->img.bit_per_pixel / 8));
         *(unsigned int *)dst = color;
-        dst = data->img.addr + (y * data->img.line_length + x * (data->img.bit_per_pixel / 8));
-    }
-    for (y = end; y < WIN_HEIGHT; y++)
-    {
-        *(unsigned int *)dst = 0xAAAAAA;
-        dst = data->img.addr + (y * data->img.line_length + x * (data->img.bit_per_pixel / 8));
     }
 }

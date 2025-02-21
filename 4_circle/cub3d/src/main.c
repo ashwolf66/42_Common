@@ -32,7 +32,33 @@ int refresh_map(t_data *data)
     data->img.addr = mlx_get_data_addr(data->img.img, \
         &data->img.bit_per_pixel, &data->img.line_length, &data->img.endian);
 	move_funtion(data);
+	fill_background(data);
 	cast_rays(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img.img, 0, 0);
     return (0);
+}
+
+void	fill_background(t_data *data)
+{
+	int		x;
+	int		y;
+	char	*dst;
+
+	y = 0;
+	while (y < WIN_HEIGHT)
+	{
+		dst = data->img.addr + y * data->img.line_length;
+		x = 0;
+		while (x < WIN_WIDTH)
+		{
+			if (y < WIN_HEIGHT / 2)
+				*(unsigned int *)(dst + x * (data->img.bit_per_pixel / 8)) = \
+				data->map.ceiling;
+			else
+				*(unsigned int *)(dst + x * (data->img.bit_per_pixel / 8)) = \
+				data->map.floor;
+			x++;
+		}
+		y++;
+	}
 }

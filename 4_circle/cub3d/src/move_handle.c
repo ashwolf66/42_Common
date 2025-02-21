@@ -58,28 +58,16 @@ void a_d_move(t_data *data)
 
 int length_check(t_data *data)
 {
-    double buffer = 10.0; // 벽과의 최소 거리 (플레이어 크기)
-    int map_x, map_y;
+	int map_pixel_width;
+	int map_pixel_height;
 
-    // 플레이어의 네 방향을 검사하여 벽 충돌 여부 확인
-    for (double dx = -buffer; dx <= buffer; dx += buffer * 2)
-    {
-        for (double dy = -buffer; dy <= buffer; dy += buffer * 2)
-        {
-            map_x = (int)((data->player.px + dx) / TILE_SIZE);
-            map_y = (int)((data->player.py + dy) / TILE_SIZE);
-
-            // 맵 경계 밖으로 나가는 경우도 감지
-            if (map_x < 0 || map_x >= data->map.width || map_y < 0 || map_y >= data->map.height)
-                return (1); // 경계를 넘어가면 충돌로 간주
-
-            // 플레이어가 벽('1')과 충돌하는 경우 감지
-            if (data->map.cub_map[map_y][map_x] == '1')
-                return (1); // 충돌 발생
-        }
-    }
-
-    return (0); // 충돌 없음
+	map_pixel_width = data->map.width * TILE_SIZE;
+	map_pixel_height = data->map.height * TILE_SIZE;
+	if (data->player.px < 0 || data->player.py < 0 || data->player.px >= map_pixel_width || data->player.py >= map_pixel_height)
+	{
+		return (1);
+	}
+	return (0);
 }
 
 void	move_funtion(t_data *data)

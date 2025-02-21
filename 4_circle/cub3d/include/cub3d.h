@@ -92,12 +92,12 @@ typedef struct	s_data
 
 // main
 int 	refresh_map(t_data *data);
+void	fill_background(t_data *data);
 
 // mlx_start
 void	mlx_start(t_data *data);
 void	player_init(t_data *data);
-void    draw_square(t_data *data, int x, int y, int color);
-void map_init(t_data *data);
+void	map_init(t_data *data);
 
 // mlx_event
 void	event_handle(t_data *data);
