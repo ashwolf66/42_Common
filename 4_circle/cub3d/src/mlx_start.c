@@ -49,19 +49,38 @@ void player_init(t_data *data)
 				data->map.cub_map[y][x] == 'E' ||
 				data->map.cub_map[y][x] == 'W')
 			{
-				data->player.px = x * TILE_SIZE + TILE_SIZE / 2;
-				data->player.py = y * TILE_SIZE + TILE_SIZE / 2;
+				data->player.pos_x = x * TILE_SIZE + TILE_SIZE / 2;
+				data->player.pos_y = y * TILE_SIZE + TILE_SIZE / 2;
 
 				// 방향 설정
 				if (data->map.cub_map[y][x] == 'N')
-					data->player.angle = M_PI / 2.0; // 북쪽 (90도)
+				{
+					data->player.dir_x = 0;
+					data->player.dir_y = -1;
+					data->player.pla_x = 0.66;
+					data->player.pla_y = 0;
+				}
 				else if (data->map.cub_map[y][x] == 'S')
-					data->player.angle = 3 * M_PI / 2.0; // 남쪽 (270도)
+				{
+					data->player.dir_x = 0;
+					data->player.dir_y = 1;
+					data->player.pla_x = -0.66;
+					data->player.pla_y = 0;
+				}
 				else if (data->map.cub_map[y][x] == 'E')
-					data->player.angle = 0; // 동쪽 (0도)
+				{
+					data->player.dir_x = 1;
+					data->player.dir_y = 0;
+					data->player.pla_x = 0;
+					data->player.pla_y = 0.66;
+				}
 				else if (data->map.cub_map[y][x] == 'W')
-					data->player.angle = M_PI; // 서쪽 (180도)
-
+				{
+					data->player.dir_x = -1;
+					data->player.dir_y = 0;
+					data->player.pla_x = 0;
+					data->player.pla_y = -0.66;
+				}
 			}
 		}
 	}

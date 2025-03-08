@@ -8,15 +8,13 @@ int	main(int argc, char **argv)
 	}
 	else if (argc > 1)
 	{
-		int	i = 1;
-		for (i; i < argc; i++)
+		for (int i = 1; i < argc; i++)
 		{
-			std::string templ(argv[i]);
-			for (int j = 0; j < templ.size(); j++)
+			std::string temp = argv[i];
+			for (int j = 0; j < temp.size(); j++)
 			{
-				std::cout << (char)toupper(templ[j]);
+				std::cout << (char)toupper(temp[j]);
 			}
-			std::cout << " ";
 		}	
 		std::cout << std::endl;
 	}

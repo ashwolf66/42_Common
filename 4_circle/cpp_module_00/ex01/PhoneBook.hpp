@@ -4,7 +4,6 @@
 class PhoneBook
 {
     public :
-    std::string mem[8][5];
 };
 
 #endif
