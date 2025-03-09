@@ -36,16 +36,6 @@
 #define FOV 60.0
 #define NUM_RAYS WIN_WIDTH
 
-typedef struct s_map
-{
-	unsigned int floor;
-	unsigned int ceiling;
-	int height;
-	int width;
-	char **cub_map;
-	char start_angle;
-} t_map;
-
 typedef struct s_img
 {
 	void *img;
@@ -53,7 +43,25 @@ typedef struct s_img
 	int bit_per_pixel;
 	int line_length;
 	int endian;
+	int	width;
+	int	height;
 } t_img;
+
+typedef struct s_texture
+{
+	char	*path;
+	t_img	img;
+}	t_texture;
+
+typedef struct s_map
+{
+	t_texture	texture[4];
+	unsigned int floor;
+	unsigned int ceiling;
+	int height;
+	int width;
+	char **cub_map;
+} t_map;
 
 typedef struct s_player
 {
@@ -82,19 +90,23 @@ typedef struct s_ray
 	double delta_y;
 	double side_dist_x;
 	double side_dist_y;
+	double wall_dist;
 	int step_x;
 	int step_y;
 	int map_x;
 	int map_y;
 	int hit;
 	int side;
+	int	height;
+	int	draw_start;
+	int	draw_end;
 } t_ray;
 
 typedef struct s_data
 {
 	void *mlx;
 	void *win;
-	t_map map;
+	t_map *map;
 	t_img img;
 	t_player player;
 } t_data;

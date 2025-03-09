@@ -11,6 +11,9 @@ void cast_rays(t_data *data)
 		init_ray(data, &ray, x);
 		calculate(data, &ray);
 		dda_algorithm(data, &ray);
+		calculate_wall(data, &ray);
+		wall_height(&ray);
+		draw_wall(data, &ray, x);
 		x++;
 	}
 }
@@ -77,65 +80,84 @@ void dda_algorithm(t_data *data, t_ray *ray)
 			ray->map_y += ray->step_y;
 			ray->side = 1;
 		}
-		if (data->map.cub_map[ray->map_y][ray->map_x] == '1')
+		if (data->map->cub_map[ray->map_y][ray->map_x] == '1')
 			ray->hit = 1;
 	}
 }
 
-void draw_wall(t_data *data, t_ray *ray, int x)
+void	calculate_wall(t_data *data, t_ray *ray)
 {
-	double perp_wall_dist;
-	int line_height;
-	int draw_start, draw_end;
-	int color;
+	double	px;
+	double	py;
 
-	if (ray->side == 0) // 수직 벽
-	{
-		if (ray->step_x > 0)  // 동쪽 벽
-			color = 0xFFAA00; // 주황색
-		else				  // 서쪽 벽
-			color = 0x0000FF; // 파란색
-	}
-	else // 수평 벽
-	{
-		if (ray->step_y > 0)  // 남쪽 벽
-			color = 0x00FF00; // 초록색
-		else				  // 북쪽 벽
-			color = 0xFF0000; // 빨간색
-	}
-
+	px = data->player.pos_x;
+	py = data->player.pos_y;
 	if (ray->side == 0)
-		perp_wall_dist = (ray->side_dist_x - fabs(1 / ray->delta_x));
+	{
+		ray->wall_dist = (ray->map_x - px + (1 - ray->step_x) / 2.0)
+			/ ray->ray_dir_x;
+	}
 	else
-		perp_wall_dist = (ray->side_dist_y - fabs(1 / ray->delta_y));
-
-	// 벽 높이 조절 (크기를 키우거나 줄일 수 있음)
-	line_height = (int)((WIN_HEIGHT * 2.5) / pow(perp_wall_dist, 0.8));
-
-	// 최소 및 최대 크기 제한
-	if (line_height < 20)
-		line_height = 20;
-	if (line_height > WIN_HEIGHT)
-		line_height = WIN_HEIGHT;
-
-	draw_start = -line_height / 2 + WIN_HEIGHT / 2;
-	draw_end = line_height / 2 + WIN_HEIGHT / 2;
-
-	if (draw_start < 0)
-		draw_start = 0;
-	if (draw_end >= WIN_HEIGHT)
-		draw_end = WIN_HEIGHT - 1;
-	draw_vertical_line(data, x, draw_start, draw_end, color);
+	{
+		ray->wall_dist = (ray->map_y - py + (1 - ray->step_y) / 2.0)
+			/ ray->ray_dir_y;
+	}
 }
 
-void draw_vertical_line(t_data *data, int x, int start, int end, int color)
+void	compute_wall_height(t_ray *ray)
 {
-	int y;
-	char *dst;
+	ray->height = (int)(WIN_HEIGHT / ray->wall_dist);
+	ray->draw_start = -ray->height / 2 + WIN_HEIGHT / 2;
+	if (ray->draw_start < 0)
+		ray->draw_start = 0;
+	ray->draw_end = ray->height / 2 + WIN_HEIGHT / 2;
+	if (ray->draw_end >= WIN_HEIGHT)
+		ray->draw_end = WIN_HEIGHT - 1;
+}
 
-	for (y = start; y < end; y++)
+void draw_wall(t_data *data, t_ray *ray, int x)
+{
+	double wall;
+	int t_num;
+	int t_x;
+	int	y;
+	unsigned int color;
+
+	t_num = get_t_num(ray);
+	if (ray->side == 0) // 수직 벽
+		wall = data->player.pos_y + ray->wall_dist * ray->ray_dir_y;
+	else
+		wall = data->player.pos_x + ray->wall_dist * ray->ray_dir_x;
+	wall -= floor(wall);
+	t_x = (int)(wall * data->map->texture[t_num].img.width);
+	if ((ray->side == 0 && ray->ray_dir_x > 0) || \
+		(ray->side == 1 && ray->ray_dir_y < 0))
+		t_x = data->map->texture[t_num].img.width - t_x - 1;
+	y = ray->draw_start;
+	while (y < ray->draw_end)
 	{
-		dst = data->img.addr + (y * data->img.line_length + x * (data->img.bit_per_pixel / 8));
-		*(unsigned int *)dst = color;
+		color = get_color(&data->map->texture[t_num].img, \
+			t_x, ((y - WIN_HEIGHT / 2 + ray->height / 2) * \
+			data->map->texture[t_num].img.height) / ray->height);
+		put_pixel(&data->img, x, y, color);
+		y++;
 	}
+}
+
+int	get_color(t_img *texture, int x, int y)
+{
+	char	*pixel;
+
+	pixel = texture->addr + (y * texture->line_length + \
+		x * (texture->bit_per_pixel / 8));
+	return (*(unsigned int *)pixel);
+}
+
+void	put_pixel(t_img *img, int x, int y, int color)
+{
+	unsigned int	*dst;
+
+	dst = (unsigned int *)(img->addr + (y * img->line_length + x
+				* (img->bit_per_pixel / 8)));
+	*dst = color;
 }
