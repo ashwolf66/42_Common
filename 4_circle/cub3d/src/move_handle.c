@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   move_handle.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/13 12:54:46 by jacha             #+#    #+#             */
+/*   Updated: 2025/03/13 13:03:41 by jacha            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
-double angle_op(double angle)
+double	angle_op(double angle)
 {
 	angle = fmod(angle, 2.0 * M_PI);
 	if (angle < 0.0)
@@ -8,7 +20,7 @@ double angle_op(double angle)
 	return (angle);
 }
 
-void w_s_move(t_data *data)
+void	w_s_move(t_data *data)
 {
 	if (data->player.w == 1)
 	{
@@ -32,7 +44,7 @@ void w_s_move(t_data *data)
 	}
 }
 
-void a_d_move(t_data *data)
+void	a_d_move(t_data *data)
 {
 	if (data->player.a == 1)
 	{
@@ -56,7 +68,7 @@ void a_d_move(t_data *data)
 	}
 }
 
-void move_funtion(t_data *data)
+void	move_funtion(t_data *data)
 {
 	if (data->player.w == 1 || data->player.s == 1)
 		w_s_move(data);

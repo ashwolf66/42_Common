@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   data_mlx.c                                         :+:      :+:    :+:   */
+/*   mlx_start.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 16:54:11 by jacha             #+#    #+#             */
-/*   Updated: 2025/01/18 16:54:13 by jacha            ###   ########.fr       */
+/*   Updated: 2025/03/13 13:03:08 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void mlx_start(t_data *data)
+void	mlx_start(t_data *data)
 {
 	data->mlx = mlx_init();
 	if (data->mlx == NULL)
@@ -33,14 +33,15 @@ void mlx_start(t_data *data)
 		exit(EXIT_FAILURE);
 	}
 	data->img.addr = mlx_get_data_addr(data->img.img,
-									   &data->img.bit_per_pixel, &data->img.line_length, &data->img.endian);
+			&data->img.bit_per_pixel,
+			&data->img.line_length, &data->img.endian);
 	textur_init(data);
 	map_init(data);
 	key_init(data);
 	player_init(data);
 }
 
-void player_vector(t_player *player, char direction)
+void	player_vector(t_player *player, char direction)
 {
 	if (direction == 'N')
 	{
@@ -64,7 +65,7 @@ void player_vector(t_player *player, char direction)
 	}
 }
 
-void camera_plane(t_player *player, char direction)
+void	camera_plane(t_player *player, char direction)
 {
 	if (direction == 'N' || direction == 'S')
 	{

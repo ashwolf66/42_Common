@@ -6,15 +6,15 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 14:56:49 by jacha             #+#    #+#             */
-/*   Updated: 2025/01/18 16:57:10 by jacha            ###   ########.fr       */
+/*   Updated: 2025/03/13 13:01:33 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_data data;
+	t_data	data;
 
 	(void)ac;
 	(void)av;
@@ -24,13 +24,14 @@ int main(int ac, char **av)
 	return (0);
 }
 
-int refresh_map(t_data *data)
+int	refresh_map(t_data *data)
 {
 	event_handle(&data);
 	mlx_destroy_image(data->mlx, data->img.img);
 	data->img.img = mlx_new_image(data->mlx, WIN_WIDTH, WIN_HEIGHT);
 	data->img.addr = mlx_get_data_addr(data->img.img,
-									   &data->img.bit_per_pixel, &data->img.line_length, &data->img.endian);
+			&data->img.bit_per_pixel,
+			&data->img.line_length, &data->img.endian);
 	move_funtion(data);
 	fill_background(data);
 	cast_rays(data);
@@ -38,11 +39,11 @@ int refresh_map(t_data *data)
 	return (0);
 }
 
-void fill_background(t_data *data)
+void	fill_background(t_data *data)
 {
-	int x;
-	int y;
-	char *dst;
+	int		x;
+	int		y;
+	char	*dst;
 
 	y = 0;
 	while (y < WIN_HEIGHT)
@@ -51,12 +52,12 @@ void fill_background(t_data *data)
 		x = 0;
 		while (x < WIN_WIDTH)
 		{
-			if (y < WIN_HEIGHT / 2)
-				*(unsigned int *)(dst + x * (data->img.bit_per_pixel / 8)) =
-					data->map->ceiling;
+			if (y < (WIN_HEIGHT / 2))
+				*(unsigned int *)(dst + x * (data->img.bit_per_pixel / 8))
+					= data->map->ceiling;
 			else
-				*(unsigned int *)(dst + x * (data->img.bit_per_pixel / 8)) =
-					data->map->floor;
+				*(unsigned int *)(dst + x * (data->img.bit_per_pixel / 8))
+					= data->map->floor;
 			x++;
 		}
 		y++;

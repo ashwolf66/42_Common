@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ray_casting.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/13 12:54:52 by jacha             #+#    #+#             */
+/*   Updated: 2025/03/13 13:05:32 by jacha            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
-void cast_rays(t_data *data)
+void	cast_rays(t_data *data)
 {
-	int x;
-	t_ray ray;
+	int		x;
+	t_ray	ray;
 
 	x = 0;
 	while (x < NUM_RAYS)
@@ -18,10 +30,10 @@ void cast_rays(t_data *data)
 	}
 }
 
-void init_ray(t_data *data, t_ray *ray, int x)
+void	init_ray(t_data *data, t_ray *ray, int x)
 {
-	double dir_x;
-	double dir_y;
+	double	dir_x;
+	double	dir_y;
 
 	ray->camera = 2.0 * (double)x / NUM_RAYS - 1.0;
 	ray->ray_dir_x = data->player.dir_x + data->player.pla_x * ray->camera;
@@ -35,10 +47,10 @@ void init_ray(t_data *data, t_ray *ray, int x)
 	ray->hit = 0;
 }
 
-void calculate(t_data *data, t_ray *ray)
+void	calculate(t_data *data, t_ray *ray)
 {
-	double px;
-	double py;
+	double	px;
+	double	py;
 
 	px = data->player.pos_x;
 	py = data->player.pos_y;
@@ -64,7 +76,7 @@ void calculate(t_data *data, t_ray *ray)
 	}
 }
 
-void dda_algorithm(t_data *data, t_ray *ray)
+void	dda_algorithm(t_data *data, t_ray *ray)
 {
 	while (ray->hit == 0)
 	{
@@ -80,11 +92,11 @@ void dda_algorithm(t_data *data, t_ray *ray)
 			ray->map_y += ray->step_y;
 			ray->side = 1;
 		}
-		if (ray->map_x < 0 || ray->map_x >= data->map->width ||
-			ray->map_y < 0 || ray->map_y >= data->map->height)
+		if (ray->map_x < 0 || ray->map_x >= data->map->width
+			|| ray->map_y < 0 || ray->map_y >= data->map->height)
 		{
 			ray->hit = 1;
-			return;
+			return ;
 		}
 		if (data->map->cub_map[ray->map_y][ray->map_x] == '1')
 			ray->hit = 1;

@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/13 12:54:25 by jacha             #+#    #+#             */
+/*   Updated: 2025/03/13 12:55:37 by jacha            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
-void textur_init(t_data *data)
+void	textur_init(t_data *data)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < 4)
@@ -19,7 +31,7 @@ void textur_init(t_data *data)
 	}
 }
 
-void key_init(t_data *data)
+void	key_init(t_data *data)
 {
 	data->player.w = 0;
 	data->player.s = 0;
@@ -29,10 +41,10 @@ void key_init(t_data *data)
 	data->player.right = 0;
 }
 
-void player_init(t_data *data)
+void	player_init(t_data *data)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < data->map->height)
@@ -55,7 +67,7 @@ void player_init(t_data *data)
 	}
 }
 
-void map_init(t_data *data)
+void	map_init(t_data *data)
 {
 	static char *map_data[] = {
 		"11111111",

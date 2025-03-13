@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mlx_event.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/13 12:54:36 by jacha             #+#    #+#             */
+/*   Updated: 2025/03/13 13:02:07 by jacha            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
-void event_handle(t_data *data)
+void	event_handle(t_data *data)
 {
 	mlx_hook(data->win, 2, 1L << 0, key_press, data);
 	mlx_hook(data->win, 3, 1L << 1, key_release, data);
 	mlx_hook(data->win, 17, 1L << 17, close_handler, data);
 }
 
-int close_handler(t_data *data)
+int	close_handler(t_data *data)
 {
 	mlx_destroy_image(data->mlx, data->img.img);
 	mlx_destroy_window(data->mlx, data->win);
@@ -16,7 +28,7 @@ int close_handler(t_data *data)
 	exit(EXIT_SUCCESS);
 }
 
-int key_press(int keysym, t_data *data)
+int	key_press(int keysym, t_data *data)
 {
 	if (keysym == K_ESC)
 		close_handler(data);
@@ -35,7 +47,7 @@ int key_press(int keysym, t_data *data)
 	return (0);
 }
 
-int key_release(int keysym, t_data *data)
+int	key_release(int keysym, t_data *data)
 {
 	if (keysym == K_W)
 		data->player.w = 0;
