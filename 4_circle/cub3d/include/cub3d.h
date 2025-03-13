@@ -43,19 +43,19 @@ typedef struct s_img
 	int bit_per_pixel;
 	int line_length;
 	int endian;
-	int	width;
-	int	height;
+	int width;
+	int height;
 } t_img;
 
 typedef struct s_texture
 {
-	char	*path;
-	t_img	img;
-}	t_texture;
+	char *path;
+	t_img img;
+} t_texture;
 
 typedef struct s_map
 {
-	t_texture	texture[4];
+	t_texture texture[4];
 	unsigned int floor;
 	unsigned int ceiling;
 	int height;
@@ -97,9 +97,9 @@ typedef struct s_ray
 	int map_y;
 	int hit;
 	int side;
-	int	height;
-	int	draw_start;
-	int	draw_end;
+	int height;
+	int draw_start;
+	int draw_end;
 } t_ray;
 
 typedef struct s_data
@@ -117,6 +117,12 @@ void fill_background(t_data *data);
 
 // mlx_start
 void mlx_start(t_data *data);
+void player_vector(t_player *player, char direction);
+void camera_plane(t_player *player, char direction);
+
+// init.c
+void textur_init(t_data *data);
+void key_init(t_data *data);
 void player_init(t_data *data);
 void map_init(t_data *data);
 
@@ -130,14 +136,25 @@ int key_release(int keysym, t_data *data);
 double angle_op(double angle);
 void w_s_move(t_data *data);
 void a_d_move(t_data *data);
-int length_check(t_data *data);
 void move_funtion(t_data *data);
 
-// Raycasting
+// move_handle_utils
+int length_check(t_data *data);
+
+// ray_casting
 void cast_rays(t_data *data);
-void cast_single_ray(t_data *data, t_ray *ray, int x);
 void init_ray(t_data *data, t_ray *ray, int x);
 void calculate(t_data *data, t_ray *ray);
 void dda_algorithm(t_data *data, t_ray *ray);
+
+// ray_casting_utils_1
+void calculate_wall(t_data *data, t_ray *ray);
+void wall_height(t_ray *ray);
+void draw_wall(t_data *data, t_ray *ray, int x);
+int get_texture(t_img *texture, int x, int y);
+
+// ray_casting_utils_2
+void put_pixel(t_img *img, int x, int y, int texture);
+int get_t_num(t_ray *ray);
 
 #endif

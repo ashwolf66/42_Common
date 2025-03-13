@@ -7,9 +7,13 @@ MLX_DIR = ./minilibx-linux
 LIBS = -L$(LIBFT_DIR) -lft -L$(MLX_DIR) -lmlx -lm -lX11 -lXext
 SRCS =	src/main.c \
 		src/mlx_start.c \
+		src/init.c \
 		src/mlx_event.c \
 		src/move_handle.c \
-		src/ray_casting.c
+		src/move_handle_utils.c \
+		src/ray_casting.c \
+		src_ray_casting_utils_1.c \
+		src_ray_casting_utils_2.c
 # SRCS = src/test2.c
 # SRCS = src/test_img_pixel.c
 OBJS = $(SRCS:.c=.o)
