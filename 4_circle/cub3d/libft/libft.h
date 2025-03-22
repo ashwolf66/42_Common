@@ -81,7 +81,11 @@ void	ft_intprintf(const char **format, va_list args, size_t *str_len);
 void	ft_hexprintf_x(const char **format, va_list args, size_t *str_len);
 void	ft_hexprintf_p(const char **format, va_list args, size_t *str_len);
 void	ft_putnbr_base(unsigned long long nbr, char *base, size_t *str_len);
-int		find_newline(char *str);
 char	*join(char const *s1, char const *s2);
+char	*get_next_line(int fd);
+char	*read_fnc(int fd, char *s1);
+char	*snap_shot(char *s1);
+char	*result_cpy(char *src, int len);
+int		find_newline(char *str);
 
 #endif

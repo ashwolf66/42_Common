@@ -47,6 +47,14 @@ typedef struct s_img
 	int		height;
 }	t_img;
 
+typedef struct s_color
+{
+	int	red;
+	int	green;
+	int	blue;
+	int	color;
+}	t_color;
+
 typedef struct s_texture
 {
 	char	*path;
@@ -56,11 +64,11 @@ typedef struct s_texture
 typedef struct s_map
 {
 	t_texture		texture[4];
-	unsigned int	floor;
-	unsigned int	ceiling;
+	t_color			floor;
+	t_color			ceiling;
+	char			**cub_map;
 	int				height;
 	int				width;
-	char			**cub_map;
 }	t_map;
 
 typedef struct s_player
