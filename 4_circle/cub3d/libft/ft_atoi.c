@@ -21,19 +21,22 @@ int	ft_atoi(const char *n)
 	i = 0;
 	num = 0;
 	sign = 1;
-	while ((((char *)n)[i] >= 9 && ((char *)n)[i] <= 13) || \
-			((char *)n)[i] == 32)
+	while ((n[i] >= 9 && n[i] <= 13) || n[i] == 32)
 		i++;
-	if (((char *)n)[i] == '+' || ((char *)n)[i] == '-')
+	if (n[i] == '+' || n[i] == '-')
 	{
-		if (((char *)n)[i] == '-')
+		if (n[i] == '-')
 			sign = -1;
 		i++;
 	}
-	while (((char *)n)[i] >= '0' && ((char *)n)[i] <= '9')
+	while (n[i] == '0')
+		i++;
+	while (n[i] >= '0' && n[i] <= '9')
 	{
-		num = num * 10 + (((char *)n)[i] - '0');
+		num = num * 10 + (n[i] - '0');
 		i++;
 	}
+	if (n[i] == '\0')
+		return (-1);
 	return (num * sign);
 }

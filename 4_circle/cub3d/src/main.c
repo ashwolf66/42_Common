@@ -69,7 +69,7 @@ void	free_texture(t_map *map)
 	}
 }
 
-void	free_cupmap(t_map *map)
+void	free_cubmap(t_map *map)
 {
 	int	i;
 
@@ -234,13 +234,7 @@ void	init_texture(t_map *map)
 
 void	init_map_av(t_map *map)
 {
-	map->floor.red = -1;
-	map->floor.green = -1;
-	map->floor.blue = -1;
 	map->floor.color = -1;
-	map->ceiling.red = -1;
-	map->ceiling.green = -1;
-	map->ceiling.blue = -1;
 	map->ceiling.color = -1;
 	map->height = -1;
 	map->width = -1;
@@ -258,7 +252,12 @@ int	operation_map_file(char *map_file, t_map *map, t_data *data, int fd)
 	{
 		free_map(map);
 		free_data(data);
-		close(fd);
+		return (1);
+	}
+	if (operation_cub_map(fd, &map_line, map))
+	{
+		free_map(map);
+		free_data(data);
 		return (1);
 	}
 	return (0);
@@ -273,44 +272,79 @@ int	read_file(int fd, int *size, char ***lines, t_map *map)
 		if (operation_line(line, size, lines, map))
 		{
 			free(line);
+			free_double(*lines);
 			return (1);
 		}
+		free(line);
 	}
+	if (!(*lines))
+		return (1);
+	return (0);
 }
 
 int	operation_line(char *line, int *size, char ***lines, t_map *map)
 {
-	operation_line_space(&line);
+	char	*origin_line;
+
+	operation_line_end_space(&line);
+	origin_line = ft_strdup(line);
+	operation_line_start_space(&line);
 	if (ft_strlen(line) > 0)
 	{
-		if (ft_strncmp(line, "NO", 2) == 0)
-			return (set_texture(line, map, 0));
-		else if (ft_strncmp(line, "SO", 2) == 0)
-			return (set_texture(line, map, 1));
-		else if (ft_strncmp(line, "EA", 2) == 0)
-			return (set_texture(line, map, 2));
-		else if (ft_strncmp(line, "WE", 2) == 0)
-			return (set_texture(line, map, 3));
-		else if (ft_strncmp(line, "F", 1) == 0)
-			return (set_color(line, &map->floor, map, 'F'));
-		else if (ft_strncmp(line, "C", 1) == 0)
-			return (set_color(line, &map->ceiling, map, 'C'));
-		else
+		if (check_t_c(map))
 		{
-			if (set_cub_map(line, size, lines, map))
+			if (set_t_c(line, map))
 				return (1);
 		}
+		else
+		{
+			if (set_cub_map(origin_line, size, lines, map))
+			{
+				free(origin_line);
+				return (1);
+			}
+		}
 	}
+	free(origin_line);
 	return (0);
 }
 
+int	check_t_c(t_map *map)
+{
+	int	i;
 
-void operation_line_space(char **line)
+	i = 0;
+	while (i < 4)
+	{
+		if (map->texture[i].path)
+			return (0);
+		i++;
+	}
+	if (map->ceiling.color != -1 || map->floor.color != -1)
+		return (0);
+	return (1);
+}
+
+int set_t_c(char *line, t_map *map)
+{
+	if (ft_strncmp(line, "NO", 2) == 0)
+		return (set_texture(line, map, 0));
+	else if (ft_strncmp(line, "SO", 2) == 0)
+		return (set_texture(line, map, 1));
+	else if (ft_strncmp(line, "EA", 2) == 0)
+		return (set_texture(line, map, 2));
+	else if (ft_strncmp(line, "WE", 2) == 0)
+		return (set_texture(line, map, 3));
+	else if (ft_strncmp(line, "F", 1) == 0)
+		return (set_color(line, &map->floor, map, 'F'));
+	else if (ft_strncmp(line, "C", 1) == 0)
+		return (set_color(line, &map->ceiling, map, 'C'));
+}
+
+void operation_line_end_space(char **line)
 {
     size_t len;
 
-    while (**line && (**line == ' ' || **line == '\t'))
-        (*line)++;
     len = strlen(*line);
     while (len > 0 && ((*line)[len - 1] == '\n' \
 	|| (*line)[len - 1] == '\t' || (*line)[len - 1] == ' '))
@@ -320,22 +354,46 @@ void operation_line_space(char **line)
     }
 }
 
+void operation_line_start_space(char **line)
+{
+    while (**line && (**line == ' ' || **line == '\t'))
+        (*line)++;
+}
+
+void operation_line_space_color(char **line)
+{
+    char	*src;
+	char	*dst;
+    
+	*src = *line;
+	*dst = *line;
+    while (*src)
+    {
+        if (*src != ' ' && *src != '\t' && *src != '\n')
+        {
+            *dst = *src;
+            dst++;
+        }
+        src++;
+    }
+    *dst = '\0';
+}
+
 int	set_texture(char *line, t_map *map, int direct)
 {
 	char	**temp;
 
-	temp = ft_split(line, ' ');
-	if (!temp || !temp[1] || temp[2])
-	{
-		free_double(temp);
-		return (1);
-	}
 	if (map->texture[direct].path)
+		return (1);
+	(*line) += 2;
+	operation_line_start_space(&line);
+	temp = ft_split(line, ' ');
+	if (!temp || !temp[0] || temp[1])
 	{
 		free_double(temp);
 		return (1);
 	}
-	map->texture[direct].path = ft_strdup(temp[1]);
+	map->texture[direct].path = ft_strdup(temp[0]);
 	free_double(temp);
 	if (!map->texture[direct].path)
 		return (1);
@@ -343,7 +401,22 @@ int	set_texture(char *line, t_map *map, int direct)
 }
 int	set_color(char *line, t_color *color, t_map *map, char chr)
 {
+	char	**temp;
 
+	if ((chr == 'F' && map->floor.color != -1) || \
+	(chr == 'C' && map->ceiling.color != -1))
+		return (1);
+	(*line) += 1;
+	operation_line_space_color(&line);
+	temp = ft_split(line, ',');
+	if (!temp || !temp[0] || !temp[1] || !temp[2] || temp[3])
+	{
+		free_double(temp);
+		return (1);
+	}
+	if (alloc_color(temp, color, map))
+		return (1);
+	return (0);
 }
 
 void	free_double(char **temp)
@@ -361,4 +434,150 @@ void	free_double(char **temp)
 	}
 	free(temp);
 	temp = NULL;
+}
+
+int	alloc_color(char **colors, t_color *color, t_map *map)
+{
+	int	r;
+	int	g;
+	int	b;
+
+	r = ft_atoi(colors[0]);
+	g = ft_atoi(colors[1]);
+	b = ft_atoi(colors[2]);
+	if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
+	{
+		free_double(colors);
+		return (1);
+	}
+	color->color = (r << 16) | (g << 8) | b;
+	free_double(colors);
+	return (0);
+}
+
+int	set_cub_map(char *line, int *size, char ***lines, t_map *map)
+{
+	char	**temp;
+
+	temp = malloc(sizeof(char *) * (*size + 2));
+	if (!temp)
+		return (1);
+	if (*lines)
+	{
+		ft_memcpy(temp, *lines, sizeof(char *) * (*size));
+		free(*lines);
+	}
+	*lines = temp;
+	(*lines)[*size] = ft_strdup(line);
+	if (!(*lines)[*size])
+		return (1);
+	(*lines)[*size + 1] = NULL;
+	(*size)++;
+	return (0);
+}
+
+int	operation_cub_map(int fd, char ***lines, t_map *map)
+{
+	if (parse_cub_map(*lines, map))
+	{
+		free_double(*lines);
+		return (1);
+	}
+	free_double(*lines);
+	return (0);
+}
+
+int	parse_cub_map(char **lines, t_map *map)
+{
+	if (!lines || !map)
+		return (1);
+	map->height = check_map_height(lines);
+	if (map->height < 3)
+		return (1);
+	map->width = check_map_width(lines);
+	if (map->width < 3)
+		return (1);
+	map->cub_map = create_cub_map(lines, map);
+	if (!map->cub_map)
+		return (1);
+	if (cub_map_validate(map))
+		return (1);
+}
+
+int	check_map_height(char **lines)
+{
+	int	count;
+	int	i;
+
+	i = 0;
+	count = 0;
+	while (lines[i])
+	{
+		if (ft_strlen(lines[i]) > 0)
+			count++;
+		i++;
+	}
+	return (count);
+}
+
+int	check_map_width(char **lines)
+{
+	int	max;
+	int	temp;
+	int	i;
+
+	max = 0;
+	i = 0;
+	while (lines[i])
+	{
+		temp = ft_strlen(lines[i]);
+		if (max <= temp)
+			max = temp;
+		i++;
+	}
+	return (max);
+}
+
+char	**create_cub_map(char **lines, t_map *map)
+{
+	char	**temp;
+	int	i;
+	int	j;
+
+	temp = (char **)malloc(sizeof(char *) * (map->height + 1));
+	if (!temp)
+		return (NULL);
+	i = 0;
+	while (i < map->height)
+	{
+		if (init_row(temp, i, map))
+			return (NULL);
+		j = 0;
+		while (lines[i][j] && j < map->width)
+		{
+			temp[i][j] = lines[i][j];
+			j++;
+		}
+		i++;
+	}
+	temp[map->height] = NULL;
+	return (temp);
+}
+
+int	init_row(char **temp, int i, t_map *map)
+{
+	temp[i] = (char *)malloc(sizeof(char) * (map->width + 1));
+	if (!temp[i])
+	{
+		free_double(temp);
+		return (1);
+	}
+	ft_memset(temp[i], ' ', map->width);
+	temp[i][map->width] = '\0';
+	return (0);
+}
+
+int	cub_map_validate(t_map *map)
+{
+	
 }
