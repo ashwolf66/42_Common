@@ -6,23 +6,24 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 16:54:11 by jacha             #+#    #+#             */
-/*   Updated: 2025/03/13 13:03:08 by jacha            ###   ########.fr       */
+/*   Updated: 2025/03/28 14:30:54 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	mlx_start(t_data *data)
+int	mlx_start(t_data *data, t_map *map)
 {
+	data->map = map;
 	data->mlx = mlx_init();
 	if (data->mlx == NULL)
-		exit(EXIT_FAILURE);
+		exit(1);
 	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "cub3D");
 	if (data->win == NULL)
 	{
 		mlx_destroy_display(data->mlx);
 		free(data->mlx);
-		exit(EXIT_FAILURE);
+		exit(1);
 	}
 	data->img.img = mlx_new_image(data->mlx, WIN_WIDTH, WIN_HEIGHT);
 	if (data->img.img == NULL)
@@ -30,15 +31,14 @@ void	mlx_start(t_data *data)
 		mlx_destroy_window(data->mlx, data->win);
 		mlx_destroy_display(data->mlx);
 		free(data->mlx);
-		exit(EXIT_FAILURE);
+		exit(1);
 	}
 	data->img.addr = mlx_get_data_addr(data->img.img,
 			&data->img.bit_per_pixel,
 			&data->img.line_length, &data->img.endian);
-	textur_init(data);
-	map_init(data);
-	key_init(data);
-	player_init(data);
+	if (texture_set(data))
+		exit(1);
+	return (0);
 }
 
 void	player_vector(t_player *player, char direction)

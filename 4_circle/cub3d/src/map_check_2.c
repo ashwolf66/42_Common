@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_handle_utils.c                                :+:      :+:    :+:   */
+/*   map_check_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 12:54:49 by jacha             #+#    #+#             */
-/*   Updated: 2025/03/28 14:30:58 by jacha            ###   ########.fr       */
+/*   Created: 2025/03/28 14:30:43 by jacha             #+#    #+#             */
+/*   Updated: 2025/03/28 14:30:44 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	length_check(t_data *data)
+int	player_check(t_map *map)
 {
-	if (data->map->cub_map[(int)data->player.pos_y]
-		[(int)data->player.pos_x] != '1')
+	int	i;
+	int	j;
+	int	count;
+
+	count = 0;
+	i = 0;
+	while (i < map->height)
 	{
-		return (1);
+		j = 0;
+		while (j < map->width)
+		{
+			if (map->cub_map[i][j] == 'N' || map->cub_map[i][j] == 'S' || \
+				map->cub_map[i][j] == 'E' || map->cub_map[i][j] == 'W')
+				count++;
+			j++;
+		}
+		i++;
 	}
-	return (0);
+	return (count);
 }

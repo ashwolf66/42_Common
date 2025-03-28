@@ -6,7 +6,7 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 16:53:59 by jacha             #+#    #+#             */
-/*   Updated: 2025/03/13 13:24:44 by jacha            ###   ########.fr       */
+/*   Updated: 2025/03/28 14:41:59 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@
 # define K_RIGHT 65363
 # define TILE_SIZE 64
 # define SPEED 0.5
-# define ANGLE_CHANGE (0.25 * (M_PI / 180.0))
 # define FOV 60.0
 # define NUM_RAYS WIN_WIDTH
 
@@ -120,16 +119,66 @@ typedef struct s_data
 int		refresh_map(t_data *data);
 void	fill_background(t_data *data);
 
+// argv_check
+int		argv_check(int ac, char *map_file, t_map *map, t_data *data);
+int		extension_check(char *map_file, char *cub);
+int		file_check(char *map_file, t_map *map, t_data *data);
+
+// init_map
+int		init_map(char *map_file, t_map *map, t_data *data);
+int		operation_map_file(char *map_file, t_map *map, t_data *data, int fd);
+int		read_file(int fd, int *size, char ***lines, t_map *map);
+int		operation_cub_map(int fd, char ***lines, t_map *map);
+int		operation_line(char *line, int *size, char ***lines, t_map *map);
+int		check_t_c(t_map *map);
+int		set_t_c(char *line, t_map *map);
+int		set_cub_map(char *line, int *size, char ***lines, t_map *map);
+void	operation_line_end_space(char **line);
+void	operation_line_start_space(char **line);
+void	operation_line_space_color(char **line);
+
+// map_check
+int		cub_map_validate(t_map *map);
+int		cub_map_validate_check(t_map *map);
+int		wall_check(int i, int j, t_map *map);
+int		cub_map_check(t_map *map);
+int		player_check(t_map *map);
+
+// parse_map
+int		parse_cub_map(char **lines, t_map *map);
+int		check_map_height(char **lines);
+int		check_map_width(char **lines);
+char	**create_cub_map(char **lines, t_map *map);
+int		init_row(char **temp, int i, t_map *map);
+
+// set_tex_col
+int		set_texture(char *line, t_map *map, int direct);
+int		set_color(char *line, t_color *color, t_map *map, char chr);
+int		alloc_color(char **colors, t_color *color, t_map *map);
+
+// free
+void	free_data(t_data *data);
+void	free_map(t_map *map);
+void	free_texture(t_map *map);
+void	free_cubmap(t_map *map);
+void	free_double(char **temp);
+
 // mlx_start
-void	mlx_start(t_data *data);
+int		mlx_start(t_data *data, t_map *map);
 void	player_vector(t_player *player, char direction);
 void	camera_plane(t_player *player, char direction);
 
-// init.c
-void	textur_init(t_data *data);
+// texture_set
+int		texture_set(t_data *data);
+int		single_texture_set(t_data *data, int i);
+
+// init
 void	key_init(t_data *data);
 void	player_init(t_data *data);
-void	map_init(t_data *data);
+void	player_vector(t_player *player, char dir);
+void	camere_plane(t_player *player, char dir);
+void	init_texture(t_map *map);
+void	init_map_av(t_map *map);
 
 // mlx_event
 void	event_handle(t_data *data);

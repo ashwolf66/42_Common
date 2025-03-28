@@ -6,30 +6,11 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 12:54:25 by jacha             #+#    #+#             */
-/*   Updated: 2025/03/13 12:55:37 by jacha            ###   ########.fr       */
+/*   Updated: 2025/03/28 14:30:27 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	textur_init(t_data *data)
-{
-	int	i;
-
-	i = 0;
-	while (i < 4)
-	{
-		data->map->texture[i].path = NULL;
-		data->map->texture[i].img.img = NULL;
-		data->map->texture[i].img.addr = NULL;
-		data->map->texture[i].img.bit_per_pixel = 0;
-		data->map->texture[i].img.line_length = 0;
-		data->map->texture[i].img.endian = 0;
-		data->map->texture[i].img.width = 0;
-		data->map->texture[i].img.height = 0;
-		i++;
-	}
-}
 
 void	key_init(t_data *data)
 {
@@ -67,18 +48,30 @@ void	player_init(t_data *data)
 	}
 }
 
-void	map_init(t_data *data)
+void	init_texture(t_map *map)
 {
-	static char *map_data[] = {
-		"11111111",
-		"10000001",
-		"10N00101",
-		"10000001",
-		"11111111"};
+	int	i;
 
-	data->map->cub_map = map_data;
-	data->map->width = 8;
-	data->map->height = 5;
-	data->map->floor = 0xFFFFFF;
-	data->map->ceiling = 0x00A0A0;
+	i = 0;
+	while (i < 4)
+	{
+		map->texture[i].path = NULL;
+		map->texture[i].img.img = NULL;
+		map->texture[i].img.addr = NULL;
+		map->texture[i].img.bit_per_pixel = 0;
+		map->texture[i].img.line_length = 0;
+		map->texture[i].img.endian = 0;
+		map->texture[i].img.width = 0;
+		map->texture[i].img.height = 0;
+		i++;
+	}
+}
+
+void	init_map_av(t_map *map)
+{
+	map->floor.color = -1;
+	map->ceiling.color = -1;
+	map->height = -1;
+	map->width = -1;
+	map->cub_map = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 12:44:04 by jacha             #+#    #+#             */
-/*   Updated: 2024/04/01 15:21:25 by jacha            ###   ########.fr       */
+/*   Updated: 2025/03/28 14:43:36 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	*join(char const *s1, char const *s2)
 		return (ft_strdup(s2));
 	if (!s2)
 	{
-		// free ((char *)s1);
+		free ((char *)s1);
 		return (ft_strdup(s1));
 	}
 	s1_len = ft_strlen((const char *)s1);

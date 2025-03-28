@@ -6,7 +6,7 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 12:54:46 by jacha             #+#    #+#             */
-/*   Updated: 2025/03/13 13:03:41 by jacha            ###   ########.fr       */
+/*   Updated: 2025/03/28 14:30:56 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,9 @@ void	move_funtion(t_data *data)
 	if (data->player.a == 1 || data->player.d == 1)
 		a_d_move(data);
 	if (data->player.left == 1)
-		data->player.angle = angle_op(data->player.angle - ANGLE_CHANGE);
+		data->player.angle = angle_op(data->player.angle - \
+			(0.25 * (M_PI / 180.0)));
 	if (data->player.right == 1)
-		data->player.angle = angle_op(data->player.angle + ANGLE_CHANGE);
+		data->player.angle = angle_op(data->player.angle + \
+			(0.25 * (M_PI / 180.0)));
 }
