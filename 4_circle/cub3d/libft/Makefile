@@ -47,8 +47,8 @@ SRCS =	ft_atodb.c \
 		ft_lstclear.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
-		get_net_line_utiles.c \
-		get_net_line.c
+		get_next_line_utils.c \
+		get_next_line.c
 OBJS = ${SRCS:.c=.o}
 TARGET = libft.a
 INCLUDE = .
@@ -63,7 +63,7 @@ all : ${TARGET}
 ${TARGET} : ${OBJS}
 	${AR} ${TARGET} ${OBJS}
 %.o : %.c
-	${CC} ${CFLAGS} -I . -c $^ -o $@
+	${CC} ${CFLAGS} -I . -c $^ -o $@ -g
 
 clean :
 	rm -f ${OBJS}

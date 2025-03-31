@@ -16,7 +16,7 @@ void	operation_line_end_space(char **line)
 {
 	size_t	len;
 
-	len = strlen(*line);
+	len = ft_strlen(*line);
 	while (len > 0 && ((*line)[len - 1] == '\n' || \
 				(*line)[len - 1] == '\t' || (*line)[len - 1] == ' '))
 	{
@@ -36,8 +36,8 @@ void	operation_line_space_color(char **line)
 	char	*src;
 	char	*dst;
 
-	*src = *line;
-	*dst = *line;
+	src = *line;
+	dst = *line;
 	while (*src)
 	{
 		if (*src != ' ' && *src != '\t' && *src != '\n')

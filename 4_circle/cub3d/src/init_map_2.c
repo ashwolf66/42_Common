@@ -6,7 +6,7 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 14:30:27 by jacha             #+#    #+#             */
-/*   Updated: 2025/03/28 14:32:00 by jacha            ###   ########.fr       */
+/*   Updated: 2025/03/31 16:54:26 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,14 @@ int	operation_line(char *line, int *size, char ***lines, t_map *map)
 		if (check_t_c(map))
 		{
 			if (set_t_c(line, map))
+			{
+				free(origin_line);
 				return (1);
+			}
 		}
 		else
 		{
-			if (set_cub_map(origin_line, size, lines, map))
+			if (set_cub_map(origin_line, size, lines))
 			{
 				free(origin_line);
 				return (1);
@@ -46,13 +49,13 @@ int	check_t_c(t_map *map)
 	i = 0;
 	while (i < 4)
 	{
-		if (map->texture[i].path)
-			return (0);
+		if (!map->texture[i].path)
+			return (1);
 		i++;
 	}
-	if (map->ceiling.color != -1 || map->floor.color != -1)
-		return (0);
-	return (1);
+	if (map->ceiling.color == -1 || map->floor.color == -1)
+		return (1);
+	return (0);
 }
 
 int	set_t_c(char *line, t_map *map)
@@ -69,9 +72,10 @@ int	set_t_c(char *line, t_map *map)
 		return (set_color(line, &map->floor, map, 'F'));
 	else if (ft_strncmp(line, "C", 1) == 0)
 		return (set_color(line, &map->ceiling, map, 'C'));
+	return (0);
 }
 
-int	set_cub_map(char *line, int *size, char ***lines, t_map *map)
+int	set_cub_map(char *line, int *size, char ***lines)
 {
 	char	**temp;
 

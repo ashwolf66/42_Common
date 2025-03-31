@@ -26,8 +26,8 @@ void	calculate_wall(t_data *data, t_ray *ray)
 	}
 	else
 	{
-		ray->wall_dist = (ray->map_y - py + (1 - ray->step_y)
-				/ 2.0) / ray->ray_dir_y;
+		ray->wall_dist = (ray->map_y - py + (1 - ray->step_y) / 2.0)
+			/ ray->ray_dir_y;
 	}
 }
 
@@ -44,11 +44,11 @@ void	wall_height(t_ray *ray)
 
 void	draw_wall(t_data *data, t_ray *ray, int x)
 {
-	double	wall;
-	int		t_num;
-	int		t_x;
-	int		y;
-	int		texture;
+	double			wall;
+	int				t_num;
+	int				t_x;
+	int				y;
+	unsigned int	color;
 
 	t_num = get_t_num(ray);
 	if (ray->side == 0)
@@ -63,10 +63,10 @@ void	draw_wall(t_data *data, t_ray *ray, int x)
 	y = ray->draw_start;
 	while (y < ray->draw_end)
 	{
-		texture = get_texture(&data->map->texture[t_num].img,
+		color = get_texture(&data->map->texture[t_num].img,
 				t_x, ((y - WIN_HEIGHT / 2 + ray->height / 2)
 					* data->map->texture[t_num].img.height) / ray->height);
-		put_pixel(&data->img, x, y, texture);
+		put_pixel(&data->img, x, y, color);
 		y++;
 	}
 }

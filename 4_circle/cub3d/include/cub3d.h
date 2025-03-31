@@ -31,9 +31,8 @@
 # define K_LEFT 65361
 # define K_RIGHT 65363
 # define TILE_SIZE 64
-# define SPEED 0.5
+# define SPEED 0.05
 # define FOV 60.0
-# define NUM_RAYS WIN_WIDTH
 
 typedef struct s_img
 {
@@ -75,7 +74,6 @@ typedef struct s_player
 	double	dir_y;
 	double	pla_x;
 	double	pla_y;
-	double	angle;
 	int		w;
 	int		s;
 	int		a;
@@ -120,19 +118,19 @@ int		refresh_map(t_data *data);
 void	fill_background(t_data *data);
 
 // argv_check
-int		argv_check(int ac, char *map_file, t_map *map, t_data *data);
+int		argv_check(int ac, char *map_file);
 int		extension_check(char *map_file, char *cub);
-int		file_check(char *map_file, t_map *map, t_data *data);
+int		file_check(char *map_file);
 
 // init_map
-int		init_map(char *map_file, t_map *map, t_data *data);
-int		operation_map_file(char *map_file, t_map *map, t_data *data, int fd);
+t_map	*init_map(char *map_file);
+int		operation_map_file(t_map *map, int fd);
 int		read_file(int fd, int *size, char ***lines, t_map *map);
-int		operation_cub_map(int fd, char ***lines, t_map *map);
+int		operation_cub_map(char ***lines, t_map *map);
 int		operation_line(char *line, int *size, char ***lines, t_map *map);
 int		check_t_c(t_map *map);
 int		set_t_c(char *line, t_map *map);
-int		set_cub_map(char *line, int *size, char ***lines, t_map *map);
+int		set_cub_map(char *line, int *size, char ***lines);
 void	operation_line_end_space(char **line);
 void	operation_line_start_space(char **line);
 void	operation_line_space_color(char **line);
@@ -165,8 +163,6 @@ void	free_double(char **temp);
 
 // mlx_start
 int		mlx_start(t_data *data, t_map *map);
-void	player_vector(t_player *player, char direction);
-void	camera_plane(t_player *player, char direction);
 
 // texture_set
 int		texture_set(t_data *data);
@@ -176,7 +172,7 @@ int		single_texture_set(t_data *data, int i);
 void	key_init(t_data *data);
 void	player_init(t_data *data);
 void	player_vector(t_player *player, char dir);
-void	camere_plane(t_player *player, char dir);
+void	camera_plane(t_player *player, char dir);
 void	init_texture(t_map *map);
 void	init_map_av(t_map *map);
 
@@ -187,7 +183,7 @@ int		key_press(int keysym, t_data *data);
 int		key_release(int keysym, t_data *data);
 
 // move_handle
-double	angle_op(double angle);
+void	angle_op(t_data *data, double num);
 void	w_s_move(t_data *data);
 void	a_d_move(t_data *data);
 void	move_funtion(t_data *data);
@@ -208,7 +204,7 @@ void	draw_wall(t_data *data, t_ray *ray, int x);
 int		get_texture(t_img *texture, int x, int y);
 
 // ray_casting_utils_2
-void	put_pixel(t_img *img, int x, int y, int texture);
+void	put_pixel(t_img *img, int x, int y, unsigned int color);
 int		get_t_num(t_ray *ray);
 
 #endif

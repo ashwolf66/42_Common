@@ -1,6 +1,0 @@
-PARTNER
-- Map Valid Check
-- Floor & Ceiling
-- Player Start Angle
-- Player Start Position
-- Texture

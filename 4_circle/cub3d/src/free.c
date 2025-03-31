@@ -6,7 +6,7 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 14:29:54 by jacha             #+#    #+#             */
-/*   Updated: 2025/03/28 14:30:24 by jacha            ###   ########.fr       */
+/*   Updated: 2025/03/31 16:51:19 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,41 @@
 
 void	free_data(t_data *data)
 {
+	int	i;
+
 	if (!data)
 		return ;
+	if (data->map)
+	{
+		i = 0;
+		while (i < 4)
+		{
+			if (data->map->texture[i].path)
+				free(data->map->texture[i].path);
+			if (data->map->texture[i].img.img)
+				mlx_destroy_image(data->mlx, data->map->texture[i].img.img);
+			i++;
+		}
+		if (data->map->cub_map)
+		{
+			i = 0;
+			while (i < 4)
+			{
+				free(data->map->cub_map[i]);
+				i++;
+			}
+			free(data->map->cub_map);
+		}
+		free(data->map);
+	}
+	if (data->img.img)
+		mlx_destroy_image(data->mlx, data->img.img);
+	if (data->win)
+		mlx_destroy_window(data->mlx, data->win);
 	if (data->mlx)
 	{
-		if (data->mlx)
-			mlx_destroy_window(data->mlx, data->win);
-		if (data->img.img)
-			mlx_destroy_image(data->mlx, data->img.img);
+		mlx_destroy_display(data->mlx);
+		free(data->mlx);
 	}
 	free(data);
 }

@@ -6,7 +6,7 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 12:54:52 by jacha             #+#    #+#             */
-/*   Updated: 2025/03/28 14:31:05 by jacha            ###   ########.fr       */
+/*   Updated: 2025/03/31 16:52:21 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	cast_rays(t_data *data)
 	t_ray	ray;
 
 	x = 0;
-	while (x < NUM_RAYS)
+	while (x < WIN_WIDTH)
 	{
 		init_ray(data, &ray, x);
 		calculate(data, &ray);
@@ -35,7 +35,7 @@ void	init_ray(t_data *data, t_ray *ray, int x)
 	double	dir_x;
 	double	dir_y;
 
-	ray->camera = 2.0 * (double)x / NUM_RAYS - 1.0;
+	ray->camera = 2.0 * (double)x / WIN_WIDTH - 1.0;
 	ray->ray_dir_x = data->player.dir_x + data->player.pla_x * ray->camera;
 	ray->ray_dir_y = data->player.dir_y + data->player.pla_y * ray->camera;
 	ray->map_x = (int)data->player.pos_x;
@@ -82,13 +82,13 @@ void	dda_algorithm(t_data *data, t_ray *ray)
 	{
 		if (ray->side_dist_x < ray->side_dist_y)
 		{
-			ray->side_dist_x += fabs(1 / ray->delta_x);
+			ray->side_dist_x += ray->delta_x;
 			ray->map_x += ray->step_x;
 			ray->side = 0;
 		}
 		else
 		{
-			ray->side_dist_y += fabs(1 / ray->delta_y);
+			ray->side_dist_y += ray->delta_y;
 			ray->map_y += ray->step_y;
 			ray->side = 1;
 		}

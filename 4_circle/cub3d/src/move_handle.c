@@ -12,34 +12,43 @@
 
 #include "cub3d.h"
 
-double	angle_op(double angle)
+void	angle_op(t_data *data, double num)
 {
-	angle = fmod(angle, 2.0 * M_PI);
-	if (angle < 0.0)
-		angle += 2.0 * M_PI;
-	return (angle);
+	double	temp_dir;
+	double	temp_pla;
+
+	temp_dir = data->player.dir_x;
+	data->player.dir_x = data->player.dir_x * cos(SPEED * num) - \
+		data->player.dir_y * sin(SPEED * num);
+	data->player.dir_y = temp_dir * sin(SPEED * num) + \
+		data->player.dir_y * cos(SPEED * num);
+	temp_pla = data->player.pla_x;
+	data->player.pla_x = data->player.pla_x * cos(SPEED * num) - \
+		data->player.pla_y * sin(SPEED * num);
+	data->player.pla_y = temp_pla * sin(SPEED * num) + \
+		data->player.pla_y * cos(SPEED * num);
 }
 
 void	w_s_move(t_data *data)
 {
 	if (data->player.w == 1)
 	{
-		data->player.pos_x += cos(data->player.angle) * SPEED;
-		data->player.pos_y += sin(data->player.angle) * SPEED;
+		data->player.pos_x += data->player.dir_x * SPEED;
+		data->player.pos_y += data->player.dir_y * SPEED;
 		if (length_check(data))
 		{
-			data->player.pos_x -= cos(data->player.angle) * SPEED;
-			data->player.pos_y -= sin(data->player.angle) * SPEED;
+			data->player.pos_x -= data->player.dir_x * SPEED;
+			data->player.pos_y -= data->player.dir_y * SPEED;
 		}
 	}
 	if (data->player.s == 1)
 	{
-		data->player.pos_x -= cos(data->player.angle) * SPEED;
-		data->player.pos_y -= sin(data->player.angle) * SPEED;
+		data->player.pos_x -= data->player.dir_x * SPEED;
+		data->player.pos_y -= data->player.dir_y * SPEED;
 		if (length_check(data))
 		{
-			data->player.pos_x += cos(data->player.angle) * SPEED;
-			data->player.pos_y += sin(data->player.angle) * SPEED;
+			data->player.pos_x += data->player.dir_x * SPEED;
+			data->player.pos_y += data->player.dir_y * SPEED;
 		}
 	}
 }
@@ -48,22 +57,22 @@ void	a_d_move(t_data *data)
 {
 	if (data->player.a == 1)
 	{
-		data->player.pos_x -= cos(data->player.angle + M_PI / 2.0) * SPEED;
-		data->player.pos_y -= sin(data->player.angle + M_PI / 2.0) * SPEED;
+		data->player.pos_x += data->player.dir_y * SPEED;
+		data->player.pos_y -= data->player.dir_x * SPEED;
 		if (length_check(data))
 		{
-			data->player.pos_x += cos(data->player.angle + M_PI / 2.0) * SPEED;
-			data->player.pos_y += sin(data->player.angle + M_PI / 2.0) * SPEED;
+			data->player.pos_x -= data->player.dir_y * SPEED;
+			data->player.pos_y += data->player.dir_x * SPEED;
 		}
 	}
 	if (data->player.d == 1)
 	{
-		data->player.pos_x += cos(data->player.angle + M_PI / 2.0) * SPEED;
-		data->player.pos_y += sin(data->player.angle + M_PI / 2.0) * SPEED;
+		data->player.pos_x -= data->player.dir_y * SPEED;
+		data->player.pos_y += data->player.dir_x * SPEED;
 		if (length_check(data))
 		{
-			data->player.pos_x -= cos(data->player.angle + M_PI / 2.0) * SPEED;
-			data->player.pos_y -= sin(data->player.angle + M_PI / 2.0) * SPEED;
+			data->player.pos_x += data->player.dir_y * SPEED;
+			data->player.pos_y -= data->player.dir_x * SPEED;
 		}
 	}
 }
@@ -75,9 +84,7 @@ void	move_funtion(t_data *data)
 	if (data->player.a == 1 || data->player.d == 1)
 		a_d_move(data);
 	if (data->player.left == 1)
-		data->player.angle = angle_op(data->player.angle - \
-			(0.25 * (M_PI / 180.0)));
+		angle_op(data, -1.0);
 	if (data->player.right == 1)
-		data->player.angle = angle_op(data->player.angle + \
-			(0.25 * (M_PI / 180.0)));
+		angle_op(data, 1.0);
 }

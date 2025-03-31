@@ -12,21 +12,13 @@
 
 #include "cub3d.h"
 
-int	argv_check(int ac, char *map_file, t_map *map, t_data *data)
+int	argv_check(int ac, char *map_file)
 {
 	if (ac != 2)
-	{
-		free_map(map);
-		free_data(data);
 		return (1);
-	}
 	if (extension_check(map_file, ".cub"))
-	{
-		free_map(map);
-		free_data(data);
 		return (1);
-	}
-	if (file_check(map_file, map, data))
+	if (file_check(map_file))
 		return (1);
 	return (0);
 }
@@ -38,31 +30,20 @@ int	extension_check(char *map_file, char *cub)
 
 	file_len = ft_strlen(map_file);
 	ext_len = ft_strlen(cub);
-	while (file_len > 0)
-	{
-		if (ext_len == 0)
-			break ;
-		if (map_file[file_len - 1] != cub[ext_len - 1])
-			return (1);
-		ext_len--;
-		file_len--;
-	}
-	if (file_len < 1)
+	if (file_len <= ext_len)
+		return (1);
+	if (ft_strncmp(map_file + file_len - ext_len, cub, ext_len) != 0)
 		return (1);
 	return (0);
 }
 
-int	file_check(char *map_file, t_map *map, t_data *data)
+int	file_check(char *map_file)
 {
 	int	fd;
 
 	fd = open(map_file, O_RDONLY);
 	if (fd == -1)
-	{
-		free_map(map);
-		free_data(data);
 		return (1);
-	}
 	close(fd);
 	return (0);
 }

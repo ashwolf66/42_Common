@@ -72,9 +72,9 @@ int	cub_map_check(t_map *map)
 		j = 0;
 		while (j < map->width)
 		{
-			if (map->cub_map[i][j] != '0' || map->cub_map[i][j] != '1' || \
-				map->cub_map[i][j] != 'N' || map->cub_map[i][j] != 'S' || \
-				map->cub_map[i][j] != 'E' || map->cub_map[i][j] != 'W' || \
+			if (map->cub_map[i][j] != '0' && map->cub_map[i][j] != '1' && \
+				map->cub_map[i][j] != 'N' && map->cub_map[i][j] != 'S' && \
+				map->cub_map[i][j] != 'E' && map->cub_map[i][j] != 'W' && \
 				map->cub_map[i][j] != ' ')
 				return (1);
 			j++;

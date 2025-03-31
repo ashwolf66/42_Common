@@ -6,7 +6,7 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 14:56:49 by jacha             #+#    #+#             */
-/*   Updated: 2025/03/28 14:32:32 by jacha            ###   ########.fr       */
+/*   Updated: 2025/03/28 15:04:49 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,31 @@ int	main(int ac, char **av)
 	t_map	*map;
 	t_data	*data;
 
-	data = NULL;
-	if (argv_check(ac, av[1], map, data))
+	data = (t_data *)malloc(sizeof(t_data));
+	map = NULL;
+	if (argv_check(ac, av[1]))
+	{
+		free(data);
 		return (1);
-	if (init_map(av[1], map, data))
+	}
+	map = init_map(av[1]);
+	if (!map)
+	{
+		free(data);
 		return (1);
+	}
 	if (mlx_start(data, map))
 		return (1);
 	key_init(data);
 	player_init(data);
-	mlx_loop_hook((*data).mlx, refresh_map, data);
+	event_handle(data);
+	mlx_loop_hook(data->mlx, refresh_map, data);
 	mlx_loop((*data).mlx);
 	return (0);
 }
 
 int	refresh_map(t_data *data)
 {
-	event_handle(&data);
-	mlx_destroy_image(data->mlx, data->img.img);
-	data->img.img = mlx_new_image(data->mlx, WIN_WIDTH, WIN_HEIGHT);
-	data->img.addr = mlx_get_data_addr(data->img.img,
-			&data->img.bit_per_pixel,
-			&data->img.line_length, &data->img.endian);
 	move_funtion(data);
 	fill_background(data);
 	cast_rays(data);

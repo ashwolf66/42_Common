@@ -36,7 +36,7 @@ int	ft_atoi(const char *n)
 		num = num * 10 + (n[i] - '0');
 		i++;
 	}
-	if (n[i] == '\0')
+	if (n[i] != '\0')
 		return (-1);
 	return (num * sign);
 }

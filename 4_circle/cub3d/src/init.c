@@ -40,9 +40,10 @@ void	player_init(t_data *data)
 			{
 				data->player.pos_x = (double)i + 0.5;
 				data->player.pos_y = (double)j + 0.5;
-				player_vextor(&data->player, data->map->cub_map[i][j]);
-				camere_plane(&data->player, data->map->cub_map[i][j]);
+				player_vector(&data->player, data->map->cub_map[i][j]);
+				camera_plane(&data->player, data->map->cub_map[i][j]);
 			}
+			j++;
 		}
 		i++;
 	}

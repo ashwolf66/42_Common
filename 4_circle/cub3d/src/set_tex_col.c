@@ -18,7 +18,7 @@ int	set_texture(char *line, t_map *map, int direct)
 
 	if (map->texture[direct].path)
 		return (1);
-	(*line) += 2;
+	line += 2;
 	operation_line_start_space(&line);
 	temp = ft_split(line, ' ');
 	if (!temp || !temp[0] || temp[1])
@@ -40,7 +40,7 @@ int	set_color(char *line, t_color *color, t_map *map, char chr)
 	if ((chr == 'F' && map->floor.color != -1) || \
 	(chr == 'C' && map->ceiling.color != -1))
 		return (1);
-	(*line) += 1;
+	line += 1;
 	operation_line_space_color(&line);
 	temp = ft_split(line, ',');
 	if (!temp || !temp[0] || !temp[1] || !temp[2] || temp[3])
@@ -59,6 +59,7 @@ int	alloc_color(char **colors, t_color *color, t_map *map)
 	int	g;
 	int	b;
 
+	(void) map;
 	r = ft_atoi(colors[0]);
 	g = ft_atoi(colors[1]);
 	b = ft_atoi(colors[2]);
