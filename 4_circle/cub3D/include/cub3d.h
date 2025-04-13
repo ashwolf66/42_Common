@@ -6,7 +6,7 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 16:53:59 by jacha             #+#    #+#             */
-/*   Updated: 2025/04/09 18:46:13 by jacha            ###   ########.fr       */
+/*   Updated: 2025/04/13 11:34:49 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@
 # define K_LEFT 65361
 # define K_RIGHT 65363
 # define TILE_SIZE 64
-# define SPEED 0.015
-# define ANG_SPEED 0.0075
+# define SPEED 0.005
+# define ANG_SPEED 0.0035
 # define FOV 60.0
 
 typedef struct s_img
