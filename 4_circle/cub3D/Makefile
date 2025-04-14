@@ -27,8 +27,6 @@ SRCS =	src/main.c \
 		src/ray_casting_utils_2.c \
 		src/set_tex_col.c \
 		src/texture_set.c
-# SRCS = src/test2.c
-# SRCS = src/test_img_pixel.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(LIBFT_DIR)/libft.a $(MLX_DIR)/libmlx.a $(NAME)
@@ -43,7 +41,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(INCLUDES) -o $(NAME) $(OBJS) $(LIBS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ -g
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)

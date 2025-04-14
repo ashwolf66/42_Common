@@ -63,7 +63,7 @@ all : ${TARGET}
 ${TARGET} : ${OBJS}
 	${AR} ${TARGET} ${OBJS}
 %.o : %.c
-	${CC} ${CFLAGS} -I . -c $^ -o $@ -g
+	${CC} ${CFLAGS} -I . -c $^ -o $@
 
 clean :
 	rm -f ${OBJS}
