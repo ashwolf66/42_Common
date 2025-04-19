@@ -1,6 +1,8 @@
 #ifndef PHONEBOOK_H
 # define PHONEBOOK_H
 
+#include "MyAwesomePhoneBook.hpp"
+
 class PhoneBook
 {
 private:
@@ -8,8 +10,8 @@ private:
 	int i;
 
 public:
-	PhoneBook(void) {}
-	~PhoneBook(void) {}
+	PhoneBook(void);
+	~PhoneBook(void);
 	void	add(void);
 	void	search(void);
 };

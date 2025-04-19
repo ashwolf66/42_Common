@@ -1,6 +1,8 @@
 #ifndef CONTACT_H
 # define CONTACT_H
 
+#include "MyAwesomePhoneBook.hpp"
+
 class Contact
 {
 private:
@@ -11,8 +13,8 @@ private:
 	std::string Secret;
 
 public:
-	Contact(void) {}
-	~Contact(void) {}
+	Contact(void);
+	~Contact(void);
 	std::string	GetFirst(void);
 	std::string	GetLast(void);
 	std::string	GetNick(void);

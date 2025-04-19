@@ -2,6 +2,7 @@
 # define MYAWESOMEPHONEBOOK_H
 
 #include <iostream>
+#include <string>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
