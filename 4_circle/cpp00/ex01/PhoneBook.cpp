@@ -7,7 +7,7 @@ PhoneBook ::PhoneBook(void)
 
 PhoneBook ::~PhoneBook(void)
 {
-	std::cout << "END" << std::endl;
+	std::cout << "END!!" << std::endl;
 }
 
 void PhoneBook::add(void)
@@ -47,7 +47,7 @@ void PhoneBook::add(void)
 	str = "\0";
 	while (str == "\0")
 	{
-		std::cout << "First Secret(Can't Empty) : ";
+		std::cout << "Secret(Can't Empty) : ";
 		if (std::getline(std::cin, str) && str != "\0")
 			this->contact[this->i % 8].SetSecret(str);
 	}
@@ -58,6 +58,11 @@ void	PhoneBook::search(void)
 {
 	std::string	str;
 
+	if (this->PhoneList(this->contact) == 0)
+	{
+		std::cout << "Is Empty!!" << std::endl;
+		return ;
+	}
 	std::cout << "> Index(Exit : 0) : ";
 	std::getline(std::cin, str);
 	while (1)
@@ -73,40 +78,44 @@ void	PhoneBook::search(void)
 		}
 		else if (this->contact[str[0] - 1 - '0'].GetFirst().size() != 0)
 			break ;
+		else if (this->contact[str[0] - 1 - '0'].GetFirst().size() == 0)
+		{
+			std::cout << "Is None!!" << std::endl;
+			return ;
+		}
 	}
 	this->PrintIndex(this->contact[str[0] - 1 - '0']);
 }
 
 int		PhoneBook::PhoneList(Contact contact[8])
 {
-	char		chr;
 	int			i;
 	std::string	str;
 
-	chr = '1';
 	i = 0;
 	std::cout << "|----------|----------|----------|----------|" << std::endl;
 	std::cout << "|     Index|     Fisrt|      Last|      Nick|" << std::endl;
 	std::cout << "|----------|----------|----------|----------|" << std::endl;
-	while (chr <= '8')
+	while (i < 8)
 	{
-		if (contact[chr - 1 - '0'].GetFirst().size())
+		if (contact[i].GetFirst().size() != 0)
 		{
-			str = chr;
+			str = std::to_string(i + 1);
 			str = ParseLen(str, 10);
 			std::cout << "|" << PrintListIndex(10 - str.size()) << str;
-			str = ParseLen(contact[chr - 1 - '0'].GetFirst(), 10);
+			str = ParseLen(contact[i].GetFirst(), 10);
 			std::cout << "|" << PrintListIndex(10 - str.size()) << str;
-			str = ParseLen(contact[chr - 1 - '0'].GetLast(), 10);
+			str = ParseLen(contact[i].GetLast(), 10);
 			std::cout << "|" << PrintListIndex(10 - str.size()) << str;
-			str = ParseLen(contact[chr - 1 - '0'].GetNick(), 10);
+			str = ParseLen(contact[i].GetNick(), 10);
 			std::cout << "|" << PrintListIndex(10 - str.size()) << str;
 			std::cout << "|" << std::endl;
+			i++;
 		}
-		i++;
-		chr++;
+		else
+			break ;
 	}
-	std::cout << std::endl;
+	std::cout << "|----------|----------|----------|----------|" << std::endl;
 	return (i);
 }
 
@@ -127,7 +136,10 @@ std::string	PhoneBook::PrintListIndex(int len)
 
 	i = 0;
 	while (i < len)
+	{
 		str.append(" ");
+		i++;
+	}
 	return (str);
 }
 
