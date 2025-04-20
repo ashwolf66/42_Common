@@ -2,6 +2,7 @@
 # define PHONEBOOK_H
 
 #include "MyAwesomePhoneBook.hpp"
+#include "Contact.hpp"
 
 class PhoneBook
 {
@@ -12,8 +13,12 @@ private:
 public:
 	PhoneBook(void);
 	~PhoneBook(void);
-	void	add(void);
-	void	search(void);
+	void		add(void);
+	void		search(void);
+	void		PrintIndex(Contact contact);
+	int			PhoneList(Contact contact[8]);
+	std::string	ParseLen(std::string str, int len);
+	std::string	PrintListIndex(int len);
 };
 
 #endif
