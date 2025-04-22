@@ -6,7 +6,7 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 14:31:10 by jacha             #+#    #+#             */
-/*   Updated: 2025/03/28 14:33:17 by jacha            ###   ########.fr       */
+/*   Updated: 2025/04/22 13:43:50 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	set_color(char *line, t_color *color, t_map *map, char chr)
 	char	**temp;
 
 	if ((chr == 'F' && map->floor.color != -1) || \
-	(chr == 'C' && map->ceiling.color != -1))
+(chr == 'C' && map->ceiling.color != -1))
 		return (1);
 	line += 1;
 	operation_line_space_color(&line);

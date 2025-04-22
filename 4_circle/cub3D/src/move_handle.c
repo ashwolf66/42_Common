@@ -6,7 +6,7 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 12:54:46 by jacha             #+#    #+#             */
-/*   Updated: 2025/03/28 14:30:56 by jacha            ###   ########.fr       */
+/*   Updated: 2025/04/22 13:45:09 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ void	angle_op(t_data *data, double num)
 
 	temp_dir = data->player.dir_x;
 	data->player.dir_x = data->player.dir_x * cos(ANG_SPEED * num) - \
-		data->player.dir_y * sin(ANG_SPEED * num);
+data->player.dir_y * sin(ANG_SPEED * num);
 	data->player.dir_y = temp_dir * sin(ANG_SPEED * num) + \
-		data->player.dir_y * cos(ANG_SPEED * num);
+data->player.dir_y * cos(ANG_SPEED * num);
 	temp_pla = data->player.pla_x;
 	data->player.pla_x = data->player.pla_x * cos(ANG_SPEED * num) - \
-		data->player.pla_y * sin(ANG_SPEED * num);
+data->player.pla_y * sin(ANG_SPEED * num);
 	data->player.pla_y = temp_pla * sin(ANG_SPEED * num) + \
-		data->player.pla_y * cos(ANG_SPEED * num);
+data->player.pla_y * cos(ANG_SPEED * num);
 }
 
 void	w_s_move(t_data *data)
