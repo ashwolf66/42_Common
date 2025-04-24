@@ -6,12 +6,12 @@
 #    By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/23 17:00:27 by jacha             #+#    #+#              #
-#    Updated: 2025/04/23 17:00:29 by jacha            ###   ########.fr        #
+#    Updated: 2025/04/24 09:29:37 by jacha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = ./megaphone.cpp
-CC = g++
+CC = c++
 NAME = megaphone
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 OBJS = $(SRCS:.cpp=.o)

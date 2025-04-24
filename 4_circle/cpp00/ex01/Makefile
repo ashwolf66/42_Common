@@ -6,14 +6,14 @@
 #    By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/23 17:00:05 by jacha             #+#    #+#              #
-#    Updated: 2025/04/23 17:00:08 by jacha            ###   ########.fr        #
+#    Updated: 2025/04/24 09:29:46 by jacha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=	./MyAwesomePhoneBook.cpp \
 			./Contact.cpp \
 			./PhoneBook.cpp
-CC		= g++
+CC		= c++
 NAME	= PhoneBook
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 OBJS	= $(SRCS:.cpp=.o)
