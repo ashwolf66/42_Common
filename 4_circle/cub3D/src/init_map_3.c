@@ -6,7 +6,7 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 14:30:32 by jacha             #+#    #+#             */
-/*   Updated: 2025/04/22 13:44:14 by jacha            ###   ########.fr       */
+/*   Updated: 2025/04/26 13:21:09 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	operation_line_end_space(char **line)
 
 	len = ft_strlen(*line);
 	while (len > 0 && ((*line)[len - 1] == '\n' || \
-(*line)[len - 1] == '\t' || (*line)[len - 1] == ' ' || \
-(*line)[len - 1] == '\0'))
+		(*line)[len - 1] == '\t' || (*line)[len - 1] == ' ' || \
+		(*line)[len - 1] == '\0'))
 	{
 		(*line)[len - 1] = '\0';
 		len--;

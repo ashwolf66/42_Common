@@ -6,7 +6,7 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 14:31:12 by jacha             #+#    #+#             */
-/*   Updated: 2025/04/22 13:42:39 by jacha            ###   ########.fr       */
+/*   Updated: 2025/04/26 13:21:49 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	single_texture_set(t_data *data, int i)
 		return (1);
 	}
 	data->map->texture[i].img.addr = mlx_get_data_addr \
-(data->map->texture[i].img.img,
+		(data->map->texture[i].img.img,
 			&data->map->texture[i].img.bit_per_pixel,
 			&data->map->texture[i].img.line_length,
 			&data->map->texture[i].img.endian);
