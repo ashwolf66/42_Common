@@ -65,6 +65,7 @@ typedef struct s_map
 	char			**cub_map;
 	int				height;
 	int				width;
+	int				flage;
 }	t_map;
 
 typedef struct s_player

@@ -6,7 +6,7 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 14:30:27 by jacha             #+#    #+#             */
-/*   Updated: 2025/03/31 16:54:26 by jacha            ###   ########.fr       */
+/*   Updated: 2025/04/27 11:03:08 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,25 @@
 
 int	operation_line(char *line, int *size, char ***lines, t_map *map)
 {
-	char	*origin_line;
-
 	operation_line_end_space(&line);
-	origin_line = ft_strdup(line);
-	operation_line_start_space(&line);
-	if (ft_strlen(line) > 0)
+	if (ft_strlen(line) != 0 && check_t_c(map))
 	{
-		if (check_t_c(map))
-		{
-			if (set_t_c(line, map))
-			{
-				free(origin_line);
-				return (1);
-			}
-		}
-		else
-		{
-			if (set_cub_map(origin_line, size, lines))
-				return (1);
-		}
+		if (set_t_c(line, map))
+			return (1);
 	}
-	free(origin_line);
+	else if (!check_t_c(map))
+	{
+		if (map->flage == 2)
+			return (1);
+		if (map->flage == 1 && ft_strlen(line) == 0)
+		{
+			map->flage = 2;
+			return (0);
+		}
+		if (ft_strlen(line) != 0 && set_cub_map(line, size, lines))
+			return (1);
+		map->flage = 1;
+	}
 	return (0);
 }
 
@@ -57,6 +54,7 @@ int	check_t_c(t_map *map)
 
 int	set_t_c(char *line, t_map *map)
 {
+	operation_line_start_space(&line);
 	if (ft_strncmp(line, "NO", 2) == 0)
 		return (set_texture(line, map, 0));
 	else if (ft_strncmp(line, "SO", 2) == 0)

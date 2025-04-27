@@ -75,5 +75,6 @@ void	init_map_av(t_map *map)
 	map->ceiling.color = -1;
 	map->height = -1;
 	map->width = -1;
+	map->flage = 0;
 	map->cub_map = NULL;
 }
