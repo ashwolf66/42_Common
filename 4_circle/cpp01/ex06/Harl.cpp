@@ -45,22 +45,57 @@ void Harl::error(void)
 	std::cout << "I want to speak to the manager now." << std::endl;
 }
 
-void	Harl::complain(std::string level)
+void Harl::complain(std::string level)
 {
 	int			i;
 	std::string	level_arr[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void(Harl::*func[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
 	i = 0;
 	while (i < 4)
 	{
 		if (level == level_arr[i])
-			break ;
+			break;
 		i++;
 	}
-	if (i < 4)
-		(this->*func[i])();
-	else
+	switch (i)
+	{
+	case 0:
+		std::cout << "[ DEBUG ]" << std::endl;
+		Harl::debug();
+		std::cout << std::endl;
+		std::cout << "[ INFO ]" << std::endl;
+		Harl::info();
+		std::cout << std::endl;
+		std::cout << "[ WARNING ]" << std::endl;
+		Harl::warning();
+		std::cout << std::endl;
+		std::cout << "[ ERROR ]" << std::endl;
+		Harl::error();
+		break;
+	case 1:
+		std::cout << "[ INFO ]" << std::endl;
+		Harl::info();
+		std::cout << std::endl;
+		std::cout << "[ WARNING ]" << std::endl;
+		Harl::warning();
+		std::cout << std::endl;
+		std::cout << "[ ERROR ]" << std::endl;
+		Harl::error();
+		break;
+	case 2:
+		std::cout << "[ WARNING ]" << std::endl;
+		Harl::warning();
+		std::cout << std::endl;
+		std::cout << "[ ERROR ]" << std::endl;
+		Harl::error();
+		break;
+	case 3:
+		std::cout << "[ ERROR ]" << std::endl;
+		Harl::error();
+		break;
+	default:
+		std::cout << "[ INVALID ]" << std::endl;
 		std::cout << "Invalid String!!" << std::endl;
-	return ;
+		break;
+	}
 }

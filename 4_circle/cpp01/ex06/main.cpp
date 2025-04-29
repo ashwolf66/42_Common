@@ -12,23 +12,19 @@
 
 #include "Harl.hpp"
 
-int	main()
+int	main(int ac, char **av)
 {
-	Harl	harl;
+	std::string	str;
+	Harl		harl;
 
-	std::cout << "[ DEBUG ]" << std::endl;
-	harl.complain("DEBUG");
-	std::cout << std::endl;
-	std::cout << "[ INFO ]" << std::endl;
-	harl.complain("INFO");
-	std::cout << std::endl;
-	std::cout << "[ WARNING ]" << std::endl;
-	harl.complain("WARNING");
-	std::cout << std::endl;
-	std::cout << "[ ERROR ]" << std::endl;
-	harl.complain("ERROR");
-	std::cout << std::endl;
-	std::cout << "[ INVALID ]" << std::endl;
-	harl.complain("INVALID");
+	if (ac != 2)
+	{
+		std::cout << "Bad Argument" << std::endl;
+		return (0);
+	}
+	str = av[1];
+	for (char &c : str)
+		c = std::toupper(static_cast<unsigned char>(c));
+	harl.complain(str);
 	return (0);
 }
