@@ -6,13 +6,13 @@
 #    By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/26 15:50:12 by jacha             #+#    #+#              #
-#    Updated: 2025/04/28 15:03:41 by jacha            ###   ########.fr        #
+#    Updated: 2025/04/29 16:48:45 by jacha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=	main.cpp
 CC		= c++
-NAME	= UnnecessaryViolence
+NAME	= SIFL
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 OBJS	= $(SRCS:.cpp=.o)
 

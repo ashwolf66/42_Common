@@ -15,8 +15,11 @@
 
 int	main(int ac, char **av)
 {
-	std::string		ogfilename;
-	std::string		cpfilename;
+	std::string	ogfilename;
+	std::string	cpfilename;
+	std::string	ogline;
+	std::string	rpline;
+	std::string	tmline;
 
 	if (ac != 4)
 	{
@@ -24,18 +27,33 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	ogfilename = av[1];
+	ogline = av[2];
+	rpline = av[3];
 	cpfilename = ogfilename + ".replace";
-	std::ifstream ogfile(ogfilename, std::ios::binary);
+	std::ifstream ogfile(ogfilename);
 	if (!ogfile.is_open())
 	{
 		std::cout << "Open Faile" << std::endl;
 		return (0);
 	}
-	std::ofstream cpfile(ogfilename, std::ios::binary);
+	std::ofstream cpfile(cpfilename);
 	if (!cpfile.is_open())
 	{
 		std::cout << "Open Faile" << std::endl;
+		ogfile.close();
 		return (0);
+	}
+	while (std::getline(ogfile, tmline))
+	{
+		size_t	pos;
+		pos = 0;
+		while ((pos = tmline.find(ogline, pos)) != std::string::npos)
+		{
+			tmline.erase(pos, ogline.length());
+			tmline.insert(pos, rpline);
+			pos += rpline.length();
+		}
+		cpfile << tmline << '\n';
 	}
 	ogfile.close();
 	cpfile.close();
