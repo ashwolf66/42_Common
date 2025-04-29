@@ -12,7 +12,7 @@
 
 #include "Harl.hpp"
 
-int	main(int ac, char **av)
+int main(int ac, char **av)
 {
 	std::string	str;
 	Harl		harl;

@@ -14,15 +14,13 @@
 
 Harl::Harl()
 {
-
 }
 
 Harl::~Harl()
 {
-
 }
 
-void	Harl::debug(void)
+void Harl::debug(void)
 {
 	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger." << std::endl;
 	std::cout << "I really do!" << std::endl;
@@ -31,7 +29,7 @@ void	Harl::debug(void)
 void Harl::info(void)
 {
 	std::cout << "I cannot believe adding extra bacon costs more money." << std::endl;
-	std::cout << "You didn't put enough bacon in my burger!" <<std::endl;
+	std::cout << "You didn't put enough bacon in my burger!" << std::endl;
 	std::cout << "If you did, I wouldn't be asking for more!" << std::endl;
 }
 void Harl::warning(void)
@@ -47,8 +45,8 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
-	int			i;
-	std::string	level_arr[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	int i;
+	std::string level_arr[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 	i = 0;
 	while (i < 4)
