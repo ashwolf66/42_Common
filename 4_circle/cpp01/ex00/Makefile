@@ -6,7 +6,7 @@
 #    By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/26 15:50:12 by jacha             #+#    #+#              #
-#    Updated: 2025/04/26 15:50:29 by jacha            ###   ########.fr        #
+#    Updated: 2025/04/30 12:52:14 by jacha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ SRCS	=	main.cpp \
 			Zombie.cpp \
 			newZombie.cpp \
 			randomChump.cpp
-CC		= c++
+CC		= g++
 NAME	= Zombie
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 OBJS	= $(SRCS:.cpp=.o)
@@ -24,7 +24,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-%.o : %.c
+%.o : %.cpp
 	${CC} ${CFLAGS} -c $^ -o $@
 
 clean:

@@ -6,13 +6,13 @@
 #    By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/26 15:50:12 by jacha             #+#    #+#              #
-#    Updated: 2025/04/29 16:53:05 by jacha            ###   ########.fr        #
+#    Updated: 2025/04/30 12:53:21 by jacha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=	main.cpp \
 			Harl.cpp
-CC		= c++
+CC		= g++
 NAME	= HarlFilter
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 OBJS	= $(SRCS:.cpp=.o)
@@ -22,7 +22,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-%.o : %.c
+%.o : %.cpp
 	${CC} ${CFLAGS} -c $^ -o $@
 
 clean:
