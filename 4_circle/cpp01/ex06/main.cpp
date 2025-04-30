@@ -23,8 +23,8 @@ int main(int ac, char **av)
 		return (0);
 	}
 	str = av[1];
-	for (char &c : str)
-		c = std::toupper(static_cast<unsigned char>(c));
+	for (size_t i = 0; i < str.length(); i++)
+		str[1] = std::toupper(static_cast<unsigned char>(str[i]));
 	harl.complain(str);
 	return (0);
 }

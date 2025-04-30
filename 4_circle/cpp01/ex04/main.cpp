@@ -30,6 +30,11 @@ int	main(int ac, char **av)
 	ogline = av[2];
 	rpline = av[3];
 	cpfilename = ogfilename + ".replace";
+	if (ogline.empty())
+	{
+		std::cout << "Argument 2 Is Empty" << std::endl;
+		return (0);
+	}
 	std::ifstream ogfile(ogfilename);
 	if (!ogfile.is_open())
 	{
