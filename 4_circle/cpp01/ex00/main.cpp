@@ -17,9 +17,11 @@ int	main(void)
 	std::string	str;
 	Zombie *newZombiestatic;
 
+	std::cout << "Zombie Name(Heap) : ";
 	std::getline(std::cin, str);
 	newZombiestatic = newZombie(str);
 	newZombiestatic->announce();
+	std::cout << "Zombie Name(Stack) : ";
 	std::getline(std::cin, str);
 	randomChump(str);
 	delete newZombiestatic;
