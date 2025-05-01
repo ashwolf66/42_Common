@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting_utils_1.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
+/*   By: hyeyeom <hyeyeom@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 12:54:54 by jacha             #+#    #+#             */
-/*   Updated: 2025/03/28 14:31:07 by jacha            ###   ########.fr       */
+/*   Updated: 2025/05/01 22:28:59 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,30 +51,40 @@ void	draw_wall(t_data *data, t_ray *ray, int x)
 	unsigned int	color;
 
 	t_num = get_t_num(ray);
-	if (ray->side == 0)
-		wall = data->player.pos_y + ray->wall_dist * ray->ray_dir_y;
-	else
-		wall = data->player.pos_x + ray->wall_dist * ray->ray_dir_x;
+	wall = 0.0;
+	wall = set_wall_side(wall, data, ray);
 	wall -= floor(wall);
 	t_x = (int)(wall * data->map->texture[t_num].img.width);
 	if ((ray->side == 0 && ray->ray_dir_x > 0)
 		|| (ray->side == 1 && ray->ray_dir_y < 0))
 		t_x = data->map->texture[t_num].img.width - t_x - 1;
-	y = ray->draw_start;
-	while (y < ray->draw_end)
+	y = ray->draw_start - 1;
+	while (++y < ray->draw_end)
 	{
+		if (ray->height == 0)
+			continue ;
 		color = get_texture(&data->map->texture[t_num].img,
 				t_x, ((y - WIN_HEIGHT / 2 + ray->height / 2)
 					* data->map->texture[t_num].img.height) / ray->height);
 		put_pixel(&data->img, x, y, color);
-		y++;
 	}
+}
+
+double	set_wall_side(double wall, t_data *data, t_ray *ray)
+{
+	if (ray->side == 0)
+		wall = data->player.pos_y + ray->wall_dist * ray->ray_dir_y;
+	else
+		wall = data->player.pos_x + ray->wall_dist * ray->ray_dir_x;
+	return (wall);
 }
 
 int	get_texture(t_img *texture, int x, int y)
 {
 	char	*pixel;
 
+	if (x < 0 || y < 0 || x >= texture->width || y >= texture->height)
+		return (0x000000);
 	pixel = texture->addr + (y * texture->line_length
 			+ x * (texture->bit_per_pixel / 8));
 	return (*(unsigned int *)pixel);

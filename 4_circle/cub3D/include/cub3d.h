@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
+/*   By: hyeyeom <hyeyeom@student.42gyeongsan.kr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 16:53:59 by jacha             #+#    #+#             */
-/*   Updated: 2025/04/13 11:34:49 by jacha            ###   ########.fr       */
+/*   Updated: 2025/05/01 16:26:55 by hyeyeom          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,6 +207,7 @@ void	calculate_wall(t_data *data, t_ray *ray);
 void	wall_height(t_ray *ray);
 void	draw_wall(t_data *data, t_ray *ray, int x);
 int		get_texture(t_img *texture, int x, int y);
+double	set_wall_side(double wall, t_data *data, t_ray *ray);
 
 // ray_casting_utils_2
 void	put_pixel(t_img *img, int x, int y, unsigned int color);
