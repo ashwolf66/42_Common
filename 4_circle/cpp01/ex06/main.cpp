@@ -24,7 +24,7 @@ int main(int ac, char **av)
 	}
 	str = av[1];
 	for (size_t i = 0; i < str.length(); i++)
-		str[1] = std::toupper(static_cast<unsigned char>(str[i]));
+		str[i] = std::toupper(static_cast<unsigned char>(str[i]));
 	harl.complain(str);
 	return (0);
 }

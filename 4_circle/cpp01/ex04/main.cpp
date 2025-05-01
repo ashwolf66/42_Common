@@ -35,13 +35,13 @@ int	main(int ac, char **av)
 		std::cout << "Argument 2 Is Empty" << std::endl;
 		return (0);
 	}
-	std::ifstream ogfile(ogfilename);
+	std::ifstream ogfile(ogfilename.c_str());
 	if (!ogfile.is_open())
 	{
 		std::cout << "Open Faile" << std::endl;
 		return (0);
 	}
-	std::ofstream cpfile(cpfilename);
+	std::ofstream cpfile(cpfilename.c_str());
 	if (!cpfile.is_open())
 	{
 		std::cout << "Open Faile" << std::endl;
@@ -58,7 +58,7 @@ int	main(int ac, char **av)
 			tmline.insert(pos, rpline);
 			pos += rpline.length();
 		}
-		cpfile << tmline << '\n';
+		cpfile << tmline;
 	}
 	ogfile.close();
 	cpfile.close();
