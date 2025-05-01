@@ -6,16 +6,14 @@
 #    By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/26 15:50:12 by jacha             #+#    #+#              #
-#    Updated: 2025/05/01 12:41:19 by jacha            ###   ########.fr        #
+#    Updated: 2025/05/01 15:09:09 by jacha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=	main.cpp \
-			Zombie.cpp \
-			newZombie.cpp \
-			randomChump.cpp
+			Fixed.cpp
 CC		= c++
-NAME	= Zombie
+NAME	= OCF
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 OBJS	= $(SRCS:.cpp=.o)
 
