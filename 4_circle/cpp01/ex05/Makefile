@@ -6,13 +6,13 @@
 #    By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/26 15:50:12 by jacha             #+#    #+#              #
-#    Updated: 2025/04/30 12:53:12 by jacha            ###   ########.fr        #
+#    Updated: 2025/05/01 12:42:25 by jacha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=	main.cpp \
 			Harl.cpp
-CC		= g++
+CC		= c++
 NAME	= Harl
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 OBJS	= $(SRCS:.cpp=.o)

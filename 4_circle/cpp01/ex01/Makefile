@@ -6,14 +6,14 @@
 #    By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/26 15:50:12 by jacha             #+#    #+#              #
-#    Updated: 2025/04/30 12:52:42 by jacha            ###   ########.fr        #
+#    Updated: 2025/05/01 12:41:54 by jacha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=	main.cpp \
 			Zombie.cpp \
 			zombieHorde.cpp
-CC		= g++
+CC		= c++
 NAME	= ZombieHorde
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 OBJS	= $(SRCS:.cpp=.o)
