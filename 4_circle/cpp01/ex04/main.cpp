@@ -6,7 +6,7 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 15:03:32 by jacha             #+#    #+#             */
-/*   Updated: 2025/04/28 15:03:34 by jacha            ###   ########.fr       */
+/*   Updated: 2025/05/04 17:26:08 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,6 @@ int	main(int ac, char **av)
 	ogline = av[2];
 	rpline = av[3];
 	cpfilename = ogfilename + ".replace";
-	if (ogline.empty())
-	{
-		std::cout << "Argument 2 Is Empty" << std::endl;
-		return (0);
-	}
 	std::ifstream ogfile(ogfilename.c_str());
 	if (!ogfile.is_open())
 	{
@@ -48,7 +43,7 @@ int	main(int ac, char **av)
 		ogfile.close();
 		return (0);
 	}
-	while (std::getline(ogfile, tmline))
+	while (std::getline(ogfile, tmline, '\0'))
 	{
 		size_t	pos;
 		pos = 0;
