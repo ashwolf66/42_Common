@@ -12,6 +12,8 @@
 
 #include "Fixed.hpp"
 
+const int	Fixed::literal = 8;
+
 Fixed::Fixed() : num(0)
 {
 	std::cout << "Default constructor called" << std::endl;
@@ -64,4 +66,10 @@ float	Fixed::toFloat(void) const {
 
 int	Fixed::toInt(void) const {
 	return (int)(num >> literal);
+}
+
+std::ostream& operator<<(std::ostream& str, const Fixed &other)
+{
+	str << other.toFloat();
+	return (str);
 }
