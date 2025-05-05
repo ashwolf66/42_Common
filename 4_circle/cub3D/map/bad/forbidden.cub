@@ -1,0 +1,16 @@
+NO textures/bluestone.xpm
+SO textures/eagle.xpm
+WE textures/purplestone.xpm
+EA textures/wall_4.xpm
+
+F 18,53,25
+C 153,204,255
+
+111111111111
+1         11
+1          1
+1          1
+10S000000001
+1          1
+11         1
+111111111111
