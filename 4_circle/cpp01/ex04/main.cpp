@@ -31,6 +31,11 @@ int	main(int ac, char **av)
 	rpline = av[3];
 	cpfilename = ogfilename + ".replace";
 	std::ifstream ogfile(ogfilename.c_str());
+	if (ogline.empty())
+	{
+		std::cout << "Bad Argument" << std::endl;
+		return (0);
+	}
 	if (!ogfile.is_open())
 	{
 		std::cout << "Open Faile" << std::endl;
