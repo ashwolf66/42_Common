@@ -16,30 +16,26 @@ const int	Fixed::literal = 8;
 
 Fixed::Fixed() : num(0)
 {
-	std::cout << "Default constructor called" << std::endl;
+
 }
 
 Fixed::Fixed(const Fixed &other)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 }
 
 Fixed::Fixed(const int n)
 {
-	std::cout << "Int constructor called" << std::endl;
 	num = n << literal;
 }
 
 Fixed::Fixed(const float n)
 {
-	std::cout << "Float constructor called" << std::endl;
 	num = (int)roundf(n * (1 << literal));
 }
 
 Fixed& Fixed::operator=(const Fixed &other)
 {
-	std::cout << "Copy assignation operator called" << std::endl;
 	if (this != &other)
 		num = other.getRawBits();
 	return (*this);
@@ -47,7 +43,7 @@ Fixed& Fixed::operator=(const Fixed &other)
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+
 }
 
 int	Fixed::getRawBits(void) const

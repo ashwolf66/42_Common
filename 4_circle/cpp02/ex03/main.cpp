@@ -10,22 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Point.hpp"
 
-int main(void)
-{
-	Fixed a;
-	Fixed const b(Fixed(5.05f) * Fixed(2));
+bool	bsp(Point const a, Point const b, Point const c, Point const point);
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
+int	main(void) {
+    Point a(0.0f, 0.0f);
+    Point b(10.0f, 0.0f);
+    Point c(0.0f, 10.0f);
 
-	std::cout << b << std::endl;
+    Point inside(2.0f, 2.0f);
+    Point edge(0.0f, 5.0f);
+    Point vertex(0.0f, 0.0f);
+    Point outside(10.0f, 10.0f);
 
-	std::cout << Fixed::max(a, b) << std::endl;
+    std::cout << "Testing point inside triangle: ";
+    std::cout << (bsp(a, b, c, inside) ? "Inside" : "Outside") << std::endl;
 
-	return (0);
+    std::cout << "Testing point on edge: ";
+    std::cout << (bsp(a, b, c, edge) ? "Inside" : "Outside") << std::endl;
+
+    std::cout << "Testing point on vertex: ";
+    std::cout << (bsp(a, b, c, vertex) ? "Inside" : "Outside") << std::endl;
+
+    std::cout << "Testing point outside triangle: ";
+    std::cout << (bsp(a, b, c, outside) ? "Inside" : "Outside") << std::endl;
+
+    return (0);
 }
