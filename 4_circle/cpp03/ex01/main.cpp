@@ -14,20 +14,15 @@
 
 int 	main(void)
 {
-	{
-		ClapTrap human;
-		ClapTrap monster("vem");
-	
-		human.attack("Dummy");
-		human.takeDamage(5);
-		human.beRepaired(10);
-		human.takeDamage(15);
-		human.beRepaired(10);
-		for (int i = 0; i < 11; i++)
-			monster.attack("Dummy");
-	}
-	{
-		
-	}
+	ClapTrap human;
+	ClapTrap monster("vem");
+
+	human.attack("Dummy");
+	human.takeDamage(5);
+	human.beRepaired(10);
+	human.takeDamage(15);
+	human.beRepaired(10);
+	for (int i = 0; i < 11; i++)
+		monster.attack("Dummy");
 	return (0);
 }
