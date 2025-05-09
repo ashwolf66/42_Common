@@ -6,7 +6,7 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 15:27:30 by jacha             #+#    #+#             */
-/*   Updated: 2025/05/09 15:27:32 by jacha            ###   ########.fr       */
+/*   Updated: 2025/05/09 16:14:52 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ int 	main(void)
 		human.beRepaired(10);
 		for (int i = 0; i < 11; i++)
 			monster.attack("Dummy");
-	}
-	{
-		
 	}
 	return (0);
 }
