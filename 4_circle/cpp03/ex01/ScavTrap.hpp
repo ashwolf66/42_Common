@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/09 20:57:45 by jacha             #+#    #+#             */
+/*   Updated: 2025/05/09 20:57:47 by jacha            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # ifndef SCAVTRAP_HPP
 #  define SCAVTRAP_HPP
 
@@ -13,7 +25,7 @@ public :
 	~ScavTrap();
 
 	void	attack(const std::string& target);
-	void guardGate();
+	void	guardGate();
 };
 
 # endif

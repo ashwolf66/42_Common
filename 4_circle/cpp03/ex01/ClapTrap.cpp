@@ -6,7 +6,7 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 15:27:24 by jacha             #+#    #+#             */
-/*   Updated: 2025/05/09 15:27:26 by jacha            ###   ########.fr       */
+/*   Updated: 2025/05/09 20:57:33 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,44 +101,4 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "ClapTrap " << this->_name << " can't repair(Energy : " << this->_EnergyPoint << ")" << std::endl;
 	}
 	return ;
-}
-
-void	ClapTrap::setHitPoint(int HP)
-{
-	this->_HitPoint = HP;
-}
-
-void	ClapTrap::setEnergyPoint(int EP)
-{
-	this->_EnergyPoint = EP;
-}
-
-void	ClapTrap::setAttackDamage(int AD)
-{
-	this->_AttackDamage = AD;
-}
-
-void	ClapTrap::setName(const std::string& name)
-{
-	this->_name = name;
-}
-
-int	ClapTrap::getHitPoint() const
-{
-	return (this->_HitPoint);
-}
-
-int	ClapTrap::getEnergyPoint() const
-{
-	return (this->_EnergyPoint);
-}
-
-int	ClapTrap::getAttackDamage() const
-{
-	return (this->_AttackDamage);
-}
-
-std::string	ClapTrap::getName() const
-{
-	return (this->_name);
 }
