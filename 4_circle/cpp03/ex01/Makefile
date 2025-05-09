@@ -11,7 +11,8 @@
 # **************************************************************************** #
 
 SRCS	=	main.cpp \
-			ClapTrap.cpp
+			ClapTrap.cpp \
+			ScavTrap.cpp
 CC		= c++
 NAME	= a.out
 CFLAGS	= -Wall -Wextra -Werror -std=c++98

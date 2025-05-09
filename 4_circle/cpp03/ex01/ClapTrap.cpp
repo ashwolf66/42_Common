@@ -43,7 +43,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor " << this->_name << "called" << std::endl;
+	std::cout << "Destructor " << this->_name << " called" << std::endl;
 }
 
 void	ClapTrap::attack(const std::string& target)
@@ -52,7 +52,7 @@ void	ClapTrap::attack(const std::string& target)
 	{
 		this->_EnergyPoint--;
 		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing ";
-		std::cout << this->_AttackDamage << " point of damage !" << std::endl;
+		std::cout << this->_AttackDamage << " point of damage!!! Energy is lost 1(Energy" << this->_EnergyPoint << ")" << std::endl;
 	}
 	else if (this->_EnergyPoint == 0)
 		std::cout << "ClapTrap " << this->_name << " can't attack(Energy : " << this->_EnergyPoint << ")" << std::endl;
@@ -88,7 +88,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	{
 		this->_HitPoint += amount;
 		this->_EnergyPoint--;
-		std::cout << "ClapTrap " << this->_name << " is repaited health " << amount << " Energy is lost 1(Energy" << this->_EnergyPoint << ")" << std::endl;
+		std::cout << "ClapTrap " << this->_name << " is repaited health " << amount << "!!! Energy is lost 1(Energy" << this->_EnergyPoint << ")" << std::endl;
 		std::cout << "ClapTrap " << this->_name << " Health : " << this->_HitPoint << std::endl;
 	}
 	else if (this->_HitPoint == 0)
@@ -101,4 +101,44 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "ClapTrap " << this->_name << " can't repair(Energy : " << this->_EnergyPoint << ")" << std::endl;
 	}
 	return ;
+}
+
+void	ClapTrap::setHitPoint(int HP)
+{
+	this->_HitPoint = HP;
+}
+
+void	ClapTrap::setEnergyPoint(int EP)
+{
+	this->_EnergyPoint = EP;
+}
+
+void	ClapTrap::setAttackDamage(int AD)
+{
+	this->_AttackDamage = AD;
+}
+
+void	ClapTrap::setName(const std::string& name)
+{
+	this->_name = name;
+}
+
+int	ClapTrap::getHitPoint() const
+{
+	return (this->_HitPoint);
+}
+
+int	ClapTrap::getEnergyPoint() const
+{
+	return (this->_EnergyPoint);
+}
+
+int	ClapTrap::getAttackDamage() const
+{
+	return (this->_AttackDamage);
+}
+
+std::string	ClapTrap::getName() const
+{
+	return (this->_name);
 }
