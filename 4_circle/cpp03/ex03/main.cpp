@@ -66,13 +66,13 @@ int main(void)
 	{
 		std::cout << "-------------------------------test ex02-------------------------------" << std::endl;
 		DiamondTrap d_human;
-		DiamondTrap d_monster("Giga Chadd");
+		DiamondTrap d_monster("D_vam");
 		DiamondTrap d_temp(d_human);
 
 		d_human.whoAmI();
-		d_human.attack("some super random dude");
+		d_human.attack("h_target");
 		d_monster.whoAmI();
-		d_monster.attack("Chadd-clone");
+		d_monster.attack("m_target");
 		d_temp.whoAmI();
 		std::cout << "-----------------------------------------------------------------------" << std::endl
 				  << std::endl;
