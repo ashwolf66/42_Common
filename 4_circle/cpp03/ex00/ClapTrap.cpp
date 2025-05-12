@@ -6,7 +6,7 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 15:27:24 by jacha             #+#    #+#             */
-/*   Updated: 2025/05/09 15:27:26 by jacha            ###   ########.fr       */
+/*   Updated: 2025/05/12 15:10:26 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ClapTrap::ClapTrap() : _name("jacha"), _HitPoint(10), _EnergyPoint(10), _AttackD
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _HitPoint(10), _EnergyPoint(10), _AttackDamage(0)
 {
-	std::cout << "Name constructor called" << std::endl;
+	std::cout << "Name constructor called. Name is " << this->_name << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)

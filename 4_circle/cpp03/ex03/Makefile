@@ -6,14 +6,15 @@
 #    By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/09 15:27:28 by jacha             #+#    #+#              #
-#    Updated: 2025/05/12 15:10:59 by jacha            ###   ########.fr        #
+#    Updated: 2025/05/12 15:11:21 by jacha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=	main.cpp \
 			ClapTrap.cpp \
 			ScavTrap.cpp \
-			FragTrap.cpp
+			FragTrap.cpp \
+			DiamondTrap.cpp
 CC		= c++
 NAME	= a.out
 CFLAGS	= -Wall -Wextra -Werror -std=c++98

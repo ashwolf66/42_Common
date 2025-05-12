@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/09 20:57:45 by jacha             #+#    #+#             */
-/*   Updated: 2025/05/12 15:10:48 by jacha            ###   ########.fr       */
+/*   Created: 2025/05/12 15:11:11 by jacha             #+#    #+#             */
+/*   Updated: 2025/05/12 15:11:13 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef SCAVTRAP_HPP
-#  define SCAVTRAP_HPP
+#ifndef DIAMOND_HPP
+#define DIAMOND_HPP
 
-# include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
-public :
-	ScavTrap();
-	ScavTrap(std::string name);
-	ScavTrap(const ScavTrap& other);
-	ScavTrap& operator=(const ScavTrap& other);
-	~ScavTrap();
+private:
+	std::string _name;
 
-	void	attack(const std::string& target);
-	void	guardGate();
+public:
+	DiamondTrap();
+	DiamondTrap(const DiamondTrap &other);
+	DiamondTrap &operator=(const DiamondTrap &other);
+	~DiamondTrap();
+	DiamondTrap(std::string name);
+
+	void whoAmI();
 };
 
-# endif
+#endif

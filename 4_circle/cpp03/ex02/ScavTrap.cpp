@@ -6,11 +6,12 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 20:57:40 by jacha             #+#    #+#             */
-/*   Updated: 2025/05/11 08:34:55 by jacha            ###   ########.fr       */
+/*   Updated: 2025/05/12 15:11:01 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include <iostream>
 
 ScavTrap::ScavTrap() : ClapTrap("jacha")
 {
@@ -25,7 +26,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	this->_HitPoint = 100;
 	this->_EnergyPoint = 50;
 	this->_AttackDamage = 20;
-	std::cout << "ScavTrap Name constructor called" << std::endl;
+	std::cout << "ScavTrap Name constructor called. Name is " << this->_name << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
@@ -45,7 +46,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap " << this->_name << " called" << std::endl;
+	std::cout << "ScavTrap Destructor " << this->_name << " called" << std::endl;
 }
 
 void ScavTrap::attack(const std::string &target)
