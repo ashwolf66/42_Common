@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main(void)
 {
@@ -50,18 +48,32 @@ int main(void)
 	}
 	{
 		std::cout << "-------------------------------test ex02-------------------------------" << std::endl;
-		FragTrap s_human;
-		FragTrap s_monster("vem");
+		FragTrap f_human;
+		FragTrap f_monster("vem");
 
-		s_human.highFivesGuys();
-		s_human.attack("Dummy");
-		s_human.takeDamage(5);
-		s_human.beRepaired(10);
-		s_human.takeDamage(15);
-		s_human.beRepaired(10);
-		s_monster.highFivesGuys();
+		f_human.highFivesGuys();
+		f_human.attack("Dummy");
+		f_human.takeDamage(5);
+		f_human.beRepaired(10);
+		f_human.takeDamage(15);
+		f_human.beRepaired(10);
+		f_monster.highFivesGuys();
 		for (int i = 0; i < 11; i++)
-			s_monster.attack("Dummy");
+			f_monster.attack("Dummy");
+		std::cout << "-----------------------------------------------------------------------" << std::endl
+				  << std::endl;
+	}
+	{
+		std::cout << "-------------------------------test ex02-------------------------------" << std::endl;
+		DiamondTrap d_human;
+		DiamondTrap d_monster("Giga Chadd");
+		DiamondTrap d_temp(d_human);
+
+		d_human.whoAmI();
+		d_human.attack("some super random dude");
+		d_monster.whoAmI();
+		d_monster.attack("Chadd-clone");
+		d_temp.whoAmI();
 		std::cout << "-----------------------------------------------------------------------" << std::endl
 				  << std::endl;
 	}
