@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/14 12:54:56 by jacha             #+#    #+#             */
+/*   Updated: 2025/05/14 12:55:00 by jacha            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
@@ -18,9 +30,9 @@ int main()
 
 		for (int i = 0; i < SIZE; i++)
 			delete animals[i];
-
-		std::cout << std::endl;
-
+	}
+	std::cout << std::endl;
+	{
 		Dog dog1;
 		dog1.setter(0, "chase the ball");
 		Dog dog2 = dog1;
