@@ -11,7 +11,10 @@
 # **************************************************************************** #
 
 SRCS	=	main.cpp \
-			ClapTrap.cpp
+			Animal.cpp \
+			Dog.cpp \
+			Cat.cpp \
+			Brain.cpp
 CC		= c++
 NAME	= a.out
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
@@ -20,7 +23,7 @@ OBJS	= $(SRCS:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -g
 
 %.o : %.cpp
 	${CC} ${CFLAGS} -c $^ -o $@
