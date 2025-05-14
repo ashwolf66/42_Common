@@ -11,7 +11,11 @@
 # **************************************************************************** #
 
 SRCS	=	main.cpp \
-			ClapTrap.cpp
+			Animal.cpp \
+			Dog.cpp \
+			Cat.cpp \
+			WrongAnimal.cpp \
+			WrongCat.cpp
 CC		= c++
 NAME	= a.out
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
