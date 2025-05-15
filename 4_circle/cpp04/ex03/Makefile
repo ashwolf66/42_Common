@@ -6,7 +6,7 @@
 #    By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/09 15:27:28 by jacha             #+#    #+#              #
-#    Updated: 2025/05/12 15:10:34 by jacha            ###   ########.fr        #
+#    Updated: 2025/05/16 07:39:15 by jacha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 %.o : %.cpp
-	${CC} ${CFLAGS} -c $^ -o $@
+	${CC} ${CFLAGS} -c $^ -o $@ -g
 
 clean:
 	rm -f $(OBJS)

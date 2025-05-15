@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/16 07:39:15 by jacha             #+#    #+#             */
+/*   Updated: 2025/05/16 07:39:16 by jacha            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource()
@@ -41,10 +53,12 @@ void MateriaSource::learnMateria(AMateria *m)
 		{
 			_templates[i] = m->clone();
 			std::cout << "MateriaSource learned: " << m->getType() << std::endl;
+			delete m;
 			return;
 		}
 	}
 	std::cout << "MateriaSource memory full. Cannot learn more materias." << std::endl;
+	delete m;
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type)
