@@ -1,8 +1,8 @@
-# ifndef AMATERIA_HPP
-#  define AMATERIA_HPP
+#ifndef AMATERIA_HPP
+#define AMATERIA_HPP
 
-# include <iostream>
-# include "ICharacter.hpp"
+#include <iostream>
+#include "ICharacter.hpp"
 
 class AMateria
 {
@@ -14,4 +14,4 @@ public:
     virtual void use(ICharacter &target);
 };
 
-# endif
+#endif
