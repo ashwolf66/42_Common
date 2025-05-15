@@ -41,10 +41,10 @@ Animal::~Animal()
 	std::cout << "Animal Destructor " << std::endl;
 }
 
-void Animal::makeSound() const
-{
-	std::cout << "Animal sound" << std::endl;
-}
+// void Animal::makeSound() const
+// {
+// 	std::cout << "Animal sound" << std::endl;
+// }
 
 std::string Animal::getType() const
 {
