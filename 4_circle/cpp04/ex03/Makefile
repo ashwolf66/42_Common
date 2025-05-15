@@ -10,7 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	=	main.cpp
+SRCS	=	main.cpp \
+			AMateria.cpp \
+			Character.cpp \
+			Cure.cpp \
+			Ice.cpp \
+			MateriaSource.cpp
 CC		= c++
 NAME	= a.out
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
