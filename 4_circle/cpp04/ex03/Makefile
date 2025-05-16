@@ -27,7 +27,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 %.o : %.cpp
-	${CC} ${CFLAGS} -c $^ -o $@ -g
+	${CC} ${CFLAGS} -c $^ -o $@
 
 clean:
 	rm -f $(OBJS)

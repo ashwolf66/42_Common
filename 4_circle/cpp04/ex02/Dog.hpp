@@ -25,9 +25,9 @@ public:
 	Dog();
 	Dog(const Dog &other);
 	Dog &operator=(const Dog &other);
-	~Dog();
+	virtual ~Dog();
 
-	void makeSound() const;
+	virtual void makeSound() const;
 	std::string getter(int index) const;
 	void setter(int index, const std::string &idea);
 };

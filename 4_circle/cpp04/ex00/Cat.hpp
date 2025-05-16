@@ -21,9 +21,9 @@ public:
 	Cat();
 	Cat(const Cat& other);
 	Cat& operator=(const Cat& other);
-	~Cat();
+	virtual ~Cat();
 
-	void makeSound() const;
+	virtual void makeSound() const;
 };
 
 # endif

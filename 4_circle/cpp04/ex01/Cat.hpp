@@ -25,9 +25,9 @@ public:
 	Cat();
 	Cat(const Cat &other);
 	Cat &operator=(const Cat &other);
-	~Cat();
+	virtual ~Cat();
 
-	void makeSound() const;
+	virtual void makeSound() const;
 	std::string getter(int index) const;
 	void setter(int index, const std::string &idea);
 };
