@@ -64,9 +64,7 @@ AMateria *MateriaSource::createMateria(std::string const &type)
 	for (int i = 0; i < 4; ++i)
 	{
 		if (_templates[i] && _templates[i]->getType() == type)
-		{
 			return _templates[i]->clone();
-		}
 	}
 	return NULL;
 }

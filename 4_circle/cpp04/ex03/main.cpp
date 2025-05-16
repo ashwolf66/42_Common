@@ -35,7 +35,9 @@ int main()
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
-	tmp = src->createMateria("ice");
+	tmp = src->createMateria("apple");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
 	me->equip(tmp);
 
 	std::cout << std::endl;
