@@ -27,5 +27,5 @@ std::string const &AMateria::getType() const
 
 void AMateria::use(ICharacter &target)
 {
-	std::cout << "* uses a generic materia on " << target.getName() << " *" << std::endl;
+	target.getName();
 }

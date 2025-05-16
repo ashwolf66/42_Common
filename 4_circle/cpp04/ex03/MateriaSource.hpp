@@ -19,16 +19,16 @@
 class MateriaSource : public IMateriaSource
 {
 private:
-    AMateria *_templates[4];
+	AMateria *_templates[4];
 
 public:
-    MateriaSource();
-    MateriaSource(MateriaSource const &other);
-    MateriaSource &operator=(MateriaSource const &other);
-    virtual ~MateriaSource();
+	MateriaSource();
+	MateriaSource(MateriaSource const &other);
+	MateriaSource &operator=(MateriaSource const &other);
+	virtual ~MateriaSource();
 
-    void learnMateria(AMateria *);
-    AMateria *createMateria(std::string const &type);
+	void learnMateria(AMateria *);
+	AMateria *createMateria(std::string const &type);
 };
 
 #endif

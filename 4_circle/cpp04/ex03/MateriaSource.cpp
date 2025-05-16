@@ -52,12 +52,10 @@ void MateriaSource::learnMateria(AMateria *m)
 		if (!_templates[i])
 		{
 			_templates[i] = m->clone();
-			std::cout << "MateriaSource learned: " << m->getType() << std::endl;
 			delete m;
 			return;
 		}
 	}
-	std::cout << "MateriaSource memory full. Cannot learn more materias." << std::endl;
 	delete m;
 }
 
@@ -67,10 +65,8 @@ AMateria *MateriaSource::createMateria(std::string const &type)
 	{
 		if (_templates[i] && _templates[i]->getType() == type)
 		{
-			std::cout << "MateriaSource created materia: " << type << std::endl;
 			return _templates[i]->clone();
 		}
 	}
-	std::cout << "MateriaSource couldn't find materia: " << type << std::endl;
 	return NULL;
 }
