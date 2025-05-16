@@ -17,6 +17,9 @@
 
 class WrongCat : public WrongAnimal
 {
+private:
+	char *string;
+
 public:
 	WrongCat();
 	WrongCat(const WrongCat& other);

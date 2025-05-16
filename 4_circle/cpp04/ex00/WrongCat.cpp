@@ -14,6 +14,7 @@
 
 WrongCat::WrongCat()
 {
+	this->string = new char[10];
 	_type = "WrongCat";
 	std::cout << "WrongCat Default constructor called" << std::endl;
 }
@@ -33,6 +34,7 @@ WrongCat& WrongCat::operator=(const WrongCat& other)
 
 WrongCat::~WrongCat()
 {
+	delete[] this->string;
 	std::cout << "WrongCat Destructor " << std::endl;
 }
 
