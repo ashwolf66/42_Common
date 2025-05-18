@@ -25,10 +25,19 @@ public:
 	Bureaucrat();
 	~Bureaucrat();
 
-	void GradeTooHighException();
-	void GradeTooLowException();
+	class GradeTooHighException : public std::exception
+	{
+
+	};
+	class GradeTooLowException : public std::exception
+	{
+
+	};
 	std::string getName();
 	int getGrade();
 };
 
 #endif
+
+// what();
+// throw();

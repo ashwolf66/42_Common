@@ -20,14 +20,6 @@ Bureaucrat::~Bureaucrat()
 {
 }
 
-void Bureaucrat::GradeTooHighException()
-{
-}
-
-void Bureaucrat::GradeTooLowException()
-{
-}
-
 std::string Bureaucrat::getName()
 {
 	return (this->_name);
