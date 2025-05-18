@@ -64,7 +64,7 @@ int main(void)
 				  << std::endl;
 	}
 	{
-		std::cout << "-------------------------------test ex02-------------------------------" << std::endl;
+		std::cout << "-------------------------------test ex03-------------------------------" << std::endl;
 		DiamondTrap d_human;
 		DiamondTrap d_monster("D_vam");
 		DiamondTrap d_temp(d_human);
