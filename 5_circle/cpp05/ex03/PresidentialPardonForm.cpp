@@ -22,6 +22,7 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : AFor
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) : AForm(other), _target(other._target)
 {
+	*this = other;
 }
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
@@ -35,7 +36,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
 
-void PresidentialPardonForm::execute(const Bureaucrat &executor) const
+void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	if (!isSigned())
 		throw AForm::NotSigned();

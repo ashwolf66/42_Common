@@ -14,14 +14,17 @@
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyForm", 72, 45), _target("jacha")
 {
+	srand(time(NULL));
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : AForm("RobotomyForm", 72, 45), _target(target)
 {
+	srand(time(NULL));
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) : AForm(other), _target(other._target)
 {
+	*this = other;
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
@@ -35,7 +38,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
-void RobotomyRequestForm::execute(const Bureaucrat &executor) const
+void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 {
 	if (!isSigned())
 		throw AForm::NotSigned();

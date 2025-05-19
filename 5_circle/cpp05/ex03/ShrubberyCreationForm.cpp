@@ -22,6 +22,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : AForm(
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : AForm(other), _target(other._target)
 {
+	*this = other;
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
@@ -35,7 +36,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
-void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	if (!isSigned())
 		throw AForm::NotSigned();

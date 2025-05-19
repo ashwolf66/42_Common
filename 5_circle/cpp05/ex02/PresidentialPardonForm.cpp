@@ -35,7 +35,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
 
-void PresidentialPardonForm::execute(const Bureaucrat &executor) const
+void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	if (!isSigned())
 		throw AForm::NotSigned();

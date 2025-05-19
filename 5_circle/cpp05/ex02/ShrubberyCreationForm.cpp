@@ -35,7 +35,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
-void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	if (!isSigned())
 		throw AForm::NotSigned();
