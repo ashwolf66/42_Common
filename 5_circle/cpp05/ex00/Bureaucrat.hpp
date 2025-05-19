@@ -32,6 +32,7 @@ public:
 	int getGrade() const;
 	void increment();
 	void decrement();
+	
 	class GradeTooHighException : public std::exception
 	{
 	public:
