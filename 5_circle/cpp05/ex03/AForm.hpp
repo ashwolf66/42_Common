@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/20 08:13:31 by jacha             #+#    #+#             */
-/*   Updated: 2025/05/20 08:13:32 by jacha            ###   ########.fr       */
+/*   Created: 2025/05/20 08:12:49 by jacha             #+#    #+#             */
+/*   Updated: 2025/05/20 08:12:51 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
 	AForm(const std::string name, const int grade_sign, const int grade_exe);
 	AForm(const AForm &other);
 	AForm &operator=(const AForm &other);
-	~AForm();
+	virtual ~AForm();
 
 	void beSigned(const Bureaucrat &bureaucrat);
 	const std::string getName() const;

@@ -6,7 +6,7 @@
 #    By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/09 15:27:28 by jacha             #+#    #+#              #
-#    Updated: 2025/05/20 08:13:36 by jacha            ###   ########.fr        #
+#    Updated: 2025/05/20 08:13:07 by jacha            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ SRCS	=	main.cpp \
 			AForm.cpp \
 			ShrubberyCreationForm.cpp \
 			RobotomyRequestForm.cpp \
-			PresidentialPardonForm.cpp
+			PresidentialPardonForm.cpp \
+			Intern.cpp
 CC		= c++
 NAME	= a.out
 CFLAGS	= -Wall -Wextra -Werror -std=c++98

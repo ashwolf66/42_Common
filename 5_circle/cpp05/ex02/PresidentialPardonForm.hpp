@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/20 08:13:38 by jacha             #+#    #+#             */
+/*   Updated: 2025/05/20 08:13:39 by jacha            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PRESIDENTIALPARDONFORM_HPP
 # define PRESIDENTIALPARDONFORM_HPP
 
