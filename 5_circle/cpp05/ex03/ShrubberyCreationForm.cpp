@@ -44,6 +44,12 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		throw AForm::GradeTooLowException();
 
 	std::ofstream ofs((_target + "_shrubbery").c_str());
+	if (!ofs.is_open())
+	{
+		std::cout << "Open Faile" << std::endl;
+		ofs.close();
+		return;
+	}
 	ofs << "          **\n"
 		<< "         ****\n"
 		<< "        ******\n"
