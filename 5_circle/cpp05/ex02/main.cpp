@@ -17,6 +17,7 @@
 
 int main()
 {
+	std::srand(std::time(NULL));
 	Bureaucrat john("John", 1);
 
 	ShrubberyCreationForm shrub("home");
@@ -27,8 +28,12 @@ int main()
 	john.signForm(robo);
 	john.signForm(pardon);
 
+	std::cout << "\n";
+
 	john.executeForm(shrub);
+	std::cout << "\n";
 	john.executeForm(robo);
+	std::cout << "\n";
 	john.executeForm(pardon);
 
 	return (0);

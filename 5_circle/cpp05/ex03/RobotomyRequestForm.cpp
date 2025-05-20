@@ -46,8 +46,8 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
 		throw AForm::GradeTooLowException();
 
 	std::cout << "* Drilling noises *" << std::endl;
-	std::srand(std::time(0));
-	if (std::rand() % 2)
+	int result = std::rand() % 100;
+	if (result < 50)
 		std::cout << _target << " has been robotomized successfully!" << std::endl;
 	else
 		std::cout << "Robotomy failed on " << _target << "." << std::endl;
