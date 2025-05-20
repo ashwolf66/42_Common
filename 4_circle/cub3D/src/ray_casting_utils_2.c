@@ -26,8 +26,8 @@ int	get_t_num(t_ray *ray)
 	if (ray->side == 0)
 	{
 		if (ray->ray_dir_x > 0)
-			return (3);
-		return (2);
+			return (2);
+		return (3);
 	}
 	if (ray->ray_dir_y > 0)
 		return (1);
