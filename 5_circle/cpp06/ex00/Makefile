@@ -11,9 +11,9 @@
 # **************************************************************************** #
 
 SRCS	=	main.cpp \
-			Bureaucrat.cpp
+			ScalarConverter.cpp
 CC		= c++
-NAME	= a.out
+NAME	= convert
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
 OBJS	= $(SRCS:.cpp=.o)
 
