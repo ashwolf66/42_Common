@@ -71,8 +71,6 @@ bool ScalarConverter::isInt(const std::string &literal)
 
 bool ScalarConverter::isFloat(const std::string &literal)
 {
-	if (literal == "-inff" || literal == "+inff" || literal == "nanf")
-		return (true);
 	char *e;
 	e = NULL;
 	std::strtof(literal.c_str(), &e);
@@ -84,8 +82,6 @@ bool ScalarConverter::isFloat(const std::string &literal)
 
 bool ScalarConverter::isDouble(const std::string &literal)
 {
-	if (literal == "-inff" || literal == "+inff" || literal == "nanf")
-		return (true);
 	char *e;
 	e = NULL;
 	std::strtof(literal.c_str(), &e);
