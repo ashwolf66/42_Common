@@ -39,12 +39,9 @@ void ScalarConverter::convert(const std::string &literal)
 		printFloat(result);
 		printDouble(result);
 	}
-	catch (...)
+	catch (std::exception &e)
 	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: impossible" << std::endl;
-		std::cout << "double: impossible" << std::endl;
+		std::cerr << "Exception: " << e.what() << std::endl;
 	}
 }
 
