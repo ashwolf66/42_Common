@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 SRCS	=	main.cpp \
-			Bureaucrat.cpp
+			Serializer.cpp
 CC		= c++
 NAME	= a.out
 CFLAGS	= -Wall -Wextra -Werror -std=c++98
