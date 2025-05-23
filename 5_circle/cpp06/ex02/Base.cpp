@@ -1,12 +1,8 @@
 #include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
 
 Base::~Base()
 {
 }
-
 Base *generate(void)
 {
 	int i = rand() % 3;
