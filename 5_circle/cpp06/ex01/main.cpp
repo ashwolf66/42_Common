@@ -2,8 +2,8 @@
 
 int main(int ac, char *av[])
 {
-	Data prev;
-	Data *next;
+	Data data;
+	Data *val;
 	uintptr_t ptr;
 
 	if (ac != 2)
@@ -11,14 +11,14 @@ int main(int ac, char *av[])
 		std::cout << "Input Argument!!!!" << std::endl;
 		return (1);
 	}
-	prev.str = av[1];
-	std::cout << "prev : " << prev.str << std::endl;
+	data.str = av[1];
+	std::cout << "prev : " << data.str << std::endl;
 
-	ptr = Serializer::serialize(&prev);
-	std::cout << "ptr : " << ptr << std::endl;
+	ptr = Serializer::serialize(&data);
+	std::cout << "serialize : " << ptr << std::endl;
 
-	next = Serializer::deserialize(ptr);
-	std::cout << "next : " << next->str << std::endl;
+	val = Serializer::deserialize(ptr);
+	std::cout << "deserialize : " << val->str << std::endl;
 
 	return (0);
 }
