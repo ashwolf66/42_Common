@@ -4,7 +4,7 @@ int main(int ac, char *av[])
 {
 	Data prev;
 	Data *next;
-	unsigned long ptr;
+	uintptr_t ptr;
 
 	if (ac != 2)
 	{
