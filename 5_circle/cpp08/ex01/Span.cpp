@@ -41,14 +41,14 @@ Span::~Span()
 void Span::addNumber(int number)
 {
 	if (_data.size() >= _max)
-		throw std::out_of_range("Span is full");
+		throw SpanFull();
 	_data.push_back(number);
 }
 
 int Span::shortestSpan() const
 {
 	if (_data.size() < 2)
-		throw std::logic_error("Not enough elements");
+		throw SpanNotFull();
 
 	std::vector<int> tmp = _data;
 	std::sort(tmp.begin(), tmp.end());
@@ -66,7 +66,7 @@ int Span::shortestSpan() const
 int Span::longestSpan() const
 {
 	if (_data.size() < 2)
-		throw std::logic_error("Not enough elements");
+		throw SpanNotFull();
 
 	int minVal = *std::min_element(_data.begin(), _data.end());
 	int maxVal = *std::max_element(_data.begin(), _data.end());
@@ -84,4 +84,14 @@ void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterato
 const char *Span::FullContainer::what() const throw()
 {
 	return ("Container Is Full!!!!");
+}
+
+const char *Span::SpanFull::what() const throw()
+{
+	return ("Span Is Full!!!!");
+}
+
+const char *Span::SpanNotFull::what() const throw()
+{
+	return ("Span Is Not ㄸnough!!!!");
 }

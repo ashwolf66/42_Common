@@ -54,6 +54,7 @@ int main()
 		std::cout << *rit << " ";
 		++rit;
 	}
+	std::cout << std::endl;
 
 	return (0);
 }

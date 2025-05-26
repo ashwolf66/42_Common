@@ -22,10 +22,7 @@
 class NotFoundException : public std::exception
 {
 public:
-	const char *what() const throw()
-	{
-		return "Value not found in container.";
-	}
+	virtual const char *what() const throw();
 };
 
 #include "easyfind.tpp"
