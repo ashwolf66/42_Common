@@ -17,7 +17,7 @@ int main() {
     std::string strArray[4] = {"jacha", "student", "5circle", "fighting"};
 
     ::iter(intArray, 5, printElement);
-    ::iter(strArray, 4, printElement);
+    ::iter(strArray, 4, toupperString);
 
     return 0;
 }

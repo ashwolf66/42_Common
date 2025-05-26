@@ -18,16 +18,24 @@
 template <typename T>
 void iter(T *array, int length, void (*func)(T const &))
 {
+	if (array == NULL || func == NULL)
+		return;
 	for (int i = 0; i < length; ++i)
-	{
 		func(array[i]);
-	}
 }
 
 template <typename T>
-void printElement(T const &elem)
+void printElement(T const &arg)
 {
-	std::cout << elem << std::endl;
+	std::cout << arg << std::endl;
+}
+
+void toupperString(std::string const &str)
+{
+	std::string temp = str;
+	for (size_t i = 0; i < temp.length(); ++i)
+		temp[i] = std::toupper(temp[i]);
+	std::cout << temp << std::endl;
 }
 
 #endif
