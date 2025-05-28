@@ -14,10 +14,10 @@
 
 int main()
 {
+	int min;
+	int max;
 	try
 	{
-		int min;
-		int max;
 		Span sp = Span(5);
 		sp.addNumber(6);
 		sp.addNumber(3);
@@ -29,25 +29,39 @@ int main()
 		max = sp.longestSpan();
 		std::cout << "Shortest: " << min << std::endl;
 		std::cout << "Longest : " << max << std::endl;
-
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << "Exception: " << e.what() << std::endl;
+	}
+	try
+	{
 		Span wrongSpan(1);
 		wrongSpan.addNumber(5);
 		min = wrongSpan.shortestSpan();
 		max = wrongSpan.longestSpan();
 		std::cout << "Big Shortest: " << min << std::endl;
 		std::cout << "Big Longest : " << max << std::endl;
-
-		//Span wrong = Span(4);
-		//wrong.addNumber(6);
-		//wrong.addNumber(3);
-		//wrong.addNumber(17);
-		//wrong.addNumber(9);
-		//wrong.addNumber(11);
 	}
-	catch (std::exception &e)
+	catch(const std::exception& e)
 	{
 		std::cerr << "Exception: " << e.what() << std::endl;
 	}
+	try
+	{
+		 Span wrong = Span(4);
+		 wrong.addNumber(6);
+		 wrong.addNumber(3);
+		 wrong.addNumber(17);
+		 wrong.addNumber(9);
+		 wrong.addNumber(11);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << "Exception: " << e.what() << std::endl;
+	}
+	
+	
 
 	return (0);
 }
