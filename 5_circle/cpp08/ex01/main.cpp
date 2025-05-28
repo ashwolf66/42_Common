@@ -16,6 +16,8 @@ int main()
 {
 	try
 	{
+		int min;
+		int max;
 		Span sp = Span(5);
 		sp.addNumber(6);
 		sp.addNumber(3);
@@ -23,14 +25,24 @@ int main()
 		sp.addNumber(9);
 		sp.addNumber(11);
 
-		std::cout << "Shortest: " << sp.shortestSpan() << std::endl;
-		std::cout << "Longest : " << sp.longestSpan() << std::endl;
+		min = sp.shortestSpan();
+		max = sp.longestSpan();
+		std::cout << "Shortest: " << min << std::endl;
+		std::cout << "Longest : " << max << std::endl;
 
-		Span bigSpan(10000);
-		for (int i = 0; i < 10000; ++i)
-			bigSpan.addNumber(rand());
-		std::cout << "Big Shortest: " << bigSpan.shortestSpan() << std::endl;
-		std::cout << "Big Longest : " << bigSpan.longestSpan() << std::endl;
+		Span wrongSpan(1);
+		wrongSpan.addNumber(5);
+		min = wrongSpan.shortestSpan();
+		max = wrongSpan.longestSpan();
+		std::cout << "Big Shortest: " << min << std::endl;
+		std::cout << "Big Longest : " << max << std::endl;
+
+		//Span wrong = Span(4);
+		//wrong.addNumber(6);
+		//wrong.addNumber(3);
+		//wrong.addNumber(17);
+		//wrong.addNumber(9);
+		//wrong.addNumber(11);
 	}
 	catch (std::exception &e)
 	{

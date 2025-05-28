@@ -50,11 +50,12 @@ int Span::shortestSpan() const
 	if (_data.size() < 2)
 		throw SpanNotFull();
 
+	size_t i = 1;
 	std::vector<int> tmp = _data;
 	std::sort(tmp.begin(), tmp.end());
 
-	int minSpan = std::numeric_limits<int>::max();
-	for (size_t i = 0; i < tmp.size() - 1; ++i)
+	int minSpan = tmp[i] - tmp[i - 1];
+	for (i = 1; i < tmp.size() - 1; ++i)
 	{
 		int span = tmp[i + 1] - tmp[i];
 		if (span < minSpan)
@@ -68,10 +69,10 @@ int Span::longestSpan() const
 	if (_data.size() < 2)
 		throw SpanNotFull();
 
-	int minVal = *std::min_element(_data.begin(), _data.end());
-	int maxVal = *std::max_element(_data.begin(), _data.end());
+	std::vector<int> tmp = _data;
+	std::sort(tmp.begin(), tmp.end());
 
-	return maxVal - minVal;
+	return (tmp[tmp.size() - 1] - tmp[0]);
 }
 
 void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
@@ -93,5 +94,5 @@ const char *Span::SpanFull::what() const throw()
 
 const char *Span::SpanNotFull::what() const throw()
 {
-	return ("Span Is Not ㄸnough!!!!");
+	return ("Span Is Not Enough!!!!");
 }

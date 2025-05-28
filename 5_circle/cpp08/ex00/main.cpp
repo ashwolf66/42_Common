@@ -13,23 +13,23 @@
 #include "easyfind.hpp"
 
 int main() {
-    std::vector<int> vec;
+    std::vector<int> vector;
     for (int i = 0; i < 5; ++i)
-        vec.push_back(i);
+        vector.push_back(i);
 
     try {
-        std::vector<int>::iterator it = easyfind(vec, 3);
+        std::vector<int>::iterator it = easyfind(vector, 3);
         std::cout << "Found in vector: " << *it << std::endl;
     } catch (std::exception &e) {
         std::cerr << e.what() << std::endl;
     }
 
-    std::list<int> lst;
+    std::list<int> list;
     for (int i = 10; i < 15; ++i)
-        lst.push_back(i);
+        list.push_back(i);
 
     try {
-        std::list<int>::iterator it = easyfind(lst, 11);
+        std::list<int>::iterator it = easyfind(list, 11);
         std::cout << "Found in list: " << *it << std::endl;
     } catch (std::exception &e) {
         std::cerr << e.what() << std::endl;
