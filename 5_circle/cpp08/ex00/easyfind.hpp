@@ -19,6 +19,9 @@
 #include <iostream>
 #include <list>
 
+template <typename T>
+typename T::iterator easyfind(T &container, int value);
+
 class NotFoundException : public std::exception
 {
 public:

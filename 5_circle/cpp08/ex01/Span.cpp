@@ -22,7 +22,8 @@ Span::Span(unsigned int N) : _max(N)
 
 Span::Span(const Span &other)
 {
-	*this = other;
+	this->_data = other._data;
+	this->_max = other._max;
 }
 
 Span &Span::operator=(const Span &other)
