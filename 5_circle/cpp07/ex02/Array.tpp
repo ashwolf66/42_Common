@@ -61,7 +61,7 @@ T &Array<T>::operator[](unsigned int i)
 }
 
 template <typename T>
-unsigned int Array<T>::size() const
+unsigned int Array<T>::getSize() const
 {
     return (this->_size);
 }
