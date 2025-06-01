@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/01 13:34:47 by jacha             #+#    #+#             */
+/*   Updated: 2025/06/01 13:34:49 by jacha            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PMERGEME_HPP
 #define PMERGEME_HPP
 
@@ -23,6 +35,7 @@ public:
 	PmergeMe(const PmergeMe &other);
 	PmergeMe &operator=(const PmergeMe &other);
 	~PmergeMe();
+	
 	void process(int argc, char **argv);
 	static void mergeInsertSortVector(std::vector<int> &vec);
 	static void mergeInsertSortDeque(std::deque<int> &deq);
