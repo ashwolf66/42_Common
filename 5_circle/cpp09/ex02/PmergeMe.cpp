@@ -40,9 +40,14 @@ void PmergeMe::process(int argc, char **argv)
 		_deq.push_back(num);
 	}
 
-	std::cout << "Before: ";
+	std::cout << "Vector Before: ";
 	for (size_t i = 0; i < _vec.size(); ++i)
 		std::cout << _vec[i] << " ";
+	std::cout << std::endl;
+
+	std::cout << "Deque Before: ";
+	for (size_t i = 0; i < _deq.size(); ++i)
+		std::cout << _deq[i] << " ";
 	std::cout << std::endl;
 
 	long startVec = getTimeInMicroseconds();
@@ -53,11 +58,18 @@ void PmergeMe::process(int argc, char **argv)
 	mergeInsertSortDeque(_deq);
 	long endDeq = getTimeInMicroseconds();
 
-	std::cout << "After: ";
+	std::cout << std::endl;
+	std::cout << "Vector After: ";
 	for (size_t i = 0; i < _vec.size(); ++i)
 		std::cout << _vec[i] << " ";
 	std::cout << std::endl;
 
+	std::cout << "Deque After: ";
+	for (size_t i = 0; i < _deq.size(); ++i)
+		std::cout << _deq[i] << " ";
+	std::cout << std::endl;
+	
+	std::cout << std::endl;
 	std::cout << "Time to process a range of " << _vec.size()
 			  << " elements with std::vector : " << (endVec - startVec) << " us" << std::endl;
 	std::cout << "Time to process a range of " << _deq.size()
@@ -69,14 +81,49 @@ void PmergeMe::mergeInsertSortVector(std::vector<int> &vec)
 	if (vec.size() <= 1)
 		return;
 
-	size_t mid = vec.size() / 2;
-	std::vector<int> left(vec.begin(), vec.begin() + mid);
-	std::vector<int> right(vec.begin() + mid, vec.end());
+	std::vector<std::pair<int, int> > pairs;
+	std::vector<int> mainSequence; // 큰 값들
+	std::vector<int> subSequence;  // 작은 값들
 
-	mergeInsertSortVector(left);
-	mergeInsertSortVector(right);
+	// 1. 짝(pair) 나누기
+	size_t i = 0;
+	for (; i + 1 < vec.size(); i += 2)
+	{
+		int a = vec[i], b = vec[i + 1];
+		if (a > b)
+			std::swap(a, b);
+		pairs.push_back(std::make_pair(a, b));
+	}
 
-	std::merge(left.begin(), left.end(), right.begin(), right.end(), vec.begin());
+	// 2. 홀수 개일 경우 마지막 하나 따로 저장
+	int leftover = -1;
+	if (i < vec.size())
+		leftover = vec[i];
+
+	// 3. 큰 값으로 메인 시퀀스 구성
+	for (size_t j = 0; j < pairs.size(); ++j)
+		mainSequence.push_back(pairs[j].second);
+
+	// 4. 메인 시퀀스 정렬 (재귀적으로 자신 호출)
+	mergeInsertSortVector(mainSequence);
+
+	// 5. 작은 값들 이진 삽입
+	for (size_t j = 0; j < pairs.size(); ++j)
+	{
+		int insertValue = pairs[j].first;
+		std::vector<int>::iterator pos = std::lower_bound(mainSequence.begin(), mainSequence.end(), insertValue);
+		mainSequence.insert(pos, insertValue);
+	}
+
+	// 6. 남은 홀수 개 수 삽입
+	if (leftover != -1)
+	{
+		std::vector<int>::iterator pos = std::lower_bound(mainSequence.begin(), mainSequence.end(), leftover);
+		mainSequence.insert(pos, leftover);
+	}
+
+	// 7. 최종 결과를 원래 vec에 복사
+	vec = mainSequence;
 }
 
 void PmergeMe::mergeInsertSortDeque(std::deque<int> &deq)
@@ -84,14 +131,49 @@ void PmergeMe::mergeInsertSortDeque(std::deque<int> &deq)
 	if (deq.size() <= 1)
 		return;
 
-	size_t mid = deq.size() / 2;
-	std::deque<int> left(deq.begin(), deq.begin() + mid);
-	std::deque<int> right(deq.begin() + mid, deq.end());
+	std::deque<std::pair<int, int> > pairs;
+	std::deque<int> mainSequence; // 큰 값들
+	std::deque<int> subSequence;  // 작은 값들
 
-	mergeInsertSortDeque(left);
-	mergeInsertSortDeque(right);
+	// 1. 쌍(pair) 만들기
+	size_t i = 0;
+	for (; i + 1 < deq.size(); i += 2)
+	{
+		int a = deq[i], b = deq[i + 1];
+		if (a > b)
+			std::swap(a, b);
+		pairs.push_back(std::make_pair(a, b));
+	}
 
-	std::merge(left.begin(), left.end(), right.begin(), right.end(), deq.begin());
+	// 2. 홀수 개라면 마지막 원소 따로 저장
+	int leftover = -1;
+	if (i < deq.size())
+		leftover = deq[i];
+
+	// 3. 큰 값만 추출해서 메인 시퀀스 구성
+	for (size_t j = 0; j < pairs.size(); ++j)
+		mainSequence.push_back(pairs[j].second);
+
+	// 4. 메인 시퀀스를 재귀적으로 정렬
+	mergeInsertSortDeque(mainSequence);
+
+	// 5. 작은 값들을 이진 삽입
+	for (size_t j = 0; j < pairs.size(); ++j)
+	{
+		int insertValue = pairs[j].first;
+		std::deque<int>::iterator pos = std::lower_bound(mainSequence.begin(), mainSequence.end(), insertValue);
+		mainSequence.insert(pos, insertValue);
+	}
+
+	// 6. 남은 홀수 값도 삽입
+	if (leftover != -1)
+	{
+		std::deque<int>::iterator pos = std::lower_bound(mainSequence.begin(), mainSequence.end(), leftover);
+		mainSequence.insert(pos, leftover);
+	}
+
+	// 7. 결과를 원본 deq에 복사
+	deq = mainSequence;
 }
 
 long PmergeMe::getTimeInMicroseconds()

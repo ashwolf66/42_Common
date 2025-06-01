@@ -52,6 +52,8 @@ void BitcoinExchange::loadDatabase(const std::string &filename)
 float BitcoinExchange::getRate(const std::string &date) const
 {
 	std::map<std::string, float>::const_iterator it = _data.lower_bound(date);
+	if (_data.empty())
+		throw std::runtime_error("Error: database is empty");
 	if (it != _data.end() && it->first == date)
 		return it->second;
 	if (it != _data.begin())

@@ -48,7 +48,12 @@ int main(int argc, char **argv)
 		float value;
 		if (!BitcoinExchange::isValidValue(valueStr, value))
 		{
-			if (valueStr.find('-') != std::string::npos)
+			char *e;
+			e = NULL;
+			std::strtol(valueStr.c_str(), &e, 10);
+			if (*e != '\0')
+				std::cerr << "Error: bad input => " << line << std::endl;
+			else if (valueStr.find('-') != std::string::npos)
 				std::cerr << "Error: not a positive number." << std::endl;
 			else
 				std::cerr << "Error: too large a number." << std::endl;
