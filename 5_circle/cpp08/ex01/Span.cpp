@@ -76,13 +76,6 @@ int Span::longestSpan() const
 	return (tmp[tmp.size() - 1] - tmp[0]);
 }
 
-void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
-{
-	if (_data.size() + std::distance(begin, end) > _max)
-		throw FullContainer();
-	_data.insert(_data.end(), begin, end);
-}
-
 const char *Span::FullContainer::what() const throw()
 {
 	return ("Container Is Full!!!!");

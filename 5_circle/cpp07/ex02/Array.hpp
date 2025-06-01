@@ -31,6 +31,7 @@ public:
 	~Array();
 
 	T &operator[](unsigned int i);
+	const T &operator[](unsigned int i)const;
 	unsigned int getSize() const;
 
 	class BadIndex : public std::exception

@@ -56,7 +56,15 @@ template <typename T>
 T &Array<T>::operator[](unsigned int i)
 {
     if (i >= this->_size || this->_arr == NULL)
-        throw (Array::BadIndex());
+        throw(Array::BadIndex());
+    return (this->_arr[i]);
+}
+
+template <typename T>
+const T &Array<T>::operator[](unsigned int i) const
+{
+    if (i >= this->_size || this->_arr == NULL)
+        throw(Array::BadIndex());
     return (this->_arr[i]);
 }
 

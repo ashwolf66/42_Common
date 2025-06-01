@@ -37,7 +37,7 @@ int main()
 	MutantStack<int>::iterator it = mstack.begin();
 	std::cout << "Begin : " << *it << std::endl;
 	MutantStack<int>::iterator ite = mstack.end();
-	std::cout << "End : " << *ite << std::endl;
+	std::cout << "End : " << *(ite - 1) << std::endl;
 	std::cout << std::endl;
 
 	++it;
@@ -53,8 +53,6 @@ int main()
 		++it;
 	}
 	std::cout << std::endl;
-
-	std::stack<int> s(mstack);
 
 	return 0;
 }

@@ -34,7 +34,6 @@ public:
 	~Span();
 
 	void addNumber(int number);
-	void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 	int shortestSpan() const;
 	int longestSpan() const;
 
