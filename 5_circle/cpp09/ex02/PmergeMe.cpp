@@ -94,10 +94,9 @@ void PmergeMe::mergeInsertSortVector(std::vector<int> &vec)
 		return;
 
 	std::vector<std::pair<int, int> > pairs;
-	std::vector<int> mainSequence; // 큰 값들
-	std::vector<int> subSequence;  // 작은 값들
+	std::vector<int> mainSequence;
+	std::vector<int> subSequence;
 
-	// 1. 짝(pair) 나누기
 	size_t i = 0;
 	for (; i + 1 < vec.size(); i += 2)
 	{
@@ -107,19 +106,15 @@ void PmergeMe::mergeInsertSortVector(std::vector<int> &vec)
 		pairs.push_back(std::make_pair(a, b));
 	}
 
-	// 2. 홀수 개일 경우 마지막 하나 따로 저장
 	int leftover = -1;
 	if (i < vec.size())
 		leftover = vec[i];
 
-	// 3. 큰 값으로 메인 시퀀스 구성
 	for (size_t j = 0; j < pairs.size(); ++j)
 		mainSequence.push_back(pairs[j].second);
 
-	// 4. 메인 시퀀스 정렬 (재귀적으로 자신 호출)
 	mergeInsertSortVector(mainSequence);
 
-	// 5. 작은 값들 이진 삽입
 	for (size_t j = 0; j < pairs.size(); ++j)
 	{
 		int insertValue = pairs[j].first;
@@ -127,14 +122,12 @@ void PmergeMe::mergeInsertSortVector(std::vector<int> &vec)
 		mainSequence.insert(pos, insertValue);
 	}
 
-	// 6. 남은 홀수 개 수 삽입
 	if (leftover != -1)
 	{
 		std::vector<int>::iterator pos = std::lower_bound(mainSequence.begin(), mainSequence.end(), leftover);
 		mainSequence.insert(pos, leftover);
 	}
 
-	// 7. 최종 결과를 원래 vec에 복사
 	vec = mainSequence;
 }
 
@@ -144,10 +137,9 @@ void PmergeMe::mergeInsertSortDeque(std::deque<int> &deq)
 		return;
 
 	std::deque<std::pair<int, int> > pairs;
-	std::deque<int> mainSequence; // 큰 값들
-	std::deque<int> subSequence;  // 작은 값들
+	std::deque<int> mainSequence;
+	std::deque<int> subSequence;
 
-	// 1. 쌍(pair) 만들기
 	size_t i = 0;
 	for (; i + 1 < deq.size(); i += 2)
 	{
@@ -157,19 +149,15 @@ void PmergeMe::mergeInsertSortDeque(std::deque<int> &deq)
 		pairs.push_back(std::make_pair(a, b));
 	}
 
-	// 2. 홀수 개라면 마지막 원소 따로 저장
 	int leftover = -1;
 	if (i < deq.size())
 		leftover = deq[i];
 
-	// 3. 큰 값만 추출해서 메인 시퀀스 구성
 	for (size_t j = 0; j < pairs.size(); ++j)
 		mainSequence.push_back(pairs[j].second);
 
-	// 4. 메인 시퀀스를 재귀적으로 정렬
-	mergeInsertSortDeque(mainSequence);
+		mergeInsertSortDeque(mainSequence);
 
-	// 5. 작은 값들을 이진 삽입
 	for (size_t j = 0; j < pairs.size(); ++j)
 	{
 		int insertValue = pairs[j].first;
@@ -177,14 +165,12 @@ void PmergeMe::mergeInsertSortDeque(std::deque<int> &deq)
 		mainSequence.insert(pos, insertValue);
 	}
 
-	// 6. 남은 홀수 값도 삽입
 	if (leftover != -1)
 	{
 		std::deque<int>::iterator pos = std::lower_bound(mainSequence.begin(), mainSequence.end(), leftover);
 		mainSequence.insert(pos, leftover);
 	}
 
-	// 7. 결과를 원본 deq에 복사
 	deq = mainSequence;
 }
 
