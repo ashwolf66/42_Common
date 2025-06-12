@@ -29,6 +29,7 @@ public:
     RPN(const RPN &other);
     RPN &operator=(const RPN &other);
     ~RPN();
+	
     int evaluate(const std::string& expression);
 };
 #endif
