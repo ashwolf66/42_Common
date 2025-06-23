@@ -60,7 +60,28 @@ int main()
 	{
 		std::cerr << "Exception: " << e.what() << std::endl;
 	}
-	
+	try
+	{
+		std::vector<int> vec;
+		vec.push_back(10);
+		vec.push_back(20);
+		vec.push_back(30);
+		vec.push_back(40);
+
+		Span spRange(10);
+		spRange.addNumber(vec.begin(), vec.end());
+
+		spRange.addNumber(50);
+
+		min = spRange.shortestSpan();
+		max = spRange.longestSpan();
+		std::cout << "Range Shortest: " << min << std::endl;
+		std::cout << "Range Longest : " << max << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << "Exception: " << e.what() << std::endl;
+	}
 	
 
 	return (0);

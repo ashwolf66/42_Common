@@ -46,6 +46,13 @@ void Span::addNumber(int number)
 	_data.push_back(number);
 }
 
+void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	if (_data.size() + std::distance(begin, end) > _max)
+		throw FullContainer();
+	_data.insert(_data.end(), begin, end);
+}
+
 int Span::shortestSpan() const
 {
 	if (_data.size() < 2)
