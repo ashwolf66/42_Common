@@ -70,6 +70,7 @@ int main()
 
 		Span spRange(10);
 		spRange.addNumber(vec.begin(), vec.end());
+		std::cout << "multiple addNumber Size : " << std::distance(vec.begin(), vec.end()) << std::endl;
 
 		spRange.addNumber(50);
 
