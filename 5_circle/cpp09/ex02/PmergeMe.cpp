@@ -6,7 +6,7 @@
 /*   By: jacha <jacha@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/01 13:34:46 by jacha             #+#    #+#             */
-/*   Updated: 2025/06/01 13:34:47 by jacha            ###   ########.fr       */
+/*   Updated: 2025/07/04 17:03:20 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,7 +156,7 @@ void PmergeMe::mergeInsertSortDeque(std::deque<int> &deq)
 	for (size_t j = 0; j < pairs.size(); ++j)
 		mainSequence.push_back(pairs[j].second);
 
-		mergeInsertSortDeque(mainSequence);
+	mergeInsertSortDeque(mainSequence);
 
 	for (size_t j = 0; j < pairs.size(); ++j)
 	{
