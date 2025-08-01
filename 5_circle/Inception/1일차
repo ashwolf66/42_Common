@@ -15,9 +15,9 @@ Docker-compose.yml
 		-build : 해당 항목에 정의된 도커파일에서 이미지를 빌드해 서비스의 컨테이너를 생성하도록 설정한다.
 		-extends : 다른 yml이나 현재 yml 파일에서 서비스 속성을 상속 받도록 설정한다.
 	-네트워크 정의
-		-driver : 
-		-ipam : 
-		-external : 
+		-driver : 도커 컴포즈는 생성된 컨테이너를 위해 기본적으로 브리지 타입의 네트워크를 생성한다. 그러나 driver 항목을 정의해 브리지 네트워크가 아닌 다른 네트워크를 사용하도록 설정한다.
+		-ipam : IP Address Manager를 위한 옵션 subnet, ip 범위 등을 설정한다.
+		-external : yml 파일을 통해 프로젝트 생성할 때마다 네트워크를 생성하는 것이 아닌, 기존 네트워크를 사용하도록 설정한다.
 	-볼륨 정의
-		-driver : 
-		-external : 
+		-driver : 볼륨을 생성할 때 사용될 드라이버를 설정한다.
+		-external : yml 파일에서 volume, volume-from 옵견 등을 사용하면 프로젝트마다 볼륨을 생성한다.
