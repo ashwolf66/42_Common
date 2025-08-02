@@ -1,0 +1,16 @@
+FROM debian:bullseye
+
+RUN apt-get update && \
+    apt-get install -y nginx openssl && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY tools/setup_ssl.sh /setup_ssl.sh
+RUN chmod +x /setup_ssl.sh && /setup_ssl.sh
+
+COPY conf/default.conf /etc/nginx/conf.d/default.conf
+
+VOLUME ["/var/www/wordpress"]
+
+EXPOSE 443
+
+CMD ["nginx", "-g", "daemon off;"]

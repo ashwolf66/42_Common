@@ -1,0 +1,13 @@
+.env
+*.pem
+*.crt
+*.key
+secrets/
+
+*.log
+*.pid
+
+.vscode/
+*~
+*.swp
+*.swo
