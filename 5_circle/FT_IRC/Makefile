@@ -35,6 +35,7 @@ fclean: clean
 re: fclean all
 
 cm:
+	make fclean
 	make all
 	make clean
 

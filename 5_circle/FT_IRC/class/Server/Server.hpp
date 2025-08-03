@@ -32,9 +32,9 @@ private:
 
 	static std::string					getHostname();
 	static time_t						getTime();
-	bool								initEpoll();
-	bool								initServerSocket();
-	bool								setServerSocket();
+	void								initEpoll();
+	void								setServerSocket();
+	void								setServer();
 	void								handle_event();
 		
 	int									wait();
@@ -47,7 +47,7 @@ private:
 	t_str_pair							split_prev(std::string &msg);
 	std::vector<std::string>			split_mode(std::string &modes);
 	std::vector<std::string> 			split(const std::string &str, char delimiter);
-	
+	std::string							get_front(const std::string &str, const char delimiter);
 	int									handle_cmd(t_str_pair &cmd_pair, Client *client);
 	void								loop();
 
@@ -68,8 +68,6 @@ private:
 	void								handle_part(std::string &str, Client *client);
 	void								handle_whois(std::string &str, Client *client);
 	void								handle_who(std::string &str, Client *client);
-
-	void								user_mode(Client *client, std::vector<std::string> &modes);
 };
 
 #endif

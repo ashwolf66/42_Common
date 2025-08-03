@@ -11,7 +11,7 @@ ClientManager::~ClientManager()
 {
 	std::ostringstream msg;
 
-	for (std::vector<Client *>::iterator it = clients.begin(); it != clients.end(); ++it)
+	for (std::list<Client *>::iterator it = clients.begin(); it != clients.end(); ++it)
 	{
 		msg << "ERROR :Closing link: " << (*it)->getUsername() << "@" << (*it)->getIp() << ":" << (*it)->getPort() << " [Server shutting down]\r\n";
 		(*it)->sendMessage(msg);
@@ -35,10 +35,8 @@ bool ClientManager::add(int serv_fd)
 	{
 		throw;
 	}
-	std::cout << "New client connected: "
-		<< new_client->getIp() << ":"
-		<< new_client->getPort() << std::endl;
 	clients.push_back(new_client);
+	new_client->lookingHostname();
 	return true;
 }
 
@@ -58,7 +56,7 @@ void ClientManager::del(Client *client)
 
 Client* ClientManager::find_fd(int fd)
 {
-	for (std::vector<Client *>::iterator i = clients.begin(); i != clients.end(); ++i)
+	for (std::list<Client *>::iterator i = clients.begin(); i != clients.end(); ++i)
 	{
 		if ((*i)->getFd() == fd)
 		{
@@ -72,7 +70,7 @@ Client* ClientManager::find_fd(int fd)
 
 Client* ClientManager::find_nick(std::string &nick)
 {
-	for (std::vector<Client *>::iterator i = clients.begin(); i != clients.end(); ++i)
+	for (std::list<Client *>::iterator i = clients.begin(); i != clients.end(); ++i)
 	{
 		if ((*i)->getNickname() == nick)
 		{

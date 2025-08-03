@@ -7,7 +7,6 @@ Socket::~Socket()
 
 int	Socket::set_flag_fd(int serv_fd, int flags)
 {
-	flags = fcntl(serv_fd, F_GETFL, 0) | flags;
 	if (fcntl(serv_fd, F_SETFL, flags) < 0)
 	{
 		close(serv_fd);

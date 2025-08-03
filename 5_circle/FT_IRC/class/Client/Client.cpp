@@ -21,7 +21,7 @@ Client::Client(int serv_fd, int epfd)
 	}
 
 	struct epoll_event ev;
-	ev.events = EPOLLIN | EPOLLET | EPOLLRDHUP | EPOLLHUP | EPOLLERR;
+	ev.events = EPOLLIN | EPOLLRDHUP | EPOLLERR;
 	ev.data.ptr = this;
 	
 	if (epoll_ctl(epfd, EPOLL_CTL_ADD, fd, &ev) < 0)
@@ -35,11 +35,16 @@ Client::Client(int serv_fd, int epfd)
 		close(fd);
 		throw ClientCreateError("Failed to set client IP address");
 	}
-	lookingHostname();
+	std::cout << "New client connected: "
+		<< getIp() << ":"
+		<< getPort() << std::endl;
 }
 
 Client::~Client()
 {
+	std::cout << "Client disconnected: "
+		<< getIp() << ":"
+		<< getPort() << std::endl;
 	if (epoll_ctl(Server::get_epfd(), EPOLL_CTL_DEL, fd, NULL) < 0)
 		std::cerr << "Failed to remove client socket from epoll" << std::endl;
 	close(fd);

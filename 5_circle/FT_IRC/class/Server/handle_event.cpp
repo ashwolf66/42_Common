@@ -49,6 +49,7 @@ void	Server::handle_nick(std::string &nickname, Client *client)
 		client->sendMessage(msg);
 		return;
 	}
+	nickname = get_front(nickname, ' ');
 	if (nickname == "*")
 	{
 		msg << ":" << Server::getHostname() << " 432 " << client->getNickname() << " " << nickname << " :Erroneous nickname\r\n";
@@ -110,6 +111,7 @@ void	Server::handle_join(std::string &str, Client *client)
 		client->sendMessage(msg);
 		return;
 	}
+	
 	t_str_pair seq = split_prev(str);
 	std::vector<std::string> channels = split(seq.first, ',');
 	std::vector<std::string> passwords = split(seq.second, ',');

@@ -94,7 +94,7 @@ bool Channel::K_Option(Client *client, std::string flag, std::string str)
 bool Channel::O_Option(Client *client, std::string flag, std::string str)
 {
 	std::ostringstream msg;
-	std::vector<Client *>::iterator it;
+	std::list<Client *>::iterator it;
 
 	if (FindOpClient(client) == false)
 	{

@@ -2,17 +2,17 @@
 
 bool Server::check_client_connection(epoll_event &event)
 {
-	return static_cast<Client *>(event.data.ptr)->getFd() == fd;
+	return static_cast<Client *>(event.data.ptr)->getFd() == this->fd;
 }
 
 bool Server::check_client_disconnection(epoll_event &event)
 {
-	return static_cast<Client *>(event.data.ptr)->getFd() != fd && (event.events & (EPOLLRDHUP | EPOLLHUP | EPOLLERR));
+	return static_cast<Client *>(event.data.ptr)->getFd() != this->fd && (event.events & (EPOLLRDHUP | EPOLLERR));
 }
 
 bool Server::check_client_readable(epoll_event &event)
 {
-	return static_cast<Client *>(event.data.ptr)->getFd() != fd && (event.events & (EPOLLET | EPOLLIN));
+	return static_cast<Client *>(event.data.ptr)->getFd() != this->fd && (event.events & (EPOLLIN));
 }
 
 int Server::handle_cmd(t_str_pair &cmd_pair, Client *client)
@@ -60,25 +60,23 @@ int Server::handle_cmd(t_str_pair &cmd_pair, Client *client)
 t_str_pair	Server::split_prev(std::string &msg)
 {
 	t_str_pair res;
+	size_t pos;
 	if (msg == "")
 		return res;
 
-	size_t pos = msg.find(' ');
-	size_t pos2 = msg.find_last_not_of("\r\n");
+	pos = msg.find('\r');
+	if (pos != std::string::npos)
+		msg.erase(pos);
+
+	pos = msg.find(' ');
 	if (pos != std::string::npos)
 	{
 		res.first = msg.substr(0, pos);
-		if (pos2 != std::string::npos)
-			res.second = msg.substr(pos + 1, pos2 - pos);
-		else
-			res.second = msg.substr(pos + 1);
+		res.second = msg.substr(pos + 1);
 	}
 	else
 	{
-		if (pos2 != std::string::npos)
-			res.first = msg.substr(0, pos2 + 1);
-		else
-			res.first = msg;
+		res.first = msg;
 		res.second = "";
 	}
 	return res;
@@ -102,7 +100,7 @@ std::vector<std::string> Server::split_mode(std::string &modes)
 	return result;
 }
 
-std::vector<std::string> Server::split(const std::string &str, char delimiter)
+std::vector<std::string> Server::split(const std::string &str, const char delimiter)
 {
 	std::vector<std::string> tokens;
 	std::stringstream stream(str);
@@ -114,4 +112,15 @@ std::vector<std::string> Server::split(const std::string &str, char delimiter)
 			tokens.push_back(token);
 	}
 	return tokens;
+}
+
+std::string Server::get_front(const std::string &str, const char delimiter)
+{
+	size_t pos = str.find(delimiter);
+	if (pos != std::string::npos)
+	{
+		std::string front = str.substr(0, pos);
+		return front;
+	}
+	return "";
 }

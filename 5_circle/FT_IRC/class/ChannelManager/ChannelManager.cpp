@@ -49,6 +49,7 @@ void ChannelManager::send_not_joined(Client *client, std::string &channel)
 
 void ChannelManager::join(std::vector<std::string> &channels, Client *client, std::vector<std::string> &passwords)
 {
+	size_t i_pass = 0;
 	for (size_t i = 0; i < channels.size(); ++i)
 	{
 		Channel* channel = find(channels[i]);
@@ -57,8 +58,7 @@ void ChannelManager::join(std::vector<std::string> &channels, Client *client, st
 			channel = new Channel(channels[i]);
 			_Channels.push_back(channel);
 		}
-		channel->join(client, passwords[0]);
-		passwords.erase(passwords.begin());
+		channel->join(client, passwords[i_pass++]);
 	}
 }
 

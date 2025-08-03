@@ -9,9 +9,9 @@
 class Channel
 {
 private:
-	std::vector<Client *>	_OpClients;
-	std::vector<Client *>	_ReClients;
-	std::vector<Client *>	_InviteList;
+	std::list<Client *>	_OpClients;
+	std::list<Client *>	_ReClients;
+	std::list<Client *>	_InviteList;
 	std::time_t				_InitTimeToServer;
 	std::time_t				_InitTimeToTopic;
 	std::string				_Name;
@@ -29,14 +29,14 @@ public:
 	std::string &getName();
 
 	bool	FindOpClient(Client *client);
-	bool	FindOpClient(Client * client, std::vector<Client *>::iterator &it);
-	bool	FindOpClient(const std::string &nick, std::vector<Client *>::iterator &it);
+	bool	FindOpClient(Client * client, std::list<Client *>::iterator &it);
+	bool	FindOpClient(const std::string &nick, std::list<Client *>::iterator &it);
 
-	bool	FindReClient(Client * client, std::vector<Client *>::iterator &it);
-	bool	FindReClient(const std::string &nick, std::vector<Client *>::iterator &it);
+	bool	FindReClient(Client * client, std::list<Client *>::iterator &it);
+	bool	FindReClient(const std::string &nick, std::list<Client *>::iterator &it);
 
-	bool	FindClient(Client *client, std::vector<Client *>::iterator &it, std::vector<Client *>**where);
-	bool	FindClient(const std::string &nick, std::vector<Client *>::iterator &it, std::vector<Client *>**where);
+	bool	FindClient(Client *client, std::list<Client *>::iterator &it, std::list<Client *>**where);
+	bool	FindClient(const std::string &nick, std::list<Client *>::iterator &it, std::list<Client *>**where);
 
 	bool	isInviteClient(Client *client);
 

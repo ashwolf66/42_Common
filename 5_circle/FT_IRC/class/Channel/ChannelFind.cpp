@@ -2,7 +2,7 @@
 
 bool Channel::FindOpClient(Client *client)
 {
-	std::vector<Client *>::iterator it;
+	std::list<Client *>::iterator it;
 	for (it = _OpClients.begin(); it != _OpClients.end(); ++it)
 	{
 		if (*it == client)
@@ -11,7 +11,7 @@ bool Channel::FindOpClient(Client *client)
 	return false;
 }
 
-bool Channel::FindOpClient(Client *client, std::vector<Client *>::iterator &it)
+bool Channel::FindOpClient(Client *client, std::list<Client *>::iterator &it)
 {
 	for (it = _OpClients.begin(); it != _OpClients.end(); ++it)
 	{
@@ -21,7 +21,7 @@ bool Channel::FindOpClient(Client *client, std::vector<Client *>::iterator &it)
 	return false;
 }
 
-bool Channel::FindOpClient(const std::string &nick, std::vector<Client *>::iterator &it)
+bool Channel::FindOpClient(const std::string &nick, std::list<Client *>::iterator &it)
 {
 	for (it = _OpClients.begin(); it != _OpClients.end(); ++it)
 	{
@@ -31,7 +31,7 @@ bool Channel::FindOpClient(const std::string &nick, std::vector<Client *>::itera
 	return false;
 }
 
-bool Channel::FindReClient(Client *client, std::vector<Client *>::iterator &it)
+bool Channel::FindReClient(Client *client, std::list<Client *>::iterator &it)
 {
 	for (it = _ReClients.begin(); it != _ReClients.end(); ++it)
 	{
@@ -41,7 +41,7 @@ bool Channel::FindReClient(Client *client, std::vector<Client *>::iterator &it)
 	return false;
 }
 
-bool Channel::FindReClient(const std::string &nick, std::vector<Client *>::iterator &it)
+bool Channel::FindReClient(const std::string &nick, std::list<Client *>::iterator &it)
 {
 	for (it = _ReClients.begin(); it != _ReClients.end(); ++it)
 	{
@@ -51,7 +51,7 @@ bool Channel::FindReClient(const std::string &nick, std::vector<Client *>::itera
 	return false;
 }
 
-bool Channel::FindClient(Client *client, std::vector<Client *>::iterator &it, std::vector<Client *> **where)
+bool Channel::FindClient(Client *client, std::list<Client *>::iterator &it, std::list<Client *> **where)
 {
 	if (FindOpClient(client, it))
 	{
@@ -68,7 +68,7 @@ bool Channel::FindClient(Client *client, std::vector<Client *>::iterator &it, st
 	return false;
 }
 
-bool Channel::FindClient(const std::string &nick, std::vector<Client *>::iterator &it, std::vector<Client *> **where)
+bool Channel::FindClient(const std::string &nick, std::list<Client *>::iterator &it, std::list<Client *> **where)
 {
 	if (FindOpClient(nick, it))
 	{
@@ -87,7 +87,7 @@ bool Channel::FindClient(const std::string &nick, std::vector<Client *>::iterato
 
 bool Channel::isInviteClient(Client *client)
 {
-	for (std::vector<Client *>::iterator it = _InviteList.begin(); it != _InviteList.end(); ++it)
+	for (std::list<Client *>::iterator it = _InviteList.begin(); it != _InviteList.end(); ++it)
 	{
 		if (*it == client)
 			return true;

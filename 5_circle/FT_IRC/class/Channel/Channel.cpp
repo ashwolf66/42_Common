@@ -16,8 +16,8 @@ std::string &Channel::getName()
 
 void Channel::DisconnetionClient(Client *client, const std::string &msg)
 {
-	std::vector<Client *> *where;
-	std::vector<Client *>::iterator it;
+	std::list<Client *> *where;
+	std::list<Client *>::iterator it;
 	std::ostringstream o_msg;
 
 	o_msg << ":" << client->getNickname() << "!" << client->getUsername() << "@" << client->getIp() << " QUIT :Quit: " << msg << "\r\n";
@@ -31,13 +31,13 @@ void Channel::DisconnetionClient(Client *client, const std::string &msg)
 
 void Channel::broadcast(Client *client, std::ostringstream &msg)
 {
-	for (std::vector<Client *>::iterator it = _OpClients.begin(); it != _OpClients.end(); ++it)
+	for (std::list<Client *>::iterator it = _OpClients.begin(); it != _OpClients.end(); ++it)
 	{
 		if (*it == client)
 			continue;
 		(*it)->sendMessage(msg);
 	}
-	for (std::vector<Client *>::iterator it = _ReClients.begin(); it != _ReClients.end(); ++it)
+	for (std::list<Client *>::iterator it = _ReClients.begin(); it != _ReClients.end(); ++it)
 	{
 		if (*it == client)
 			continue;
@@ -49,13 +49,13 @@ void Channel::writeJoinedClientNameList(Client *client, std::ostringstream &msg)
 {
 	msg << ":" << Server::getHostname() << " 353 " << client->getNickname() << " = " << _Name << " :";
 
-	for (size_t i = 0; i < _OpClients.size(); ++i)
-		msg << "@" << _OpClients[i]->getNickname() << " ";
-		
-	for (size_t i = 0; i < _ReClients.size(); ++i)
+	for (std::list<Client *>::iterator it = _OpClients.begin(); it != _OpClients.end(); ++it)
+		msg << "@" << (*it)->getNickname() << " ";
+
+	for (std::list<Client *>::iterator it = _ReClients.begin(); it != _ReClients.end(); ++it)
 	{
-		msg << _ReClients[i]->getNickname();
-		if (i != _ReClients.size() - 1)
+		msg << (*it)->getNickname();
+		if (it != --_ReClients.end())
 			msg << " ";
 	}
 
@@ -116,8 +116,8 @@ void Channel::privmsg(Client *client, std::string &msg)
 void Channel::kick(Client *client, std::string nick, std::string reason)
 {
 	std::ostringstream msg;
-	std::vector<Client *> *where;
-	std::vector<Client *>::iterator it;
+	std::list<Client *> *where;
+	std::list<Client *>::iterator it;
 
 	if (FindOpClient(client, it) == false)
 	{
@@ -149,7 +149,7 @@ void Channel::invite(Client *client, std::string nick, ClientManager *clientMana
 {
 	Client *client_tmp;
 	std::ostringstream msg;
-	std::vector<Client *>::iterator it;
+	std::list<Client *>::iterator it;
 
 	if (FindOpClient(client, it) == false)
 	{
@@ -295,8 +295,8 @@ void Channel::mode(Client *client, std::vector<std::string> flags, std::vector<s
 void Channel::part(Client *client, std::string reason)
 {
 	std::ostringstream msg;
-	std::vector<Client *> *where;
-	std::vector<Client *>::iterator it;
+	std::list<Client *> *where;
+	std::list<Client *>::iterator it;
 
 	if (FindClient(client, it, &where) == false)
 	{
@@ -326,9 +326,9 @@ void Channel::who(Client *client, std::string &str)
 	}
 
 	msg << ":" << Server::getHostname() << " 352 " << client->getNickname() << " " << _Name << " :";
-	for (std::vector<Client *>::iterator it = _OpClients.begin(); it != _OpClients.end(); ++it)
+	for (std::list<Client *>::iterator it = _OpClients.begin(); it != _OpClients.end(); ++it)
 		msg << (*it)->getNickname() << " ";
-	for (std::vector<Client *>::iterator it = _ReClients.begin(); it != _ReClients.end(); ++it)
+	for (std::list<Client *>::iterator it = _ReClients.begin(); it != _ReClients.end(); ++it)
 		msg << (*it)->getNickname() << " ";
 	msg << "\r\n";
 	msg << ":" << Server::getHostname() << " 315 " << client->getNickname() << " " << _Name << " :End of /WHO list\r\n";

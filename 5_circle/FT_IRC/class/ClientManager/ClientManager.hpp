@@ -7,7 +7,7 @@
 class ClientManager
 {
 private:
-	std::vector<Client *>		clients;
+	std::list<Client *>		clients;
 public:
 	ClientManager(/* args */);
 	~ClientManager();
