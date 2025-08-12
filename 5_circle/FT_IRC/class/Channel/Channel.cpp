@@ -87,10 +87,10 @@ void Channel::join(Client *client, std::string &password, std::ostringstream &ms
 		_InviteList.erase(std::find(_InviteList.begin(), _InviteList.end(), client));
 	}
 
-	if (_OpClients.size() + _ReClients.size() + 1 > _Limit)
+	if (_OpClients.size() + _ReClients.size() == _Limit)
 	{
 		msg << ":" << Server::getHostname() << " 471 " << client->getUsername()
-			<< " " << _Name << " :(Channel is full)\r\n";
+			<< " " << _Name << " :Channel is full\r\n";
 		client->sendMessage(msg);
 		return;
 	}

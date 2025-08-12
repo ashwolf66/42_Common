@@ -18,7 +18,7 @@ private:
 	std::string				_Password;
 	std::string				_Topic;
 	std::string				_TopicWriter;
-	int						_Limit;
+	size_t					_Limit;
 	bool					_IFlag;
 	bool					_TFlag;
 
