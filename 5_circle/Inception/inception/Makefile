@@ -1,5 +1,6 @@
+NAME=inception
 COMPOSE=docker compose
-COMPSE_FILE=srcs/docker-compose.yml
+COMPOSE_FILE=srcs/docker-compose.yml
 
 .PHONY: all up down build clean fclean re
 
