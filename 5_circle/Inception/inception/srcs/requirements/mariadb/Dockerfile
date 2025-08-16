@@ -4,7 +4,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y mariadb-
 
 COPY conf/db.cnf /etc/mysql/db.cnf
 
-COPY tolls/init_db.sh /docker-entrypoint-initdb.d/init_db.sh
+COPY tools/init_db.sh /docker-entrypoint-initdb.d/init_db.sh
 RUN chmod +x /docker-entrypoint-initdb.d/init_db.sh
 
 VOLUME ["/var/lib/mysql"]
