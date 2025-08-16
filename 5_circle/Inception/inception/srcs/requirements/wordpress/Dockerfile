@@ -1,6 +1,6 @@
 FROM debian:bullseye
 
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y php-fpm php-mysql wget unzip curl less && rm -rf /var/lib/apt/lists/*
+RUN apt update && apt install -y php php-fpm php-mysql wget unzip curl && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /var/www/wordpress
 

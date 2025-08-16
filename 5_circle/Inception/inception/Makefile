@@ -4,22 +4,22 @@ COMPOSE_FILE=srcs/docker-compose.yml
 
 .PHONY: all up down build clean fclean re
 
-all	: up
+all: up
 
-up	:
-	$(COMPOSE) -f $(COMPOSE_FILE) up -d
+up:
+	$(COMPOSE) -f $(COMPOSE_FILE) up --build -d
 
-down	:
+down:
 	$(COMPOSE) -f $(COMPOSE_FILE) down
 
-buid	:
+build:
 	$(COMPOSE) -f $(COMPOSE_FILE) build
 
-clean	:
-	$(COMPOSE) -f $(COMPOSE_FILE) down
-	$(COMPOSE) -f $(COMPOSE_FILE) rm -rf
+clean:
+	$(COMPOSE) -f $(COMPOSE_FILE) down -v --remove-orphans
 
-fclean	: clean
-	sudo rm -rf /home/${USER}/data/*
+fclean: clean
+	sudo rm -rf /home/${USER}/data/wp_files/*
+	sudo rm -rf /home/${USER}/data/db_data/*
 
-re	: fclean up
+re: fclean up
