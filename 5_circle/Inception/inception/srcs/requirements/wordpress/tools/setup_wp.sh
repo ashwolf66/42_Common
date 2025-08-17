@@ -1,19 +1,30 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
+set -euo pipefail
 
-cd /var/www/wordpress
+WP_DIR="/var/www/wordpress"
 
-if [ ! -f index.php ]; then
-    wget https://wordpress.org/latest.tar.gz
-    tar -xzf latest.tar.gz --strip-components=1
-    rm latest.tar.gz
+cd "$WP_DIR"
+
+# 워드프레스 다운로드/배포
+if [[ ! -f index.php ]]; then
+  echo "[wordpress] Fetching WordPress..."
+  wget -q https://wordpress.org/latest.tar.gz
+  tar -xzf latest.tar.gz --strip-components=1
+  rm -f latest.tar.gz
 fi
 
-cp wp-config-sample.php wp-config.php
+# wp-config 안전 생성
+if [[ ! -f wp-config.php ]]; then
+  cp wp-config-sample.php wp-config.php
+  sed -i "s/database_name_here/${MYSQL_DATABASE}/" wp-config.php
+  sed -i "s/username_here/${MYSQL_USER}/"        wp-config.php
+  sed -i "s/password_here/${MYSQL_PASSWORD}/"    wp-config.php
+  sed -i "s/localhost/mariadb/"                  wp-config.php
+fi
 
-sed -i "s#database_name_here#${MYSQL_DATABASE}#" wp-config.php
-sed -i "s#username_here#${MYSQL_USER}#" wp-config.php
-sed -i "s#password_here#${MYSQL_PASSWORD}#" wp-config.php
-sed -i "s#localhost#mariadb#" wp-config.php
+# 퍼미션(필요 시 조정)
+chown -R www-data:www-data "$WP_DIR"
+find "$WP_DIR" -type d -exec chmod 755 {} \;
+find "$WP_DIR" -type f -exec chmod 644 {} \;
 
-exec php-fpm7.4 -F
+echo "[wordpress] Ready."

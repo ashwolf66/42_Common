@@ -1,13 +1,16 @@
-# version: '3.8'
+# version: "3.8"
 
 services:
   nginx:
     build: ./requirements/nginx
     container_name: nginx
     ports:
-      - "443:443"
+      - "443:443"    # TLS
     volumes:
       - wp_files:/var/www/wordpress
+      - ./requirements/nginx/ssl:/etc/nginx/ssl   # self-signed cert 저장 경로
+    environment:
+      - DOMAIN_NAME=jacha.42.fr
     depends_on:
       - wordpress
     restart: always
@@ -26,6 +29,8 @@ services:
       - .env
     networks:
       - inception
+    ports:
+      - "3306:3306"
 
   wordpress:
     build: ./requirements/wordpress

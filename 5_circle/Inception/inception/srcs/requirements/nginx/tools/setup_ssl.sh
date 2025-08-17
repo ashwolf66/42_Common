@@ -1,9 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-mkdir -p /etc/nginx/ssl
+CRT="/etc/nginx/ssl/selfsigned.crt"
+KEY="/etc/nginx/ssl/selfsigned.key"
+DOMAIN="${DOMAIN_NAME:-jacha.42.fr}"
 
-openssl req -x509 -nodes -days 365 \
-    -newkey rsa:2048 \
-    -keyout /etc/nginx/ssl/selfsigned.key \
-    -out /etc/nginx/ssl/selfsigned.crt \
-    -subj "/C=KR/ST=Seoul/L=Gangnam/O=42Seoul/OU=Student/CN=${DOMAIN_NAME}"
+if [[ ! -f "$CRT" || ! -f "$KEY" ]]; then
+  openssl req -x509 -nodes -newkey rsa:2048 \
+    -keyout "$KEY" \
+    -out "$CRT" \
+    -days 3650 \
+    -subj "/C=KR/ST=Seoul/L=Seoul/O=Inception/OU=Dev/CN=jacha.42.fr"
+fi
+
