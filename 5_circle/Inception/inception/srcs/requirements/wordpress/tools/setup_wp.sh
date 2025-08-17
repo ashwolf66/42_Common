@@ -16,4 +16,4 @@ sed -i "s#username_here#${MYSQL_USER}#" wp-config.php
 sed -i "s#password_here#${MYSQL_PASSWORD}#" wp-config.php
 sed -i "s#localhost#mariadb#" wp-config.php
 
-exec php-fpm -F
+exec php-fpm7.4 -F
