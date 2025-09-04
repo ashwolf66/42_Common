@@ -1,0 +1,7 @@
+.git
+.gitignore
+**/*.swp
+**/*.swo
+**/*.log
+**/node_modules
+**/__pycache__
