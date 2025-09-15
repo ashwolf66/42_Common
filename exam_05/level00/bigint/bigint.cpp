@@ -124,12 +124,12 @@ bool Bigint::operator<(const Bigint& other) const
 
 bool Bigint::operator>=(const Bigint& other) const
 {
-	return !(value < other.value);
+	return !(*this < other);
 }
 
 bool Bigint::operator<=(const Bigint& other) const
 {
-	return !(value > other.value);
+	return !(*this > other);
 }
 
 bool Bigint::operator==(const Bigint& other) const
