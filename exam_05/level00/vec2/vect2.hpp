@@ -37,9 +37,6 @@ class vect2 {
 		bool operator==(const vect2& other)const;
 		bool operator!=(const vect2& other)const;
 
-		// Remove incorrect member declarations for operator* and operator<<
-		// Declare them as friend functions below
-
 		friend vect2 operator*(int num, const vect2& v);
 		friend std::ostream& operator<<(std::ostream& out, const vect2& v);
 };

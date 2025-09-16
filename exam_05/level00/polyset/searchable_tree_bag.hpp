@@ -1,0 +1,16 @@
+#include "tree_bag.hpp"
+#include "searchable__bag.hpp"
+
+class searchable_tree_bag : public tree_bag, public searchable_bag {
+public:
+    searchable_tree_bag();
+    searchable_tree_bag(const searchable_tree_bag& other);
+    searchable_tree_bag& operator=(const searchable_tree_bag& other);
+    ~searchable_tree_bag();
+
+    void insert(int value);
+    void insert(int* values, int count);
+    void print() const;
+    void clear();
+    bool has(int value) const;
+};
