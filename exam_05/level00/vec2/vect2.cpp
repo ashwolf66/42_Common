@@ -68,7 +68,7 @@ vect2 &vect2::operator--()
 {
 	--_vector[0];
 	--_vector[1];
-	return (*this);	
+	return (*this);
 }
 
 vect2 vect2::operator--(int)
@@ -138,6 +138,21 @@ vect2 operator*(int num, const vect2 &v)
 
 std::ostream &operator<<(std::ostream &out, const vect2 &v)
 {
-	out << "(" << v._vector[0] << ", " << v._vector[1] << ")";
+	out << "{" << v._vector[0] << ", " << v._vector[1] << "}";
 	return (out);
+}
+
+int &vect2::operator[](size_t idx)
+{
+	return _vector[idx];
+}
+
+const int &vect2::operator[](size_t idx) const
+{
+	return _vector[idx];
+}
+
+vect2 vect2::operator-() const
+{
+	return vect2(-_vector[0], -_vector[1]);
 }

@@ -12,11 +12,13 @@ int	main(void)
     std::cout << "++v4 = " << ++v4 << std::endl;// 3, 4
     std::cout << "v4-- = " << v4-- << std::endl;// 3, 4
     std::cout << "v4-- = " << --v4 << std::endl;// 1, 2
+    std::cout << -v2 << std::endl;// -14, -28
 
     std::cout << "[Personal Test] v1 == v1-> " << (v1 == v1) << std::endl;      // 1
     std::cout << "[Personal Test] v1 != v2-> " << (v1 != v2) << std::endl;      // 1
     std::cout << "[Personal Test] v1 != v1-> " << (v1 != v1) << std::endl;      // 0
-
+    std::cout << v2[0] << std::endl;// 2, 4
+	std::cout << v2[1] << std::endl;// 2, 4
     v2 += v3;
     std::cout << "v2 += v3-> " << v2 << std::endl;// 2, 4
 
