@@ -49,36 +49,6 @@ vect2 vect2::operator*(const vect2 &other) const
 	return vect2(_vector[0] * other._vector[0], _vector[1] * other._vector[1]);
 }
 
-vect2 &vect2::operator++()
-{
-	++_vector[0];
-	++_vector[1];
-	return (*this);
-}
-
-vect2 vect2::operator++(int)
-{
-	vect2 result = *this;
-	++_vector[0];
-	++_vector[1];
-	return (result);
-}
-
-vect2 &vect2::operator--()
-{
-	--_vector[0];
-	--_vector[1];
-	return (*this);
-}
-
-vect2 vect2::operator--(int)
-{
-	vect2 result = *this;
-	--_vector[0];
-	--_vector[1];
-	return (result);
-}
-
 vect2 &vect2::operator+=(int num)
 {
 	_vector[0] += num;
@@ -119,6 +89,36 @@ vect2 &vect2::operator*=(const vect2 &other)
 	_vector[0] *= other._vector[0];
 	_vector[1] *= other._vector[1];
 	return (*this);
+}
+
+vect2 &vect2::operator++()
+{
+	++_vector[0];
+	++_vector[1];
+	return (*this);
+}
+
+vect2 vect2::operator++(int)
+{
+	vect2 result = *this;
+	++_vector[0];
+	++_vector[1];
+	return (result);
+}
+
+vect2 &vect2::operator--()
+{
+	--_vector[0];
+	--_vector[1];
+	return (*this);
+}
+
+vect2 vect2::operator--(int)
+{
+	vect2 result = *this;
+	--_vector[0];
+	--_vector[1];
+	return (result);
 }
 
 bool vect2::operator==(const vect2 &other) const
