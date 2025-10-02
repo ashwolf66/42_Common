@@ -34,15 +34,16 @@ public:
 	vect2 operator++(int);
 	vect2 &operator--();
 	vect2 operator--(int);
-
+	
 	bool operator==(const vect2 &other) const;
 	bool operator!=(const vect2 &other) const;
+	int &operator[](size_t idx);
+	const int &operator[](size_t idx) const;
+
+	vect2 operator-() const;
 
 	friend vect2 operator*(int num, const vect2 &v);
 	friend std::ostream &operator<<(std::ostream &out, const vect2 &v);
-	int &operator[](size_t idx);
-	const int &operator[](size_t idx) const;
-	vect2 operator-() const;
 };
 
 #endif
