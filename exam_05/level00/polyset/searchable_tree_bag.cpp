@@ -10,8 +10,8 @@ searchable_tree_bag::searchable_tree_bag(const searchable_tree_bag& other) : tre
 
 searchable_tree_bag& searchable_tree_bag::operator=(const searchable_tree_bag& other)
 {
-    if (this !- &other)
-        searchable_tree_bag::operator=(other);
+    if (this != &other)
+        tree_bag::operator=(other);
     return *this;
 }
 
