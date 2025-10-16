@@ -2,9 +2,9 @@
 
 int main(int ac, char **av)
 {
-	int	width;
-	int	heigth;
-	int	iter;
+	int width;
+	int heigth;
+	int iter;
 
 	if (ac != 4)
 		return (1);
