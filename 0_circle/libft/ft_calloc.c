@@ -14,20 +14,13 @@
 
 void	*ft_calloc(size_t num, size_t size)
 {
-	char	*temp;
-	size_t	i;
+	void    *temp;
 
-	i = 0;
+	if (size != 0 && num > 18446744073709551615UL / size)
+		return (NULL);
 	temp = malloc(num * size);
 	if (temp == NULL)
-	{
-		free (temp);
 		return (NULL);
-	}
-	while (i < (num * size))
-	{
-		temp[i] = '\0';
-		i++;
-	}
+	ft_bzero(temp, num * size);
 	return (temp);
 }
