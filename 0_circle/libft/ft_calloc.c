@@ -6,7 +6,7 @@
 /*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 19:31:13 by jacha             #+#    #+#             */
-/*   Updated: 2024/03/05 21:29:20 by jacha            ###   ########.fr       */
+/*   Updated: 2025/11/02 09:59:53 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_calloc(size_t num, size_t size)
 {
-	void    *temp;
+	void	*temp;
 
 	if (size != 0 && num > (size_t)-1 / size)
 		return (NULL);

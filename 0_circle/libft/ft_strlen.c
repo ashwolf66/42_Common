@@ -6,7 +6,7 @@
 /*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 13:11:48 by jacha             #+#    #+#             */
-/*   Updated: 2024/03/05 21:31:18 by jacha            ###   ########.fr       */
+/*   Updated: 2025/11/02 09:55:30 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t	i;
-	const char *str;
+	size_t		i;
+	const char	*str;
 
 	str = s;
 	i = 0;

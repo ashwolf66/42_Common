@@ -6,7 +6,7 @@
 /*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 09:51:16 by jacha             #+#    #+#             */
-/*   Updated: 2024/03/03 14:39:50 by jacha            ###   ########.fr       */
+/*   Updated: 2025/11/02 09:57:27 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 char	*ft_strdup(const char *s)
 {
-	size_t  i;
-	size_t  len;
-	char    *temp;
-	const char *src;
+	size_t		i;
+	size_t		len;
+	char		*temp;
+	const char	*src;
 
 	src = s;
 	i = 0;

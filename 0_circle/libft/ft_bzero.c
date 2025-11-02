@@ -6,7 +6,7 @@
 /*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 13:54:23 by jacha             #+#    #+#             */
-/*   Updated: 2024/03/05 21:29:05 by jacha            ###   ########.fr       */
+/*   Updated: 2025/11/02 10:03:42 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t  i;
-	unsigned char *p;
+	size_t			i;
+	unsigned char	*p;
 
 	p = (unsigned char *)s;
 	i = 0;

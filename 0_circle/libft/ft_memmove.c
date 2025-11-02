@@ -6,7 +6,7 @@
 /*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 14:19:43 by jacha             #+#    #+#             */
-/*   Updated: 2024/03/02 19:41:29 by jacha            ###   ########.fr       */
+/*   Updated: 2025/11/02 10:02:48 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t count)
 {
-	size_t	i;
-
-	unsigned char *d;
-	const unsigned char *s;
+	const unsigned char	*s;
+	unsigned char		*d;
+	size_t				i;
 
 	i = count;
 	if (dest == NULL && src == NULL)

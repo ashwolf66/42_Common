@@ -6,7 +6,7 @@
 /*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:07:03 by jacha             #+#    #+#             */
-/*   Updated: 2024/03/03 14:29:16 by jacha            ###   ########.fr       */
+/*   Updated: 2025/11/02 10:03:18 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	ssize_t i;
-	const unsigned char *p;
+	ssize_t				i;
+	const unsigned char	*p;
 
 	p = (const unsigned char *)s;
 	i = (ssize_t)ft_strlen(s);

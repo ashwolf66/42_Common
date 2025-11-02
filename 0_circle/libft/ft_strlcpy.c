@@ -6,7 +6,7 @@
 /*   By: jacha <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 14:36:39 by jacha             #+#    #+#             */
-/*   Updated: 2024/03/02 19:44:50 by jacha            ###   ########.fr       */
+/*   Updated: 2025/11/02 09:56:10 by jacha            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	size_t	src_len;
-	size_t	i;
-
-	const char *srcp;
+	size_t		src_len;
+	size_t		i;
+	const char	*srcp;
 
 	srcp = src;
 	src_len = ft_strlen(src);
