@@ -14,16 +14,18 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	size_t i;
+	const unsigned char *p;
 
+	p = (const unsigned char *)s;
 	i = 0;
-	while ((((unsigned char *)s)[i]))
+	while (p[i])
 	{
-		if (((unsigned char *)s)[i] == (unsigned char)c)
-			return (&((char *)s)[i]);
+		if (p[i] == (unsigned char)c)
+			return ((char *)&p[i]);
 		i++;
 	}
-	if (s[i] == c)
-		return (&((char *)s)[i]);
+	if (p[i] == (unsigned char)c)
+		return ((char *)&p[i]);
 	return (0);
 }

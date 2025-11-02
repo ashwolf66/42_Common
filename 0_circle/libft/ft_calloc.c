@@ -16,7 +16,7 @@ void	*ft_calloc(size_t num, size_t size)
 {
 	void    *temp;
 
-	if (size != 0 && num > 18446744073709551615UL / size)
+	if (size != 0 && num > (size_t)-1 / size)
 		return (NULL);
 	temp = malloc(num * size);
 	if (temp == NULL)
