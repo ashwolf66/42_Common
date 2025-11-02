@@ -15,7 +15,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rc
 
-.phony : all re clean fclean bonus 
+.PHONY: all re clean fclean bonus
 
 all : ${TARGET}
 
