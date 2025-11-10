@@ -1,15 +1,15 @@
-Back-end(Fatify + Node.js)			- Major module
+**Back-end(Fatify + Node.js)** - Major module
 <br />
-Front-end(Tailwind CSS)				- Minor module
+**Front-end(Tailwind CSS)** - Minor module
 <br />
-DB(SQLite)					- Minor module
+**DB(SQLite)** - Minor module
 <br />
-Authentication(OAuth 2.0)			- Major module
+**Authentication(OAuth 2.0)** - Major module
 <br />
-2FA + JWT					- Major module
+**2FA + JWT** - Major module
 <br />
-ELK						- Major module
+**ELK** - Major module
 <br />
-Live Chat					- Major module
+**Live Chat** - Major module
 <br />
-Server-Side Pong				- Major module
+**Server-Side Pong** - Major module
