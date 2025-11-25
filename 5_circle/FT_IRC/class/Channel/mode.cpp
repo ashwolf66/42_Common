@@ -133,7 +133,7 @@ bool Channel::L_Option(Client *client, std::string flag, std::string str, std::o
 
 	std::stringstream count(str);
 	count >> _Limit;
-	if (count.fail() || _Limit < 0)
+	if (count.fail() || _Limit <= 0)
 	{
 		msg << ":" << Server::getHostname() << " 696 " << client->getNickname() << " " << _Name << " l * :Invalid limit value.\r\n";
 		return false;

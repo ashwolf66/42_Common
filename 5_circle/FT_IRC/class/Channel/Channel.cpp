@@ -259,7 +259,7 @@ void Channel::mode(Client *client, std::vector<std::string> flags, std::vector<s
 		if (_IFlag) msg << "i";
 		if (_TFlag) msg << "t";
 		if (!_Password.empty()) msg << "k " << _Password;
-		if (_Limit >= 0) msg << "l " << _Limit;
+		if (_Limit > 0) msg << "l " << _Limit;
 		msg << ":" << Server::getHostname() << " 329 " << client->getNickname() << " " << _Name << " :" << _InitTimeToServer << "\r\n";
 		client->sendMessage(msg);
 		return;
