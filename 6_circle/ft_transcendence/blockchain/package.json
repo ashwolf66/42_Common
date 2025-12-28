@@ -1,0 +1,20 @@
+{
+  "name": "ft-transcendence-blockchain",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:fuji": "hardhat run scripts/deploy.js --network fuji",
+    "deploy:local": "hardhat run scripts/deploy.js --network hardhat",
+    "verify:fuji": "node scripts/verify.js",
+    "read:scores": "node scripts/read_scores.js"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@openzeppelin/contracts": "^5.0.0",
+    "dotenv": "^16.4.5",
+    "hardhat": "^2.22.0"
+  }
+}

@@ -1,0 +1,495 @@
+{
+  "app": {
+    "loading": "Loading..."
+  },
+  "common": {
+    "cancel": "Cancel"
+  },
+  "language": {
+    "selectLabel": "Language"
+  },
+  "router": {
+    "notFound": "Page not found."
+  },
+  "online": {
+    "title": "Online users",
+    "empty": "No users are online."
+  },
+  "chat": {
+    "title": "Live Chat",
+    "placeholder": "Type a message...",
+    "send": "Send",
+    "system": {
+      "connected": "[System] Connected to live chat.",
+      "userJoined": "{user} joined the chat",
+      "userLeft": "{user} left the chat",
+      "userBlocked": "Blocked {user}",
+      "userUnblocked": "Unblocked {user}",
+      "blockedBy": "You are blocked by {user}",
+      "unblockedBy": "{user} has unblocked you",
+      "alreadyBlocked": "Already blocked: {user}",
+      "notBlocked": "Not blocked: {user}"
+    },
+    "labels": {
+      "system": "[System]",
+      "me": "[Me]",
+      "error": "[Error]"
+    },
+    "errors": {
+      "notConnected": "Chat server is not connected.",
+      "inviteAlreadySent": "You already sent an invite to this user. Please try again shortly.",
+      "userOffline": "That user is currently offline.",
+      "selfInvite": "You cannot invite yourself.",
+      "notAuthenticated": "You must be signed in to send invites.",
+      "invalidInvite": "The invite target is invalid.",
+      "generic": "An unexpected error occurred ({reason}).",
+      "invalidUsername": "Invalid username",
+      "sessionReplaced": "Your session was opened in another window",
+      "invalidDmTarget": "Invalid DM target",
+      "cannotMessageSelf": "You cannot message yourself",
+      "userNotOnline": "User {user} is not online",
+      "youBlockedUser": "You have blocked {user}",
+      "blockedByUser": "You are blocked by {user}",
+      "invalidBlockTarget": "Invalid block target",
+      "serverError": "Server error: {message}",
+      "invalidMessageFormat": "Invalid message format",
+      "missingMessageType": "Missing message type",
+      "unknownMessageType": "Unknown message type"
+    },
+    "actions": {
+      "inviteSentSelf": "Invited {target} to a game. (Room: {room})",
+      "inviteHint": "Created a room and sent an invite to {target}.",
+      "inviteSentOther": "sent a game invite to {target}.",
+      "inviteSent": "Sent a game invite to {target}."
+    },
+    "menu": {
+      "viewProfile": "View profile",
+      "inviteToGame": "Invite to game",
+      "cannotInviteSelf": "You cannot invite yourself to a game"
+    },
+    "invite": {
+      "title": "{user} invited you to a game!",
+      "invitedYou": "invited you to a game!",
+      "sentTo": "Game invite sent to {user}",
+      "roomLabel": "Room:",
+      "gameMode": "Game Mode",
+      "join": "Join game",
+      "accept": "Accept",
+      "joinRoom": "Join Room",
+      "joiningRoom": "Joining room {room}..."
+    },
+    "tournament": {
+      "created": "{user} created tournament \"{name}\"",
+      "started": "🎮 Tournament \"{name}\" started! Match: {player1} vs {player2}",
+      "joined": "{user} joined tournament \"{name}\"",
+      "updated": "Tournament updated: {name}",
+      "view": "View tournament",
+      "matchStarted": "⚔️ [{tournamentName}] Round {round}: {player1} vs {player2}",
+      "matchFinished": "✅ [{tournamentName}] Round {round} finished: {player1} vs {player2} - {winner} wins! ({winnerScore} : {loserScore})",
+      "roundCompleted": "📊 [{tournamentName}] Round {round} completed! {winnersCount} players advance to Round {nextRound}",
+      "finished": "🎉 Tournament \"{tournamentName}\" finished! Winner: {winner}"
+    }
+  },
+  "home": {
+    "logout": "Log out",
+    "welcomeTo": "Welcome to",
+    "tagline": "The ultimate multiplayer Pong experience with AI opponents, tournaments, and more!",
+    "features": {
+      "playOnline": "Play Online",
+      "playOnlineDesc": "Challenge friends or random players in real-time matches",
+      "aiOpponents": "AI Opponents",
+      "aiOpponentsDesc": "Practice against AI with multiple difficulty levels",
+      "tournaments": "Tournaments",
+      "tournamentsDesc": "Compete in brackets and climb the leaderboard"
+    },
+    "getStarted": "Get Started",
+    "login": "Login",
+    "welcomeBack": "Welcome back, {name}!",
+    "readyToPlay": "Ready to play some Pong?",
+    "quickPlay": {
+      "localPlay": "Local Play",
+      "localPlayDesc": "Play with a friend (same keyboard)",
+      "vsAI": "vs AI",
+      "vsAIDesc": "Practice against AI",
+      "onlineMatch": "Online Match",
+      "onlineMatchDesc": "Play against online players",
+      "tournament": "Tournament",
+      "tournamentDesc": "Join or create a tournament",
+      "profile": "Profile",
+      "profileDesc": "View stats and settings",
+      "friends": "Friends",
+      "friendsDesc": "Manage your friends list"
+    },
+    "stats": {
+      "title": "Your Stats",
+      "totalGames": "Total Games",
+      "wins": "Wins",
+      "losses": "Losses",
+      "winRate": "Win Rate",
+      "loadFailed": "Failed to load stats",
+      "pleaseLogin": "Please login to view stats"
+    },
+    "recentMatches": {
+      "title": "Recent Matches",
+      "noMatches": "No matches yet. Start playing!",
+      "win": "WIN",
+      "loss": "LOSS",
+      "vs": "vs",
+      "loadFailed": "Failed to load games"
+    }
+  },
+  "header": {
+    "login": "Log in",
+    "logout": "Log out",
+    "play": "Play",
+    "tournaments": "Tournaments",
+    "profile": "Profile"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist.",
+    "goHome": "Go Home"
+  },
+  "login": {
+    "title": "Login",
+    "usernameLabel": "Username or Email",
+    "passwordLabel": "Password",
+    "twoFALabel": "2FA Code",
+    "twoFAPlaceholder": "6-digit code",
+    "twoFAHint": "Enter the 6-digit code from your authenticator app",
+    "submit": "Login",
+    "submitting": "Logging in...",
+    "verify2FA": "Verify 2FA",
+    "toSignup": "Sign up",
+    "noAccount": "Don't have an account?",
+    "alreadyLoggedIn": "You are already logged in on another device. Please logout from that browser."
+  },
+  "signup": {
+    "title": "Create Account",
+    "usernameLabel": "Username",
+    "usernameHint": "3-20 characters, letters, numbers and underscore only",
+    "emailLabel": "Email",
+    "displayNameLabel": "Display Name (optional)",
+    "passwordLabel": "Password",
+    "passwordHint": "At least 6 characters",
+    "confirmPasswordLabel": "Confirm Password",
+    "submit": "Sign Up",
+    "submitting": "Creating account...",
+    "toLogin": "Login",
+    "hasAccount": "Already have an account?",
+    "success": "Account created successfully! Redirecting to login...",
+    "errors": {
+      "passwordMismatch": "Passwords do not match"
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "avatarTitle": "Profile Picture",
+    "uploadAvatar": "Upload New Avatar",
+    "deleteAvatar": "Delete Avatar",
+    "avatarHint": "Max 5MB. Supported formats: JPEG, PNG, GIF, WebP",
+    "userInfoTitle": "User Information",
+    "infoTitle": "User Information",
+    "emailLabel": "Email",
+    "memberSinceLabel": "Member Since",
+    "statusLabel": "Status",
+    "online": "Online",
+    "offline": "Offline",
+    "statusOnline": "Online",
+    "statusOffline": "Offline",
+    "statsTitle": "Statistics",
+    "totalGames": "Total Games",
+    "wins": "Wins",
+    "losses": "Losses",
+    "winRate": "Win Rate",
+    "securityTitle": "Security",
+    "twoFATitle": "Two-Factor Authentication",
+    "twoFADescription": "Add an extra layer of security",
+    "twoFADesc": "Add an extra layer of security",
+    "enable2FA": "Enable 2FA",
+    "disable2FA": "Disable 2FA",
+    "setup2FATitle": "Setup 2FA",
+    "setup2FADescription": "Scan this QR code with Google Authenticator or similar app:",
+    "setup2FAInstructions": "Scan this QR code with Google Authenticator or similar app:",
+    "setup2FASecretLabel": "Or enter this secret manually:",
+    "setup2FAManual": "Or enter this secret manually:",
+    "verifyButton": "Verify & Enable",
+    "verifyAndEnable": "Verify & Enable",
+    "enter2FACode": "Enter 2FA code",
+    "cancel": "Cancel",
+    "success": {
+      "avatarUploaded": "Avatar uploaded successfully!",
+      "avatarDeleted": "Avatar deleted successfully!",
+      "2FAEnabled": "2FA enabled successfully!",
+      "2FADisabled": "2FA disabled successfully!",
+      "twoFAEnabled": "2FA enabled successfully!",
+      "twoFADisabled": "2FA disabled successfully!"
+    },
+    "errors": {
+      "invalidFileType": "Invalid file type. Only JPEG, PNG, GIF, and WebP are allowed.",
+      "fileTooLarge": "File too large. Maximum size is 5MB.",
+      "uploadFailed": "Failed to upload avatar",
+      "deleteFailed": "Failed to delete avatar",
+      "setup2FAFailed": "Failed to setup 2FA",
+      "verify2FAFailed": "Failed to verify 2FA",
+      "disable2FAFailed": "Failed to disable 2FA"
+    },
+    "confirmDeleteAvatar": "Are you sure you want to delete your avatar?",
+    "promptDisable2FA": "Enter your password to disable 2FA:",
+    "enterPasswordToDisable2FA": "Enter your password to disable 2FA:"
+  },
+  "game": {
+    "local": {
+      "title": "Local Multiplayer",
+      "instructions": "Player 1: W/S | Player 2: Arrow Keys | SPACE: Pause"
+    },
+    "ai": {
+      "title": "Play vs AI",
+      "instructions": "W/S or Arrow Keys to move | SPACE: Pause",
+      "selectDifficulty": "Select Difficulty",
+      "difficultyTitle": "Select Difficulty",
+      "easy": "Easy",
+      "medium": "Medium",
+      "hard": "Hard"
+    },
+    "remote": {
+      "title": "Online Multiplayer",
+      "instructions": "Create a room or join an existing one",
+      "instructionsPlaying": "Game in progress - Use Arrow Keys",
+      "backToLobby": "Back to Lobby",
+      "availableRooms": "Available Rooms",
+      "noRooms": "No rooms available. Create one!",
+      "createRoomTitle": "Create Room",
+      "createRoom": "Create Room",
+      "createButton": "Create New Room",
+      "createNewRoom": "Create New Room",
+      "joinButton": "Join Room",
+      "waiting": "Waiting",
+      "players": "players",
+      "roomNamePrompt": "Enter room name (leave empty to use your username):",
+      "connecting": "Connecting...",
+      "joiningRoom": "Joining room...",
+      "creatingRoom": "Creating room...",
+      "connectingToServer": "Connecting to game server...",
+      "connectingToMatch": "Connecting to tournament match...",
+      "roomCreated": "Room created successfully",
+      "waitingForOpponent": "Waiting for opponent to join...",
+      "tournamentMatchReady": "Tournament Match Ready!",
+      "opponentFound": "Opponent Found!",
+      "gameStarting": "Game starting...",
+      "gameInProgress": "Game in Progress!",
+      "useArrowKeys": "Use Arrow Keys to control your paddle",
+      "youWin": "You Win!",
+      "youLose": "You Lose!",
+      "victoryByForfeit": "Victory by Forfeit!",
+      "defeatByForfeit": "Defeat by Forfeit",
+      "opponentLeft": "Your opponent left the game",
+      "youLeftGame": "You left the game",
+      "gameFinished": "Game finished!",
+      "finalScore": "Final Score: You {myScore} - {opponentScore} Opponent",
+      "playAgain": "Play Again",
+      "backToTournament": "Back to Tournament",
+      "opponentDisconnected": "Opponent Disconnected",
+      "opponentDisconnectedMessage": "Your opponent has left the game",
+      "findNewMatch": "Find New Match",
+      "error": "Error: {message}",
+      "tryAgain": "Try Again",
+      "connectionFailed": "Failed to connect to game server",
+      "backToHome": "Back to Home"
+    },
+    "mode": {
+      "title": "Game Mode",
+      "classic": "Classic",
+      "custom": "Custom (with Obstacles)"
+    },
+    "modes": {
+      "classic": "Classic",
+      "custom": "Custom",
+      "customWithObstacles": "Custom (with Obstacles)"
+    },
+    "renderModeLabel": "Render Mode",
+    "renderModes": {
+      "2d": "2D (Classic)",
+      "3d": "3D (Advanced Graphics)"
+    },
+    "gameModeLabel": "Game Mode",
+    "status": {
+      "pressSpace": "Press SPACE to start",
+      "connectingToServer": "Connecting to server...",
+      "winner": "{winner} Wins!",
+      "finalScore": "Final Score: {player1} - {player2}",
+      "player1": "Player 1",
+      "player2": "Player 2",
+      "ai": "AI",
+      "paused": "PAUSED",
+      "pressToContinue": "Press SPACE to continue",
+      "waitingToStart": "Waiting for game to start...",
+      "vsAI": "VS AI",
+      "onlineMatch": "ONLINE MATCH",
+      "localMultiplayer": "LOCAL MULTIPLAYER",
+      "player1Wins": "PLAYER 1 WINS!",
+      "player2Wins": "PLAYER 2 WINS!"
+    },
+    "gameModeLabel": "Game Mode",
+    "pressSpaceToStart": "Press SPACE to start",
+    "exit": "Exit",
+    "exitButton": "Exit",
+    "reset": "Reset",
+    "resetButton": "Reset"
+  },
+  "tournament": {
+    "title": "Tournaments",
+    "activeTitle": "Active Tournaments",
+    "createTitle": "Create Tournament",
+    "nameLabel": "Tournament Name",
+    "maxPlayersLabel": "Max Players",
+    "playersOption": "{count} Players",
+    "players": "{count} Players",
+    "createButton": "Create",
+    "viewButton": "View",
+    "noTournaments": "No tournaments yet. Create one!",
+    "participantCount": "{current}/{max} players",
+    "playersLabel": "players",
+    "status": {
+      "pending": "Pending",
+      "active": "Active",
+      "completed": "Completed"
+    },
+    "success": {
+      "created": "Tournament created successfully!"
+    },
+    "errors": {
+      "createFailed": "Failed to create tournament",
+      "loadFailed": "Failed to load tournaments"
+    }
+  },
+  "friends": {
+    "title": "Friends",
+    "subtitle": "Manage your friends and friend requests",
+    "description": "Manage your friends and friend requests",
+    "requestsTitle": "Friend Requests",
+    "addFriendTitle": "Add Friend",
+    "myFriendsTitle": "My Friends",
+    "searchPlaceholder": "Search by username...",
+    "searchButton": "Search",
+    "acceptButton": "Accept",
+    "rejectButton": "Reject",
+    "removeButton": "Remove",
+    "addFriendButton": "Add Friend",
+    "noRequests": "No pending friend requests",
+    "noFriends": "No friends yet. Search and add friends above!",
+    "noResults": "No users found",
+    "noUsersFound": "No users found",
+    "enterUsername": "Enter a username to search",
+    "online": "Online",
+    "offline": "Offline",
+    "statusOnline": "Online",
+    "statusOffline": "Offline",
+    "success": {
+      "requestSent": "Friend request sent to {username}"
+    },
+    "errors": {
+      "loadRequestsFailed": "Failed to load requests",
+      "loadFriendsFailed": "Failed to load friends",
+      "searchFailed": "Search failed",
+      "sendRequestFailed": "Failed to send friend request",
+      "acceptFailed": "Failed to accept friend request",
+      "rejectFailed": "Failed to reject friend request",
+      "removeFailed": "Failed to remove friend"
+    },
+    "confirmRemove": "Remove {username} from friends?"
+  },
+  "errors": {
+    "auth": {
+      "MISSING_REQUIRED_FIELDS": "Missing required fields",
+      "INVALID_USERNAME": "Invalid username format",
+      "INVALID_EMAIL": "Invalid email format",
+      "INVALID_DISPLAY_NAME": "Invalid display name",
+      "PASSWORD_TOO_SHORT": "Password must be at least 6 characters",
+      "USER_ALREADY_EXISTS": "Already exists",
+      "REGISTRATION_FAILED": "Registration failed",
+      "MISSING_CREDENTIALS": "Missing credentials",
+      "INVALID_CREDENTIALS": "Invalid credentials",
+      "INVALID_2FA_CODE": "Invalid 2FA code",
+      "LOGIN_FAILED": "Login failed",
+      "LOGOUT_FAILED": "Logout failed",
+      "2FA_SETUP_FAILED": "2FA setup failed",
+      "TOKEN_REQUIRED": "Token required",
+      "2FA_NOT_SETUP": "2FA not set up",
+      "INVALID_TOKEN": "Invalid token",
+      "2FA_VERIFICATION_FAILED": "2FA verification failed",
+      "PASSWORD_REQUIRED": "Password required",
+      "INVALID_PASSWORD": "Invalid password",
+      "2FA_DISABLE_FAILED": "2FA disable failed"
+    },
+    "users": {
+      "USER_NOT_FOUND": "User not found",
+      "FETCH_USER_FAILED": "Failed to fetch user",
+      "QUERY_TOO_SHORT": "Query must be at least 2 characters",
+      "SEARCH_FAILED": "Search failed",
+      "INVALID_FIELD": "Invalid field value",
+      "EMAIL_IN_USE": "Email already in use",
+      "NO_UPDATES_PROVIDED": "No updates provided",
+      "UPDATE_FAILED": "Update failed",
+      "NO_FILE_UPLOADED": "No file uploaded",
+      "INVALID_FILE_TYPE": "Invalid file type. Only JPEG, PNG, GIF, and WebP are allowed",
+      "FILE_TOO_LARGE": "File too large. Maximum size is 5MB",
+      "UPLOAD_AVATAR_FAILED": "Failed to upload avatar",
+      "NO_AVATAR_TO_DELETE": "No avatar to delete",
+      "DELETE_AVATAR_FAILED": "Failed to delete avatar",
+      "FETCH_STATS_FAILED": "Failed to fetch stats"
+    },
+    "games": {
+      "CREATE_GAME_FAILED": "Failed to create game",
+      "GAME_NOT_FOUND": "Game not found",
+      "FETCH_GAME_FAILED": "Failed to fetch game",
+      "FETCH_MATCH_HISTORY_FAILED": "Failed to fetch match history",
+      "FETCH_RECENT_GAMES_FAILED": "Failed to fetch recent games"
+    },
+    "tournaments": {
+      "NAME_AND_MAX_PLAYERS_REQUIRED": "Name and max_players required",
+      "INVALID_NAME": "Invalid tournament name",
+      "INVALID_MAX_PLAYERS": "max_players must be 2, 4, 8, or 16",
+      "CREATE_TOURNAMENT_FAILED": "Failed to create tournament",
+      "TOURNAMENT_NOT_FOUND": "Tournament not found",
+      "FETCH_TOURNAMENT_FAILED": "Failed to fetch tournament",
+      "ALIAS_TOO_LONG": "Alias must not exceed 50 characters",
+      "TOURNAMENT_NOT_FOUND_OR_STARTED": "Tournament not found or already started",
+      "TOURNAMENT_FULL": "Tournament is full",
+      "ALREADY_JOINED": "Already joined this tournament",
+      "JOIN_TOURNAMENT_FAILED": "Failed to join tournament",
+      "ALIAS_REQUIRED": "Alias required (min 2 characters)",
+      "INVALID_ALIAS_LENGTH": "Alias must be between 2 and 50 characters",
+      "NOT_CREATOR": "Only creator can start tournament",
+      "TOURNAMENT_ALREADY_STARTED": "Tournament already started",
+      "NOT_ENOUGH_PLAYERS": "Need at least 2 players to start",
+      "NOT_ENOUGH_PLAYERS_FOR_MAX": "Need {maxPlayers} players to start this tournament",
+      "START_TOURNAMENT_FAILED": "Failed to start tournament",
+      "FETCH_TOURNAMENTS_FAILED": "Failed to fetch tournaments"
+    },
+    "friends": {
+      "FETCH_FRIENDS_FAILED": "Failed to fetch friends",
+      "FRIEND_ID_REQUIRED": "Friend ID required",
+      "CANNOT_ADD_SELF": "Cannot add yourself as friend",
+      "USER_NOT_FOUND": "User not found",
+      "FRIEND_REQUEST_PENDING": "Friend request already pending",
+      "ALREADY_FRIENDS": "Already friends",
+      "CANNOT_SEND_REQUEST": "Cannot send friend request",
+      "SEND_FRIEND_REQUEST_FAILED": "Failed to send friend request",
+      "FRIEND_REQUEST_NOT_FOUND": "Friend request not found",
+      "ACCEPT_FRIEND_REQUEST_FAILED": "Failed to accept friend request",
+      "FRIENDSHIP_NOT_FOUND": "Friendship not found",
+      "REMOVE_FRIENDSHIP_FAILED": "Failed to remove friendship",
+      "FETCH_FRIEND_REQUESTS_FAILED": "Failed to fetch friend requests",
+      "FETCH_ONLINE_FRIENDS_FAILED": "Failed to fetch online friends"
+    },
+    "middleware": {
+      "ACCESS_TOKEN_REQUIRED": "Access token required",
+      "INVALID_OR_EXPIRED_TOKEN": "Invalid or expired token"
+    },
+    "generic": {
+      "INTERNAL_SERVER_ERROR": "Internal Server Error",
+      "NOT_ALLOWED_BY_CORS": "Not allowed by CORS"
+    }
+  }
+}

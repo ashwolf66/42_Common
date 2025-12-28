@@ -1,0 +1,495 @@
+{
+  "app": {
+    "loading": "로딩 중..."
+  },
+  "common": {
+    "cancel": "취소"
+  },
+  "language": {
+    "selectLabel": "언어"
+  },
+  "router": {
+    "notFound": "페이지를 찾을 수 없습니다."
+  },
+  "online": {
+    "title": "접속 중인 유저",
+    "empty": "온라인인 사용자가 없습니다."
+  },
+  "chat": {
+    "title": "라이브 채팅",
+    "placeholder": "메시지를 입력하세요...",
+    "send": "전송",
+    "system": {
+      "connected": "[시스템] 라이브 채팅에 연결되었습니다.",
+      "userJoined": "{user}님이 입장하셨습니다",
+      "userLeft": "{user}님이 퇴장하셨습니다",
+      "userBlocked": "{user} 사용자를 차단했습니다",
+      "userUnblocked": "{user} 사용자를 차단 해제했습니다",
+      "blockedBy": "{user}님에게 차단되었습니다",
+      "unblockedBy": "{user}님이 차단을 해제했습니다",
+      "alreadyBlocked": "이미 차단된 사용자입니다: {user}",
+      "notBlocked": "차단되지 않은 사용자입니다: {user}"
+    },
+    "labels": {
+      "system": "[시스템]",
+      "me": "[나]",
+      "error": "[오류]"
+    },
+    "errors": {
+      "notConnected": "채팅 서버에 연결되지 않았습니다.",
+      "inviteAlreadySent": "이미 해당 사용자에게 초대를 보냈습니다. 잠시 후 다시 시도해주세요.",
+      "userOffline": "해당 사용자가 온라인이 아닙니다.",
+      "selfInvite": "자기 자신에게는 초대를 보낼 수 없습니다.",
+      "notAuthenticated": "초대를 보내려면 먼저 로그인해야 합니다.",
+      "invalidInvite": "유효하지 않은 초대 대상입니다.",
+      "generic": "예상치 못한 오류가 발생했습니다 ({reason}).",
+      "invalidUsername": "유효하지 않은 사용자 이름입니다",
+      "sessionReplaced": "다른 창에서 세션이 열렸습니다",
+      "invalidDmTarget": "유효하지 않은 DM 대상입니다",
+      "cannotMessageSelf": "자기 자신에게 메시지를 보낼 수 없습니다",
+      "userNotOnline": "{user} 사용자가 온라인이 아닙니다",
+      "youBlockedUser": "{user} 사용자를 차단했습니다",
+      "blockedByUser": "{user}님에게 차단되었습니다",
+      "invalidBlockTarget": "유효하지 않은 차단 대상입니다",
+      "serverError": "서버 오류: {message}",
+      "invalidMessageFormat": "유효하지 않은 메시지 형식입니다",
+      "missingMessageType": "메시지 유형이 없습니다",
+      "unknownMessageType": "알 수 없는 메시지 유형입니다"
+    },
+    "actions": {
+      "inviteSentSelf": "{target}님에게 게임 초대를 보냈습니다. (방: {room})",
+      "inviteHint": "{target}님에게 게임 초대를 보내고 방을 생성했습니다.",
+      "inviteSentOther": "{target}님에게 게임 초대를 보냈습니다.",
+      "inviteSent": "{target}님에게 게임 초대를 보냈습니다."
+    },
+    "menu": {
+      "viewProfile": "프로필 보기",
+      "inviteToGame": "퐁 게임 초대",
+      "cannotInviteSelf": "자기 자신에게는 초대를 보낼 수 없습니다"
+    },
+    "invite": {
+      "title": "{user}님이 게임에 초대했습니다!",
+      "invitedYou": "님이 게임에 초대했습니다!",
+      "sentTo": "{user}님에게 게임 초대를 보냈습니다",
+      "roomLabel": "방 이름:",
+      "gameMode": "게임 모드",
+      "join": "게임 참가하기",
+      "accept": "수락",
+      "joinRoom": "방 참가하기",
+      "joiningRoom": "{room} 방에 참가합니다..."
+    },
+    "tournament": {
+      "created": "{user}님이 토너먼트 \"{name}\"을(를) 생성했습니다",
+      "started": "🎮 토너먼트 \"{name}\"이(가) 시작되었습니다! ({matchCount}경기)",
+      "joined": "{user}님이 토너먼트 \"{name}\"에 참가했습니다",
+      "updated": "토너먼트 업데이트: {name}",
+      "view": "토너먼트 보기",
+      "matchStarted": "⚔️ [{tournamentName}] Round {round}: {player1} vs {player2}",
+      "matchFinished": "✅ [{tournamentName}] Round {round} 종료: {winner} 승리! ({winnerScore} : {loserScore})",
+      "roundCompleted": "📊 [{tournamentName}] Round {round} 완료! {winnersCount}명이 Round {nextRound}로 진출합니다",
+      "finished": "🎉 토너먼트 \"{tournamentName}\" 종료! 우승자: {winner}"
+    }
+  },
+  "home": {
+    "logout": "로그아웃",
+    "welcomeTo": "환영합니다",
+    "tagline": "AI 상대, 토너먼트 등을 갖춘 최고의 멀티플레이어 퐁 경험!",
+    "features": {
+      "playOnline": "온라인 플레이",
+      "playOnlineDesc": "친구 또는 무작위 플레이어와 실시간 대결",
+      "aiOpponents": "AI 상대",
+      "aiOpponentsDesc": "다양한 난이도의 AI와 연습",
+      "tournaments": "토너먼트",
+      "tournamentsDesc": "브래킷 대회에 참가하고 리더보드 상위권 차지"
+    },
+    "getStarted": "시작하기",
+    "login": "로그인",
+    "welcomeBack": "{name}님, 다시 오신 것을 환영합니다!",
+    "readyToPlay": "퐁 게임을 시작할 준비가 되셨나요?",
+    "quickPlay": {
+      "localPlay": "로컬 플레이",
+      "localPlayDesc": "친구와 함께 플레이 (같은 키보드)",
+      "vsAI": "AI 대결",
+      "vsAIDesc": "AI와 연습하기",
+      "onlineMatch": "온라인 매치",
+      "onlineMatchDesc": "온라인 플레이어와 대결",
+      "tournament": "토너먼트",
+      "tournamentDesc": "토너먼트 참가 또는 생성",
+      "profile": "프로필",
+      "profileDesc": "통계 및 설정 보기",
+      "friends": "친구",
+      "friendsDesc": "친구 목록 관리"
+    },
+    "stats": {
+      "title": "내 통계",
+      "totalGames": "총 게임 수",
+      "wins": "승리",
+      "losses": "패배",
+      "winRate": "승률",
+      "loadFailed": "통계 로드 실패",
+      "pleaseLogin": "통계를 보려면 로그인하세요"
+    },
+    "recentMatches": {
+      "title": "최근 매치",
+      "noMatches": "아직 매치가 없습니다. 플레이를 시작하세요!",
+      "win": "승리",
+      "loss": "패배",
+      "vs": "vs",
+      "loadFailed": "게임 로드 실패"
+    }
+  },
+  "header": {
+    "login": "로그인",
+    "logout": "로그아웃",
+    "play": "플레이",
+    "tournaments": "토너먼트",
+    "profile": "프로필"
+  },
+  "notFound": {
+    "title": "페이지를 찾을 수 없습니다",
+    "description": "요청하신 페이지가 존재하지 않습니다.",
+    "goHome": "홈으로 가기"
+  },
+  "login": {
+    "title": "로그인",
+    "usernameLabel": "사용자 이름 또는 이메일",
+    "passwordLabel": "비밀번호",
+    "twoFALabel": "2FA 코드",
+    "twoFAPlaceholder": "6자리 코드",
+    "twoFAHint": "인증 앱에서 6자리 코드를 입력하세요",
+    "submit": "로그인",
+    "submitting": "로그인 중...",
+    "verify2FA": "2FA 인증",
+    "toSignup": "회원가입",
+    "noAccount": "계정이 없으신가요?",
+    "alreadyLoggedIn": "이미 다른 기기에서 로그인 중입니다. 해당 브라우저에서 로그아웃을 진행하세요"
+  },
+  "signup": {
+    "title": "계정 만들기",
+    "usernameLabel": "사용자 이름",
+    "usernameHint": "3-20자, 문자, 숫자 및 밑줄만 사용 가능",
+    "emailLabel": "이메일",
+    "displayNameLabel": "표시 이름 (선택사항)",
+    "passwordLabel": "비밀번호",
+    "passwordHint": "최소 6자 이상",
+    "confirmPasswordLabel": "비밀번호 확인",
+    "submit": "회원가입",
+    "submitting": "계정 생성 중...",
+    "toLogin": "로그인",
+    "hasAccount": "이미 계정이 있으신가요?",
+    "success": "계정이 성공적으로 생성되었습니다! 로그인 페이지로 이동합니다...",
+    "errors": {
+      "passwordMismatch": "비밀번호가 일치하지 않습니다"
+    }
+  },
+  "profile": {
+    "title": "프로필",
+    "avatarTitle": "프로필 사진",
+    "uploadAvatar": "새 아바타 업로드",
+    "deleteAvatar": "아바타 삭제",
+    "avatarHint": "최대 5MB. 지원 형식: JPEG, PNG, GIF, WebP",
+    "userInfoTitle": "사용자 정보",
+    "infoTitle": "사용자 정보",
+    "emailLabel": "이메일",
+    "memberSinceLabel": "가입일",
+    "statusLabel": "상태",
+    "online": "온라인",
+    "offline": "오프라인",
+    "statusOnline": "온라인",
+    "statusOffline": "오프라인",
+    "statsTitle": "통계",
+    "totalGames": "총 게임 수",
+    "wins": "승리",
+    "losses": "패배",
+    "winRate": "승률",
+    "securityTitle": "보안",
+    "twoFATitle": "2단계 인증",
+    "twoFADescription": "추가 보안 레이어 추가",
+    "twoFADesc": "추가 보안 레이어 추가",
+    "enable2FA": "2FA 활성화",
+    "disable2FA": "2FA 비활성화",
+    "setup2FATitle": "2FA 설정",
+    "setup2FADescription": "Google Authenticator 또는 유사한 앱으로 이 QR 코드를 스캔하세요:",
+    "setup2FAInstructions": "Google Authenticator 또는 유사한 앱으로 이 QR 코드를 스캔하세요:",
+    "setup2FASecretLabel": "또는 이 비밀 코드를 수동으로 입력하세요:",
+    "setup2FAManual": "또는 이 비밀 코드를 수동으로 입력하세요:",
+    "verifyButton": "인증 및 활성화",
+    "verifyAndEnable": "인증 및 활성화",
+    "enter2FACode": "2FA 코드를 입력하세요",
+    "cancel": "취소",
+    "success": {
+      "avatarUploaded": "아바타가 성공적으로 업로드되었습니다!",
+      "avatarDeleted": "아바타가 성공적으로 삭제되었습니다!",
+      "2FAEnabled": "2FA가 성공적으로 활성화되었습니다!",
+      "2FADisabled": "2FA가 성공적으로 비활성화되었습니다!",
+      "twoFAEnabled": "2FA가 성공적으로 활성화되었습니다!",
+      "twoFADisabled": "2FA가 성공적으로 비활성화되었습니다!"
+    },
+    "errors": {
+      "invalidFileType": "잘못된 파일 형식입니다. JPEG, PNG, GIF, WebP만 허용됩니다.",
+      "fileTooLarge": "파일이 너무 큽니다. 최대 크기는 5MB입니다.",
+      "uploadFailed": "아바타 업로드 실패",
+      "deleteFailed": "아바타 삭제 실패",
+      "setup2FAFailed": "2FA 설정 실패",
+      "verify2FAFailed": "2FA 인증 실패",
+      "disable2FAFailed": "2FA 비활성화 실패"
+    },
+    "confirmDeleteAvatar": "정말로 아바타를 삭제하시겠습니까?",
+    "promptDisable2FA": "2FA를 비활성화하려면 비밀번호를 입력하세요:",
+    "enterPasswordToDisable2FA": "2FA를 비활성화하려면 비밀번호를 입력하세요:"
+  },
+  "game": {
+    "local": {
+      "title": "로컬 멀티플레이어",
+      "instructions": "플레이어 1: W/S | 플레이어 2: 화살표 키 | SPACE: 일시정지"
+    },
+    "ai": {
+      "title": "AI와 대결",
+      "instructions": "W/S 또는 화살표 키로 이동 | SPACE: 일시정지",
+      "selectDifficulty": "난이도 선택",
+      "difficultyTitle": "난이도 선택",
+      "easy": "쉬움",
+      "medium": "보통",
+      "hard": "어려움"
+    },
+    "remote": {
+      "title": "온라인 멀티플레이어",
+      "instructions": "방을 만들거나 기존 방에 참가하세요",
+      "instructionsPlaying": "게임 진행 중 - 화살표 키 사용",
+      "backToLobby": "로비로 돌아가기",
+      "availableRooms": "사용 가능한 방",
+      "noRooms": "사용 가능한 방이 없습니다. 방을 만드세요!",
+      "createRoomTitle": "방 만들기",
+      "createRoom": "방 만들기",
+      "createButton": "새 방 만들기",
+      "createNewRoom": "새 방 만들기",
+      "joinButton": "방 참가",
+      "waiting": "대기 중",
+      "players": "플레이어",
+      "roomNamePrompt": "방 이름을 입력하세요 (비워두면 사용자 이름 사용):",
+      "connecting": "연결 중...",
+      "joiningRoom": "방 참가 중...",
+      "creatingRoom": "방 생성 중...",
+      "connectingToServer": "게임 서버에 연결 중...",
+      "connectingToMatch": "토너먼트 매치에 연결 중...",
+      "roomCreated": "방이 성공적으로 생성되었습니다",
+      "waitingForOpponent": "상대방이 참가하기를 기다리는 중...",
+      "tournamentMatchReady": "토너먼트 매치 준비 완료!",
+      "opponentFound": "상대방을 찾았습니다!",
+      "gameStarting": "게임 시작 중...",
+      "gameInProgress": "게임 진행 중!",
+      "useArrowKeys": "화살표 키로 패들을 조작하세요",
+      "youWin": "승리!",
+      "youLose": "패배!",
+      "victoryByForfeit": "기권 승리!",
+      "defeatByForfeit": "기권 패배",
+      "opponentLeft": "상대방이 게임을 떠났습니다",
+      "youLeftGame": "게임을 떠났습니다",
+      "gameFinished": "게임 종료!",
+      "finalScore": "최종 점수: 나 {myScore} - {opponentScore} 상대",
+      "playAgain": "다시 플레이",
+      "backToTournament": "토너먼트로 돌아가기",
+      "opponentDisconnected": "상대방 연결 끊김",
+      "opponentDisconnectedMessage": "상대방이 게임을 떠났습니다",
+      "findNewMatch": "새 매치 찾기",
+      "error": "오류: {message}",
+      "tryAgain": "다시 시도",
+      "connectionFailed": "게임 서버 연결 실패",
+      "backToHome": "홈으로 돌아가기"
+    },
+    "mode": {
+      "title": "게임 모드",
+      "classic": "클래식",
+      "custom": "커스텀 (장애물 포함)"
+    },
+    "modes": {
+      "classic": "클래식",
+      "custom": "커스텀",
+      "customWithObstacles": "커스텀 (장애물 포함)"
+    },
+    "renderModeLabel": "렌더링 모드",
+    "renderModes": {
+      "2d": "2D (클래식)",
+      "3d": "3D (고급 그래픽)"
+    },
+    "gameModeLabel": "게임 모드",
+    "status": {
+      "pressSpace": "SPACE를 눌러 시작하세요",
+      "connectingToServer": "서버 연결 중...",
+      "winner": "{winner} 승리!",
+      "finalScore": "최종 점수: {player1} - {player2}",
+      "player1": "플레이어 1",
+      "player2": "플레이어 2",
+      "ai": "AI",
+      "paused": "일시정지",
+      "pressToContinue": "SPACE를 눌러 계속하세요",
+      "waitingToStart": "게임 시작 대기 중...",
+      "vsAI": "AI 대결",
+      "onlineMatch": "온라인 매치",
+      "localMultiplayer": "로컬 멀티플레이어",
+      "player1Wins": "플레이어 1 승리!",
+      "player2Wins": "플레이어 2 승리!"
+    },
+    "gameModeLabel": "게임 모드",
+    "pressSpaceToStart": "SPACE를 눌러 시작하세요",
+    "exit": "나가기",
+    "exitButton": "나가기",
+    "reset": "재시작",
+    "resetButton": "재시작"
+  },
+  "tournament": {
+    "title": "토너먼트",
+    "activeTitle": "진행 중인 토너먼트",
+    "createTitle": "토너먼트 만들기",
+    "nameLabel": "토너먼트 이름",
+    "maxPlayersLabel": "최대 플레이어 수",
+    "playersOption": "{count}명",
+    "players": "{count}명",
+    "createButton": "만들기",
+    "viewButton": "보기",
+    "noTournaments": "토너먼트가 없습니다. 만들어보세요!",
+    "participantCount": "{current}/{max} 플레이어",
+    "playersLabel": "플레이어",
+    "status": {
+      "pending": "대기 중",
+      "active": "진행 중",
+      "completed": "완료"
+    },
+    "success": {
+      "created": "토너먼트가 성공적으로 생성되었습니다!"
+    },
+    "errors": {
+      "createFailed": "토너먼트 생성 실패",
+      "loadFailed": "토너먼트 로드 실패"
+    }
+  },
+  "friends": {
+    "title": "친구",
+    "subtitle": "친구 및 친구 요청 관리",
+    "description": "친구 및 친구 요청 관리",
+    "requestsTitle": "친구 요청",
+    "addFriendTitle": "친구 추가",
+    "myFriendsTitle": "내 친구",
+    "searchPlaceholder": "사용자 이름으로 검색...",
+    "searchButton": "검색",
+    "acceptButton": "수락",
+    "rejectButton": "거절",
+    "removeButton": "삭제",
+    "addFriendButton": "친구 추가",
+    "noRequests": "대기 중인 친구 요청이 없습니다",
+    "noFriends": "아직 친구가 없습니다. 위에서 친구를 검색하고 추가하세요!",
+    "noResults": "사용자를 찾을 수 없습니다",
+    "noUsersFound": "사용자를 찾을 수 없습니다",
+    "enterUsername": "사용자 이름을 입력하세요",
+    "online": "온라인",
+    "offline": "오프라인",
+    "statusOnline": "온라인",
+    "statusOffline": "오프라인",
+    "success": {
+      "requestSent": "{username}님에게 친구 요청을 보냈습니다"
+    },
+    "errors": {
+      "loadRequestsFailed": "요청 로드 실패",
+      "loadFriendsFailed": "친구 로드 실패",
+      "searchFailed": "검색 실패",
+      "sendRequestFailed": "친구 요청 전송 실패",
+      "acceptFailed": "친구 요청 수락 실패",
+      "rejectFailed": "친구 요청 거절 실패",
+      "removeFailed": "친구 삭제 실패"
+    },
+    "confirmRemove": "{username}님을 친구 목록에서 삭제하시겠습니까?"
+  },
+  "errors": {
+    "auth": {
+      "MISSING_REQUIRED_FIELDS": "필수 항목이 누락되었습니다",
+      "INVALID_USERNAME": "잘못된 사용자 이름 형식입니다",
+      "INVALID_EMAIL": "잘못된 이메일 형식입니다",
+      "INVALID_DISPLAY_NAME": "잘못된 표시 이름입니다",
+      "PASSWORD_TOO_SHORT": "비밀번호는 최소 6자 이상이어야 합니다",
+      "USER_ALREADY_EXISTS": "이미 존재합니다",
+      "REGISTRATION_FAILED": "회원가입에 실패했습니다",
+      "MISSING_CREDENTIALS": "인증 정보가 누락되었습니다",
+      "INVALID_CREDENTIALS": "잘못된 인증 정보입니다",
+      "INVALID_2FA_CODE": "잘못된 2FA 코드입니다",
+      "LOGIN_FAILED": "로그인에 실패했습니다",
+      "LOGOUT_FAILED": "로그아웃에 실패했습니다",
+      "2FA_SETUP_FAILED": "2FA 설정에 실패했습니다",
+      "TOKEN_REQUIRED": "토큰이 필요합니다",
+      "2FA_NOT_SETUP": "2FA가 설정되지 않았습니다",
+      "INVALID_TOKEN": "잘못된 토큰입니다",
+      "2FA_VERIFICATION_FAILED": "2FA 인증에 실패했습니다",
+      "PASSWORD_REQUIRED": "비밀번호가 필요합니다",
+      "INVALID_PASSWORD": "잘못된 비밀번호입니다",
+      "2FA_DISABLE_FAILED": "2FA 비활성화에 실패했습니다"
+    },
+    "users": {
+      "USER_NOT_FOUND": "사용자를 찾을 수 없습니다",
+      "FETCH_USER_FAILED": "사용자 정보를 가져오는데 실패했습니다",
+      "QUERY_TOO_SHORT": "검색어는 최소 2자 이상이어야 합니다",
+      "SEARCH_FAILED": "검색에 실패했습니다",
+      "INVALID_FIELD": "잘못된 필드 값입니다",
+      "EMAIL_IN_USE": "이미 사용 중인 이메일입니다",
+      "NO_UPDATES_PROVIDED": "업데이트할 내용이 없습니다",
+      "UPDATE_FAILED": "업데이트에 실패했습니다",
+      "NO_FILE_UPLOADED": "업로드된 파일이 없습니다",
+      "INVALID_FILE_TYPE": "잘못된 파일 형식입니다. JPEG, PNG, GIF, WebP만 허용됩니다",
+      "FILE_TOO_LARGE": "파일이 너무 큽니다. 최대 크기는 5MB입니다",
+      "UPLOAD_AVATAR_FAILED": "아바타 업로드에 실패했습니다",
+      "NO_AVATAR_TO_DELETE": "삭제할 아바타가 없습니다",
+      "DELETE_AVATAR_FAILED": "아바타 삭제에 실패했습니다",
+      "FETCH_STATS_FAILED": "통계를 가져오는데 실패했습니다"
+    },
+    "games": {
+      "CREATE_GAME_FAILED": "게임 생성에 실패했습니다",
+      "GAME_NOT_FOUND": "게임을 찾을 수 없습니다",
+      "FETCH_GAME_FAILED": "게임 정보를 가져오는데 실패했습니다",
+      "FETCH_MATCH_HISTORY_FAILED": "매치 기록을 가져오는데 실패했습니다",
+      "FETCH_RECENT_GAMES_FAILED": "최근 게임을 가져오는데 실패했습니다"
+    },
+    "tournaments": {
+      "NAME_AND_MAX_PLAYERS_REQUIRED": "이름과 최대 플레이어 수가 필요합니다",
+      "INVALID_NAME": "잘못된 토너먼트 이름입니다",
+      "INVALID_MAX_PLAYERS": "최대 플레이어 수는 2, 4, 8, 16 중 하나여야 합니다",
+      "CREATE_TOURNAMENT_FAILED": "토너먼트 생성에 실패했습니다",
+      "TOURNAMENT_NOT_FOUND": "토너먼트를 찾을 수 없습니다",
+      "FETCH_TOURNAMENT_FAILED": "토너먼트 정보를 가져오는데 실패했습니다",
+      "ALIAS_TOO_LONG": "별명은 50자를 초과할 수 없습니다",
+      "TOURNAMENT_NOT_FOUND_OR_STARTED": "토너먼트를 찾을 수 없거나 이미 시작되었습니다",
+      "TOURNAMENT_FULL": "토너먼트가 가득 찼습니다",
+      "ALREADY_JOINED": "이미 이 토너먼트에 참가했습니다",
+      "JOIN_TOURNAMENT_FAILED": "토너먼트 참가에 실패했습니다",
+      "ALIAS_REQUIRED": "별명이 필요합니다 (최소 2자)",
+      "INVALID_ALIAS_LENGTH": "별명은 2자에서 50자 사이여야 합니다",
+      "NOT_CREATOR": "토너먼트 생성자만 시작할 수 있습니다",
+      "TOURNAMENT_ALREADY_STARTED": "토너먼트가 이미 시작되었습니다",
+      "NOT_ENOUGH_PLAYERS": "최소 2명의 플레이어가 필요합니다",
+      "NOT_ENOUGH_PLAYERS_FOR_MAX": "이 토너먼트를 시작하려면 {maxPlayers}명의 플레이어가 필요합니다",
+      "START_TOURNAMENT_FAILED": "토너먼트 시작에 실패했습니다",
+      "FETCH_TOURNAMENTS_FAILED": "토너먼트 목록을 가져오는데 실패했습니다"
+    },
+    "friends": {
+      "FETCH_FRIENDS_FAILED": "친구 목록을 가져오는데 실패했습니다",
+      "FRIEND_ID_REQUIRED": "친구 ID가 필요합니다",
+      "CANNOT_ADD_SELF": "자기 자신을 친구로 추가할 수 없습니다",
+      "USER_NOT_FOUND": "사용자를 찾을 수 없습니다",
+      "FRIEND_REQUEST_PENDING": "이미 친구 요청이 대기 중입니다",
+      "ALREADY_FRIENDS": "이미 친구입니다",
+      "CANNOT_SEND_REQUEST": "친구 요청을 보낼 수 없습니다",
+      "SEND_FRIEND_REQUEST_FAILED": "친구 요청 전송에 실패했습니다",
+      "FRIEND_REQUEST_NOT_FOUND": "친구 요청을 찾을 수 없습니다",
+      "ACCEPT_FRIEND_REQUEST_FAILED": "친구 요청 수락에 실패했습니다",
+      "FRIENDSHIP_NOT_FOUND": "친구 관계를 찾을 수 없습니다",
+      "REMOVE_FRIENDSHIP_FAILED": "친구 삭제에 실패했습니다",
+      "FETCH_FRIEND_REQUESTS_FAILED": "친구 요청 목록을 가져오는데 실패했습니다",
+      "FETCH_ONLINE_FRIENDS_FAILED": "온라인 친구 목록을 가져오는데 실패했습니다"
+    },
+    "middleware": {
+      "ACCESS_TOKEN_REQUIRED": "액세스 토큰이 필요합니다",
+      "INVALID_OR_EXPIRED_TOKEN": "잘못되었거나 만료된 토큰입니다"
+    },
+    "generic": {
+      "INTERNAL_SERVER_ERROR": "내부 서버 오류",
+      "NOT_ALLOWED_BY_CORS": "CORS에 의해 허용되지 않습니다"
+    }
+  }
+}

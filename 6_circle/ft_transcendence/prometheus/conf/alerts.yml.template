@@ -1,0 +1,51 @@
+groups:
+  - name: node-health
+    rules:
+      - alert: NodeExporterDown
+        expr: up{job="node-exporter"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Node exporter unreachable on {{ $labels.instance }}"
+          description: "Prometheus cannot scrape node-exporter for more than 1 minute."
+          contact: "Replace with your on-call address or webhook"
+
+      - alert: NodeHighCPUUsage
+        expr: 100 - (avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > ${CPU_PERCENTAGE}
+        for: ${ALERT_TIME}s
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU on {{ $labels.instance }}"
+          description: "CPU usage is above ${CPU_PERCENTAGE}% (current value: {{ $value | printf \"%.2f\" }}%)"
+
+      - alert: NodeHighMemoryUsage
+        expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 > ${MEM_PERCENTAGE}
+        for: ${ALERT_TIME}s
+        labels:
+          severity: warning
+        annotations:
+          summary: "High memory on {{ $labels.instance }}"
+          description: "Memory usage is above ${MEM_PERCENTAGE}% for ${ALERT_TIME} seconds."
+          contact: "Replace with your on-call address or webhook"
+
+      - alert: NodeDiskSpaceLow
+        expr: (1 - (node_filesystem_avail_bytes{fstype!~"tmpfs|proc|sysfs|cgroupfs|overlay",mountpoint!~"/(sys|proc|dev|run|var/lib/docker)"} / node_filesystem_size_bytes{fstype!~"tmpfs|proc|sysfs|cgroupfs|overlay",mountpoint!~"/(sys|proc|dev|run|var/lib/docker)"})) * 100 > 85
+        for: 10m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Low disk space on {{ $labels.instance }} ({{ $labels.mountpoint }})"
+          description: "Disk usage above 85% for 10 minutes."
+          contact: "Replace with your on-call address or webhook"
+
+      - alert: NodeHighLoadAverage
+        expr: (node_load1 / count without(cpu, mode) (node_cpu_seconds_total{mode="idle"})) > 1.5
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High load average on {{ $labels.instance }}"
+          description: "1-minute load average is high relative to CPU cores."
+          contact: "Replace with your on-call address or webhook"

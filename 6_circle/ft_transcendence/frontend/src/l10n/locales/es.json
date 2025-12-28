@@ -1,0 +1,495 @@
+{
+  "app": {
+    "loading": "Cargando..."
+  },
+  "common": {
+    "cancel": "Cancelar"
+  },
+  "language": {
+    "selectLabel": "Idioma"
+  },
+  "router": {
+    "notFound": "Página no encontrada."
+  },
+  "online": {
+    "title": "Usuarios en línea",
+    "empty": "No hay usuarios en línea."
+  },
+  "chat": {
+    "title": "Chat en vivo",
+    "placeholder": "Escribe un mensaje...",
+    "send": "Enviar",
+    "system": {
+      "connected": "[Sistema] Conectado al chat en vivo.",
+      "userJoined": "{user} se unió al chat",
+      "userLeft": "{user} salió del chat",
+      "userBlocked": "{user} bloqueado",
+      "userUnblocked": "{user} desbloqueado",
+      "blockedBy": "Estás bloqueado por {user}",
+      "unblockedBy": "{user} te ha desbloqueado",
+      "alreadyBlocked": "Ya bloqueado: {user}",
+      "notBlocked": "No bloqueado: {user}"
+    },
+    "labels": {
+      "system": "[Sistema]",
+      "me": "[Yo]",
+      "error": "[Error]"
+    },
+    "errors": {
+      "notConnected": "El servidor de chat no está conectado.",
+      "inviteAlreadySent": "Ya enviaste una invitación a este usuario. Inténtalo de nuevo en unos segundos.",
+      "userOffline": "Ese usuario está desconectado.",
+      "selfInvite": "No puedes invitarte a ti mismo.",
+      "notAuthenticated": "Debes iniciar sesión para enviar invitaciones.",
+      "invalidInvite": "El destinatario de la invitación no es válido.",
+      "generic": "Ocurrió un error inesperado ({reason}).",
+      "invalidUsername": "Nombre de usuario inválido",
+      "sessionReplaced": "Tu sesión fue abierta en otra ventana",
+      "invalidDmTarget": "Destinatario de DM inválido",
+      "cannotMessageSelf": "No puedes enviarte mensajes a ti mismo",
+      "userNotOnline": "El usuario {user} no está en línea",
+      "youBlockedUser": "Has bloqueado a {user}",
+      "blockedByUser": "Estás bloqueado por {user}",
+      "invalidBlockTarget": "Objetivo de bloqueo inválido",
+      "serverError": "Error del servidor: {message}",
+      "invalidMessageFormat": "Formato de mensaje inválido",
+      "missingMessageType": "Falta el tipo de mensaje",
+      "unknownMessageType": "Tipo de mensaje desconocido"
+    },
+    "actions": {
+      "inviteSentSelf": "Invitaste a {target} a una partida. (Sala: {room})",
+      "inviteHint": "Se creó una sala y se envió una invitación a {target}.",
+      "inviteSentOther": "envió una invitación de juego a {target}.",
+      "inviteSent": "Se envió una invitación de juego a {target}."
+    },
+    "menu": {
+      "viewProfile": "Ver perfil",
+      "inviteToGame": "Invitar a jugar",
+      "cannotInviteSelf": "No puedes invitarte a ti mismo"
+    },
+    "invite": {
+      "title": "¡{user} te invitó a una partida!",
+      "invitedYou": "te invitó a una partida!",
+      "sentTo": "Invitación de juego enviada a {user}",
+      "roomLabel": "Sala:",
+      "gameMode": "Modo de juego",
+      "join": "Unirse a la partida",
+      "accept": "Aceptar",
+      "joinRoom": "Unirse a la sala",
+      "joiningRoom": "Uniéndote a la sala {room}..."
+    },
+    "tournament": {
+      "created": "{user} creó el torneo \"{name}\"",
+      "started": "🎮 ¡Torneo \"{name}\" iniciado! ({matchCount} partidas)",
+      "joined": "{user} se unió al torneo \"{name}\"",
+      "updated": "Torneo actualizado: {name}",
+      "view": "Ver torneo",
+      "matchStarted": "⚔️ [{tournamentName}] Ronda {round}: {player1} vs {player2}",
+      "matchFinished": "✅ [{tournamentName}] Ronda {round} terminada: ¡{winner} gana! ({winnerScore} : {loserScore})",
+      "roundCompleted": "📊 [{tournamentName}] ¡Ronda {round} completada! {winnersCount} jugadores avanzan a la Ronda {nextRound}",
+      "finished": "🎉 ¡Torneo \"{tournamentName}\" terminado! Ganador: {winner}"
+    }
+  },
+  "home": {
+    "logout": "Cerrar sesión",
+    "welcomeTo": "Bienvenido a",
+    "tagline": "¡La mejor experiencia multijugador de Pong con oponentes IA, torneos y más!",
+    "features": {
+      "playOnline": "Jugar en línea",
+      "playOnlineDesc": "Desafía a amigos o jugadores aleatorios en partidas en tiempo real",
+      "aiOpponents": "Oponentes IA",
+      "aiOpponentsDesc": "Practica contra IA con múltiples niveles de dificultad",
+      "tournaments": "Torneos",
+      "tournamentsDesc": "Compite en brackets y escala en la tabla de clasificación"
+    },
+    "getStarted": "Comenzar",
+    "login": "Iniciar sesión",
+    "welcomeBack": "¡Bienvenido de nuevo, {name}!",
+    "readyToPlay": "¿Listo para jugar Pong?",
+    "quickPlay": {
+      "localPlay": "Juego local",
+      "localPlayDesc": "Juega con un amigo (mismo teclado)",
+      "vsAI": "vs IA",
+      "vsAIDesc": "Practica contra IA",
+      "onlineMatch": "Partida en línea",
+      "onlineMatchDesc": "Juega contra jugadores en línea",
+      "tournament": "Torneo",
+      "tournamentDesc": "Únete o crea un torneo",
+      "profile": "Perfil",
+      "profileDesc": "Ver estadísticas y configuración",
+      "friends": "Amigos",
+      "friendsDesc": "Administra tu lista de amigos"
+    },
+    "stats": {
+      "title": "Tus estadísticas",
+      "totalGames": "Total de partidas",
+      "wins": "Victorias",
+      "losses": "Derrotas",
+      "winRate": "Tasa de victoria",
+      "loadFailed": "Error al cargar estadísticas",
+      "pleaseLogin": "Inicia sesión para ver estadísticas"
+    },
+    "recentMatches": {
+      "title": "Partidas recientes",
+      "noMatches": "Aún no hay partidas. ¡Comienza a jugar!",
+      "win": "VICTORIA",
+      "loss": "DERROTA",
+      "vs": "vs",
+      "loadFailed": "Error al cargar partidas"
+    }
+  },
+  "header": {
+    "login": "Iniciar sesión",
+    "logout": "Cerrar sesión",
+    "play": "Jugar",
+    "tournaments": "Torneos",
+    "profile": "Perfil"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "La página que estás buscando no existe.",
+    "goHome": "Ir al inicio"
+  },
+  "login": {
+    "title": "Iniciar sesión",
+    "usernameLabel": "Nombre de usuario o correo electrónico",
+    "passwordLabel": "Contraseña",
+    "twoFALabel": "Código 2FA",
+    "twoFAPlaceholder": "Código de 6 dígitos",
+    "twoFAHint": "Ingresa el código de 6 dígitos de tu aplicación de autenticación",
+    "submit": "Iniciar sesión",
+    "submitting": "Iniciando sesión...",
+    "verify2FA": "Verificar 2FA",
+    "toSignup": "Registrarse",
+    "noAccount": "¿No tienes una cuenta?",
+    "alreadyLoggedIn": "Ya has iniciado sesión en otro dispositivo. Por favor, cierra sesión en ese navegador."
+  },
+  "signup": {
+    "title": "Crear cuenta",
+    "usernameLabel": "Nombre de usuario",
+    "usernameHint": "3-20 caracteres, letras, números y guión bajo solamente",
+    "emailLabel": "Correo electrónico",
+    "displayNameLabel": "Nombre para mostrar (opcional)",
+    "passwordLabel": "Contraseña",
+    "passwordHint": "Al menos 6 caracteres",
+    "confirmPasswordLabel": "Confirmar contraseña",
+    "submit": "Registrarse",
+    "submitting": "Creando cuenta...",
+    "toLogin": "Iniciar sesión",
+    "hasAccount": "¿Ya tienes una cuenta?",
+    "success": "¡Cuenta creada exitosamente! Redirigiendo al inicio de sesión...",
+    "errors": {
+      "passwordMismatch": "Las contraseñas no coinciden"
+    }
+  },
+  "profile": {
+    "title": "Perfil",
+    "avatarTitle": "Foto de perfil",
+    "uploadAvatar": "Subir nuevo avatar",
+    "deleteAvatar": "Eliminar avatar",
+    "avatarHint": "Máximo 5MB. Formatos compatibles: JPEG, PNG, GIF, WebP",
+    "userInfoTitle": "Información del usuario",
+    "infoTitle": "Información del usuario",
+    "emailLabel": "Correo electrónico",
+    "memberSinceLabel": "Miembro desde",
+    "statusLabel": "Estado",
+    "online": "En línea",
+    "offline": "Desconectado",
+    "statusOnline": "En línea",
+    "statusOffline": "Desconectado",
+    "statsTitle": "Estadísticas",
+    "totalGames": "Total de partidas",
+    "wins": "Victorias",
+    "losses": "Derrotas",
+    "winRate": "Tasa de victoria",
+    "securityTitle": "Seguridad",
+    "twoFATitle": "Autenticación de dos factores",
+    "twoFADescription": "Agrega una capa adicional de seguridad",
+    "twoFADesc": "Agrega una capa adicional de seguridad",
+    "enable2FA": "Activar 2FA",
+    "disable2FA": "Desactivar 2FA",
+    "setup2FATitle": "Configurar 2FA",
+    "setup2FADescription": "Escanea este código QR con Google Authenticator o una aplicación similar:",
+    "setup2FAInstructions": "Escanea este código QR con Google Authenticator o una aplicación similar:",
+    "setup2FASecretLabel": "O ingresa este secreto manualmente:",
+    "setup2FAManual": "O ingresa este secreto manualmente:",
+    "verifyButton": "Verificar y activar",
+    "verifyAndEnable": "Verificar y activar",
+    "enter2FACode": "Ingresa el código 2FA",
+    "cancel": "Cancelar",
+    "success": {
+      "avatarUploaded": "¡Avatar subido exitosamente!",
+      "avatarDeleted": "¡Avatar eliminado exitosamente!",
+      "2FAEnabled": "¡2FA activado exitosamente!",
+      "2FADisabled": "¡2FA desactivado exitosamente!",
+      "twoFAEnabled": "¡2FA activado exitosamente!",
+      "twoFADisabled": "¡2FA desactivado exitosamente!"
+    },
+    "errors": {
+      "invalidFileType": "Tipo de archivo inválido. Solo se permiten JPEG, PNG, GIF y WebP.",
+      "fileTooLarge": "Archivo demasiado grande. El tamaño máximo es 5MB.",
+      "uploadFailed": "Error al subir avatar",
+      "deleteFailed": "Error al eliminar avatar",
+      "setup2FAFailed": "Error al configurar 2FA",
+      "verify2FAFailed": "Error al verificar 2FA",
+      "disable2FAFailed": "Error al desactivar 2FA"
+    },
+    "confirmDeleteAvatar": "¿Estás seguro de que quieres eliminar tu avatar?",
+    "promptDisable2FA": "Ingresa tu contraseña para desactivar 2FA:",
+    "enterPasswordToDisable2FA": "Ingresa tu contraseña para desactivar 2FA:"
+  },
+  "game": {
+    "local": {
+      "title": "Multijugador local",
+      "instructions": "Jugador 1: W/S | Jugador 2: Teclas de flecha | ESPACIO: Pausar"
+    },
+    "ai": {
+      "title": "Jugar contra IA",
+      "instructions": "W/S o teclas de flecha para mover | ESPACIO: Pausar",
+      "selectDifficulty": "Seleccionar dificultad",
+      "difficultyTitle": "Seleccionar dificultad",
+      "easy": "Fácil",
+      "medium": "Medio",
+      "hard": "Difícil"
+    },
+    "remote": {
+      "title": "Multijugador en línea",
+      "instructions": "Crea una sala o únete a una existente",
+      "instructionsPlaying": "Partida en curso - Usa las teclas de flecha",
+      "backToLobby": "Volver al lobby",
+      "availableRooms": "Salas disponibles",
+      "noRooms": "No hay salas disponibles. ¡Crea una!",
+      "createRoomTitle": "Crear sala",
+      "createRoom": "Crear sala",
+      "createButton": "Crear nueva sala",
+      "createNewRoom": "Crear nueva sala",
+      "joinButton": "Unirse a sala",
+      "waiting": "Esperando",
+      "players": "jugadores",
+      "roomNamePrompt": "Ingresa el nombre de la sala (déjalo vacío para usar tu nombre de usuario):",
+      "connecting": "Conectando...",
+      "joiningRoom": "Uniéndose a la sala...",
+      "creatingRoom": "Creando sala...",
+      "connectingToServer": "Conectando al servidor de juego...",
+      "connectingToMatch": "Conectando al partido del torneo...",
+      "roomCreated": "Sala creada exitosamente",
+      "waitingForOpponent": "Esperando a que se una el oponente...",
+      "tournamentMatchReady": "¡Partido del torneo listo!",
+      "opponentFound": "¡Oponente encontrado!",
+      "gameStarting": "Iniciando partida...",
+      "gameInProgress": "¡Partida en curso!",
+      "useArrowKeys": "Usa las teclas de flecha para controlar tu paleta",
+      "youWin": "¡Ganaste!",
+      "youLose": "¡Perdiste!",
+      "victoryByForfeit": "¡Victoria por abandono!",
+      "defeatByForfeit": "Derrota por abandono",
+      "opponentLeft": "Tu oponente dejó la partida",
+      "youLeftGame": "Dejaste la partida",
+      "gameFinished": "¡Partida terminada!",
+      "finalScore": "Puntaje final: Tú {myScore} - {opponentScore} Oponente",
+      "playAgain": "Jugar de nuevo",
+      "backToTournament": "Volver al torneo",
+      "opponentDisconnected": "Oponente desconectado",
+      "opponentDisconnectedMessage": "Tu oponente ha dejado la partida",
+      "findNewMatch": "Buscar nuevo partido",
+      "error": "Error: {message}",
+      "tryAgain": "Intentar de nuevo",
+      "connectionFailed": "Error al conectar al servidor de juego",
+      "backToHome": "Volver al inicio"
+    },
+    "mode": {
+      "title": "Modo de juego",
+      "classic": "Clásico",
+      "custom": "Personalizado (con obstáculos)"
+    },
+    "modes": {
+      "classic": "Clásico",
+      "custom": "Personalizado",
+      "customWithObstacles": "Personalizado (con obstáculos)"
+    },
+    "renderModeLabel": "Modo de renderizado",
+    "renderModes": {
+      "2d": "2D (Clásico)",
+      "3d": "3D (Gráficos avanzados)"
+    },
+    "gameModeLabel": "Modo de juego",
+    "status": {
+      "pressSpace": "Presiona ESPACIO para comenzar",
+      "connectingToServer": "Conectando al servidor...",
+      "winner": "¡{winner} gana!",
+      "finalScore": "Puntaje final: {player1} - {player2}",
+      "player1": "Jugador 1",
+      "player2": "Jugador 2",
+      "ai": "IA",
+      "paused": "PAUSADO",
+      "pressToContinue": "Presiona ESPACIO para continuar",
+      "waitingToStart": "Esperando inicio del juego...",
+      "vsAI": "VS IA",
+      "onlineMatch": "PARTIDA EN LÍNEA",
+      "localMultiplayer": "MULTIJUGADOR LOCAL",
+      "player1Wins": "¡JUGADOR 1 GANA!",
+      "player2Wins": "¡JUGADOR 2 GANA!"
+    },
+    "gameModeLabel": "Modo de juego",
+    "pressSpaceToStart": "Presiona ESPACIO para comenzar",
+    "exit": "Salir",
+    "exitButton": "Salir",
+    "reset": "Reiniciar",
+    "resetButton": "Reiniciar"
+  },
+  "tournament": {
+    "title": "Torneos",
+    "activeTitle": "Torneos activos",
+    "createTitle": "Crear torneo",
+    "nameLabel": "Nombre del torneo",
+    "maxPlayersLabel": "Máximo de jugadores",
+    "playersOption": "{count} jugadores",
+    "players": "{count} jugadores",
+    "createButton": "Crear",
+    "viewButton": "Ver",
+    "noTournaments": "Aún no hay torneos. ¡Crea uno!",
+    "participantCount": "{current}/{max} jugadores",
+    "playersLabel": "jugadores",
+    "status": {
+      "pending": "Pendiente",
+      "active": "Activo",
+      "completed": "Completado"
+    },
+    "success": {
+      "created": "¡Torneo creado exitosamente!"
+    },
+    "errors": {
+      "createFailed": "Error al crear torneo",
+      "loadFailed": "Error al cargar torneos"
+    }
+  },
+  "friends": {
+    "title": "Amigos",
+    "subtitle": "Administra tus amigos y solicitudes de amistad",
+    "description": "Administra tus amigos y solicitudes de amistad",
+    "requestsTitle": "Solicitudes de amistad",
+    "addFriendTitle": "Agregar amigo",
+    "myFriendsTitle": "Mis amigos",
+    "searchPlaceholder": "Buscar por nombre de usuario...",
+    "searchButton": "Buscar",
+    "acceptButton": "Aceptar",
+    "rejectButton": "Rechazar",
+    "removeButton": "Eliminar",
+    "addFriendButton": "Agregar amigo",
+    "noRequests": "No hay solicitudes de amistad pendientes",
+    "noFriends": "Aún no tienes amigos. ¡Busca y agrega amigos arriba!",
+    "noResults": "No se encontraron usuarios",
+    "noUsersFound": "No se encontraron usuarios",
+    "enterUsername": "Ingresa un nombre de usuario para buscar",
+    "online": "En línea",
+    "offline": "Desconectado",
+    "statusOnline": "En línea",
+    "statusOffline": "Desconectado",
+    "success": {
+      "requestSent": "Solicitud de amistad enviada a {username}"
+    },
+    "errors": {
+      "loadRequestsFailed": "Error al cargar solicitudes",
+      "loadFriendsFailed": "Error al cargar amigos",
+      "searchFailed": "Error en la búsqueda",
+      "sendRequestFailed": "Error al enviar solicitud de amistad",
+      "acceptFailed": "Error al aceptar solicitud de amistad",
+      "rejectFailed": "Error al rechazar solicitud de amistad",
+      "removeFailed": "Error al eliminar amigo"
+    },
+    "confirmRemove": "¿Eliminar a {username} de amigos?"
+  },
+  "errors": {
+    "auth": {
+      "MISSING_REQUIRED_FIELDS": "Faltan campos requeridos",
+      "INVALID_USERNAME": "Formato de nombre de usuario inválido",
+      "INVALID_EMAIL": "Formato de correo electrónico inválido",
+      "INVALID_DISPLAY_NAME": "Nombre para mostrar inválido",
+      "PASSWORD_TOO_SHORT": "La contraseña debe tener al menos 6 caracteres",
+      "USER_ALREADY_EXISTS": "Ya existe",
+      "REGISTRATION_FAILED": "Error en el registro",
+      "MISSING_CREDENTIALS": "Faltan credenciales",
+      "INVALID_CREDENTIALS": "Credenciales inválidas",
+      "INVALID_2FA_CODE": "Código 2FA inválido",
+      "LOGIN_FAILED": "Error en el inicio de sesión",
+      "LOGOUT_FAILED": "Error al cerrar sesión",
+      "2FA_SETUP_FAILED": "Error en la configuración 2FA",
+      "TOKEN_REQUIRED": "Token requerido",
+      "2FA_NOT_SETUP": "2FA no configurado",
+      "INVALID_TOKEN": "Token inválido",
+      "2FA_VERIFICATION_FAILED": "Error en la verificación 2FA",
+      "PASSWORD_REQUIRED": "Contraseña requerida",
+      "INVALID_PASSWORD": "Contraseña inválida",
+      "2FA_DISABLE_FAILED": "Error al desactivar 2FA"
+    },
+    "users": {
+      "USER_NOT_FOUND": "Usuario no encontrado",
+      "FETCH_USER_FAILED": "Error al obtener usuario",
+      "QUERY_TOO_SHORT": "La consulta debe tener al menos 2 caracteres",
+      "SEARCH_FAILED": "Error en la búsqueda",
+      "INVALID_FIELD": "Valor de campo inválido",
+      "EMAIL_IN_USE": "El correo electrónico ya está en uso",
+      "NO_UPDATES_PROVIDED": "No se proporcionaron actualizaciones",
+      "UPDATE_FAILED": "Error en la actualización",
+      "NO_FILE_UPLOADED": "No se subió ningún archivo",
+      "INVALID_FILE_TYPE": "Tipo de archivo inválido. Solo se permiten JPEG, PNG, GIF y WebP",
+      "FILE_TOO_LARGE": "Archivo demasiado grande. El tamaño máximo es 5MB",
+      "UPLOAD_AVATAR_FAILED": "Error al subir avatar",
+      "NO_AVATAR_TO_DELETE": "No hay avatar para eliminar",
+      "DELETE_AVATAR_FAILED": "Error al eliminar avatar",
+      "FETCH_STATS_FAILED": "Error al obtener estadísticas"
+    },
+    "games": {
+      "CREATE_GAME_FAILED": "Error al crear juego",
+      "GAME_NOT_FOUND": "Juego no encontrado",
+      "FETCH_GAME_FAILED": "Error al obtener juego",
+      "FETCH_MATCH_HISTORY_FAILED": "Error al obtener historial de partidas",
+      "FETCH_RECENT_GAMES_FAILED": "Error al obtener juegos recientes"
+    },
+    "tournaments": {
+      "NAME_AND_MAX_PLAYERS_REQUIRED": "Se requieren nombre y número máximo de jugadores",
+      "INVALID_NAME": "Nombre de torneo inválido",
+      "INVALID_MAX_PLAYERS": "El número máximo de jugadores debe ser 2, 4, 8 o 16",
+      "CREATE_TOURNAMENT_FAILED": "Error al crear torneo",
+      "TOURNAMENT_NOT_FOUND": "Torneo no encontrado",
+      "FETCH_TOURNAMENT_FAILED": "Error al obtener torneo",
+      "ALIAS_TOO_LONG": "El alias no debe exceder los 50 caracteres",
+      "TOURNAMENT_NOT_FOUND_OR_STARTED": "Torneo no encontrado o ya iniciado",
+      "TOURNAMENT_FULL": "El torneo está lleno",
+      "ALREADY_JOINED": "Ya te uniste a este torneo",
+      "JOIN_TOURNAMENT_FAILED": "Error al unirse al torneo",
+      "ALIAS_REQUIRED": "Alias requerido (mínimo 2 caracteres)",
+      "INVALID_ALIAS_LENGTH": "El alias debe tener entre 2 y 50 caracteres",
+      "NOT_CREATOR": "Solo el creador puede iniciar el torneo",
+      "TOURNAMENT_ALREADY_STARTED": "El torneo ya ha iniciado",
+      "NOT_ENOUGH_PLAYERS": "Se necesitan al menos 2 jugadores para iniciar",
+      "NOT_ENOUGH_PLAYERS_FOR_MAX": "Se necesitan {maxPlayers} jugadores para iniciar este torneo",
+      "START_TOURNAMENT_FAILED": "Error al iniciar torneo",
+      "FETCH_TOURNAMENTS_FAILED": "Error al obtener torneos"
+    },
+    "friends": {
+      "FETCH_FRIENDS_FAILED": "Error al obtener amigos",
+      "FRIEND_ID_REQUIRED": "ID de amigo requerido",
+      "CANNOT_ADD_SELF": "No puedes agregarte a ti mismo como amigo",
+      "USER_NOT_FOUND": "Usuario no encontrado",
+      "FRIEND_REQUEST_PENDING": "Solicitud de amistad ya pendiente",
+      "ALREADY_FRIENDS": "Ya son amigos",
+      "CANNOT_SEND_REQUEST": "No se puede enviar solicitud de amistad",
+      "SEND_FRIEND_REQUEST_FAILED": "Error al enviar solicitud de amistad",
+      "FRIEND_REQUEST_NOT_FOUND": "Solicitud de amistad no encontrada",
+      "ACCEPT_FRIEND_REQUEST_FAILED": "Error al aceptar solicitud de amistad",
+      "FRIENDSHIP_NOT_FOUND": "Amistad no encontrada",
+      "REMOVE_FRIENDSHIP_FAILED": "Error al eliminar amistad",
+      "FETCH_FRIEND_REQUESTS_FAILED": "Error al obtener solicitudes de amistad",
+      "FETCH_ONLINE_FRIENDS_FAILED": "Error al obtener amigos en línea"
+    },
+    "middleware": {
+      "ACCESS_TOKEN_REQUIRED": "Token de acceso requerido",
+      "INVALID_OR_EXPIRED_TOKEN": "Token inválido o expirado"
+    },
+    "generic": {
+      "INTERNAL_SERVER_ERROR": "Error interno del servidor",
+      "NOT_ALLOWED_BY_CORS": "No permitido por CORS"
+    }
+  }
+}

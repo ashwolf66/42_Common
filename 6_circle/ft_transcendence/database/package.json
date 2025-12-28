@@ -1,0 +1,12 @@
+{
+  "name": "ft-transcendence-db",
+  "version": "1.0.0",
+  "description": "Database migration script",
+  "main": "migrate.js",
+  "scripts": {
+    "migrate": "node migrate.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.2.2"
+  }
+}

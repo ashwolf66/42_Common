@@ -1,0 +1,38 @@
+global:
+  resolve_timeout: 5m
+
+route:
+  group_by: ["alertname", "instance"]
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 1m
+  receiver: slack-notifications
+  routes:
+    - matchers:
+        - severity="critical"
+      receiver: slack-notifications
+    - matchers:
+        - severity="warning"
+      receiver: slack-notifications
+
+receivers:
+  - name: slack-notifications
+    slack_configs:
+      - send_resolved: true
+        api_url: ${ALERTMANAGER_SLACK_WEBHOOK}
+        channel: ${ALERTMANAGER_SLACK_CHANNEL}
+        username: ${ALERTMANAGER_SLACK_USERNAME}
+        title: "[{{ .Status | toUpper }}] {{ .CommonLabels.alertname }} ({{ or .CommonLabels.severity \"n/a\" }})"
+        text: |
+          *Summary*: {{ .CommonAnnotations.summary }}
+          *Description*: {{ .CommonAnnotations.description }}
+          *Instance*: {{ .CommonLabels.instance }}
+          *Severity*: {{ or .CommonLabels.severity "n/a" }}
+          *Contact*: {{ or .CommonLabels.contact "n/a" }}
+          {{ range .Alerts -}}
+          *Starts*: {{ .StartsAt }}
+          *Ends*: {{ .EndsAt }}
+          {{ end }}
+        footer: "ft_transcendence"
+
+templates: []
