@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	ra(t_list **a)
+void	ra_o(t_list **a)
 {
 	t_list	*temp;
 	t_list	*top;
@@ -25,10 +25,9 @@ void	ra(t_list **a)
 		(*a)->next = NULL;
 		*a = top;
 	}
-	ft_putstr_fd("ra\n", 1);
 }
 
-void	rb(t_list **b)
+void	rb_o(t_list **b)
 {
 	t_list	*temp;
 	t_list	*top;
@@ -41,6 +40,17 @@ void	rb(t_list **b)
 		(*b)->next = NULL;
 		*b = top;
 	}
+}
+
+void	ra(t_list **a)
+{
+	ra_o(a);
+	ft_putstr_fd("ra\n", 1);
+}
+
+void	rb(t_list **b)
+{
+	rb_o(b);
 	ft_putstr_fd("rb\n", 1);
 }
 
